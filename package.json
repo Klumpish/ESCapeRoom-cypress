@@ -1,0 +1,16 @@
+{
+  "name": "hackersass",
+  "version": "1.0.0",
+  "description": "task 2 in the course html and css",
+  "main": "index.js",
+  "scripts": {
+      "sass:compile": "sass src/style.scss style.css",
+      "sass:watch": "sass --watch src/style.scss style.css",
+      "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.80.4"
+  }
+}
