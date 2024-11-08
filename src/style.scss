@@ -1,5 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap");
 
+// VARIABLES
+// BASIC CSS
+// BUTTONS
+// HEADER
+// HAMBURGERMENU
+// MAIN NAVIGATION
+// HERO
+// TESTIMONIAL
+// CHALLENGES
+// CARDS
+// QUOTE
+// ARTICLE
+// FOOTER
+
+//////////////////////////// VARIABLES /////////////////////////
+
 $LIGHTBLUE: #8acfe5;
 $DARKBLUE: #36769d;
 $RED: #e3170a;
@@ -8,9 +24,12 @@ $BACKGROUND-BLACK: #011827;
 $GREY: #b6bdb5;
 $WHITE: #ffffff;
 
+$mobile-breakepoint: 640px;
 $small-breakepoint: 768px;
 $medium-breakepoint: 992px;
 $large-breakepoint: 1280px;
+
+//////////////////////////// BASIC CSS /////////////////////////
 
 html {
   font-size: 16px;
@@ -68,7 +87,7 @@ p {
 
 .blue-line-button:hover {
   background-color: $LIGHTBLUE;
-  color:$BACKGROUND-BLACK;
+  color: $BACKGROUND-BLACK;
 }
 
 .red-button {
@@ -101,7 +120,6 @@ header {
   background-color: $BACKGROUND-BLACK;
   color: $WHITE;
   padding: 1rem 1rem 0.8rem;
-  
 
   @media screen and (min-width: $small-breakepoint) {
     padding: 1rem 1rem 0;
@@ -125,10 +143,8 @@ header {
     margin: 5px;
   }
   @media screen and (min-width: $small-breakepoint) {
-    
     & {
       align-items: flex-end;
-      
     }
 
     &__title {
@@ -146,6 +162,89 @@ header {
     }
   }
 }
+
+
+//////////////////////// HAMBURGERMENU /////////////////////////
+
+
+.off-screen__menu {
+      background-color: $BACKGROUND-BLACK;
+      height: 80vh;
+      width: 80%;
+      position: fixed;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 3rem;
+      transition: .3s ease;
+   }
+
+   .off-screen__menu.active {
+      right: 0;
+   }
+
+
+
+
+
+.ham-menu__container {
+  padding: 1rem;
+
+  @media screen and (min-width: $small-breakepoint) {
+    display: none;
+    
+  }
+}
+
+.ham-menu {
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  position: relative;
+  z-index: 999;
+
+      & span {
+        height: 5px;
+        width: 100%;
+        background-color: #ffffff;
+        border-radius: 25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: .3s ease;
+      }
+      
+      & span:nth-child(1) {
+        top: 25%;
+      }
+      
+      & span:nth-child(3) {
+        top: 75%;
+      }
+      
+      &.active span:nth-child(1) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      
+      &.active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      &.active span:nth-child(3) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+}
+
+
+
+//////////////////// MAIN NAVIGATION ///////////////////
+
 
 .main-nav__container {
   display: none;
@@ -244,18 +343,18 @@ header {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
 
-  @media screen and (min-width: $large-breakepoint){
+  @media screen and (min-width: $large-breakepoint) {
     padding: 0 10rem;
   }
-  }
+}
 
-  .snaps-inline {
-    scroll-snap-type: inline mandatory;
-  }
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+}
 
-  .snaps-inline > * {
-    scroll-snap-align: center;
-  }
+.snaps-inline > * {
+  scroll-snap-align: center;
+}
 
 .testimonial {
   display: grid;
@@ -360,7 +459,6 @@ header {
 
 /* //////////// CARDS //////////////*/
 
-
 .card__container {
   display: grid;
   gap: 1.5rem;
@@ -372,69 +470,69 @@ header {
   padding-top: 1rem;
   padding-left: 6rem;
 
-  @media screen and (min-width:$small-breakepoint) {
-    gap: 2rem;
-    grid-auto-columns: 40%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+      @media screen and (min-width: $small-breakepoint) {
+        gap: 2rem;
+        grid-auto-columns: 40%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
 
-  @media screen and (min-width:$medium-breakepoint) {
-    gap: 2rem;
-    grid-auto-columns: 31%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+      @media screen and (min-width: $medium-breakepoint) {
+        gap: 2rem;
+        grid-auto-columns: 31%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
 
-  @media screen and (min-width: $large-breakepoint) {
-    padding: 1rem 6rem 1rem;
-  }
+      @media screen and (min-width: $large-breakepoint) {
+        padding: 1rem 6rem 1rem;
+      }
 }
 
 .card {
-  box-shadow: 0px 0px 8px 0px rgba(182,189,181,0.75);
+  box-shadow: 0px 0px 8px 0px rgba(182, 189, 181, 0.75);
   border-radius: 5px;
   padding: 0;
   height: auto;
 
-  &__image {
-    width: 100%;
-    height: auto;
-    border-radius: 5px 5px 0 0;
-  }
+      &__image {
+        width: 100%;
+        height: auto;
+        border-radius: 5px 5px 0 0;
+      }
 
-  &__body {
-    padding: 0.125rem 1rem;
-  }
+      &__body {
+        padding: 0.125rem 1rem;
+      }
 
-  &__title {
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin: 0;
-  }
+      &__title {
+        font-size: 1.3rem;
+        font-weight: 400;
+        margin: 0;
+      }
 
-  &__review {
-    display: flex;
-    justify-content: space-between;
-  }
+      &__review {
+        display: flex;
+        justify-content: space-between;
+      }
 
-  &__description {
-    margin-bottom: 2rem;
-  }
+      &__description {
+        margin-bottom: 2rem;
+      }
 
-  &__link {
-    text-align: right;
-    margin-bottom: 1.2rem;
-  }
+      &__link {
+        text-align: right;
+        margin-bottom: 1.2rem;
+      }
 
-  &__participants {
-    font-size: 0.6rem;
-    display: inline-block;
-  }
+      &__participants {
+        font-size: 0.6rem;
+        display: inline-block;
+      }
 
-  @media screen and (min-width: $small-breakepoint) {
-   max-width: 19rem;
-  }
+      @media screen and (min-width: $small-breakepoint) {
+        max-width: 19rem;
+      }
 }
 
 .starholder__item {
@@ -473,10 +571,10 @@ header {
   }
 }
 
-  @media screen and (min-width: $large-breakepoint) {
-    .quote {
-      padding: 6rem 24rem 8rem;
-    }
+@media screen and (min-width: $large-breakepoint) {
+  .quote {
+    padding: 6rem 24rem 8rem;
+  }
 }
 
 /* ////////////////////  ARTICLE //////////////////*/
@@ -560,7 +658,6 @@ header {
 }
 
 @media screen and (min-width: $large-breakepoint) {
-
   .article {
     &__text-container {
       padding: 6rem 8rem;
@@ -612,7 +709,6 @@ footer {
   }
 
   @media screen and (min-width: $large-breakepoint) {
-    
     &__text {
       font-size: 1rem;
     }

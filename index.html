@@ -22,6 +22,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
   </head>
   <body>
     <header>
@@ -30,27 +31,56 @@
           <img
             class="logotype__image"
             src="images/logotype.png"
-            alt="Escaperoom logotype"
-          />
+            alt="Escaperoom logotype"/>
         </a>
         <h1 class="logotype__title">Hacker Escape Rooms</h1>
-      </div>
+        <nav class="ham-menu__container">
+          <div class="ham-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+       </div>
 
-      <nav role="menu" class="main-nav__container">
-        <ul role="presentation" class="main-nav">
-          <li class="main-nav__item">
-            <a href="#" role="menuitem" class="main-nav__item-link">Play on-site</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#" role="menuitem" class="main-nav__item-link">Play online</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#" role="menuitem" class="main-nav__item-link">The Story</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#" role="menuitem" class="main-nav__item-link">Contact Us</a>
-          </li>
-        </ul>
+        <!-- <div class="off-screen__menu">
+          <ul role="presentation" class="off-screen-nav">
+            <li class="off-screen__item">
+              <a href="#" role="menuitem" class="off-screen__link">Play on-site</a>
+            </li>
+            <li class="off-screen__item">
+              <a href="#" role="menuitem" class="off-screen__link">Play online</a>
+            </li>
+            <li class="off-screen__item">
+              <a href="#" role="menuitem" class="off-screen__link">The Story</a>
+            </li>
+            <li class="off-screen__item">
+              <a href="#" role="menuitem" class="off-screen__link">Contact Us</a>
+            </li>
+          </ul>
+        </div> -->
+
+      <nav role="menu">
+        <div class="main-nav__container">
+          <ul role="presentation" class="main-nav">
+            <li class="main-nav__item">
+              <a href="#" role="menuitem" class="main-nav__item-link"
+                >Play on-site</a>
+            </li>
+            <li class="main-nav__item">
+              <a href="#" role="menuitem" class="main-nav__item-link"
+                >Play online</a>
+            </li>
+            <li class="main-nav__item">
+              <a href="#" role="menuitem" class="main-nav__item-link"
+                >The Story</a>
+            </li>
+            <li class="main-nav__item">
+              <a href="#" role="menuitem" class="main-nav__item-link"
+                >Contact Us</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
 
@@ -69,7 +99,7 @@
         >
       </div>
       <div class="hero__container">
-        <a class="hero__small-link" href="#">Online challenges</a>
+        <a class="hero__small-link" role="link" href="#">Online challenges</a>
       </div>
     </section>
     <!--Ends hero-->
@@ -118,192 +148,190 @@
       <h2 class="challenges__title">Popular challenges right now</h2>
 
       <div class="card__container snaps-inline">
-       <div class="card">
-         <img
-          class="card__image"
-          src="images/hacker.jpg"
-          alt="A hacker sits turned away at a computer"
-        />
+        <div class="card">
+          <img
+            class="card__image"
+            src="images/hacker.jpg"
+            alt="A hacker sits turned away at a computer"
+          />
 
-        <div class="card__body">
-          <h3 class="card__title">Title of room (on-site)</h3>
+          <div class="card__body">
+            <h3 class="card__title">Title of room (on-site)</h3>
 
-          <div class="card__review">
-            <div class="card__starholder">
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star-empty.png"
-                  alt="a empty star"
-              /></span>
+            <div class="card__review">
+              <div class="card__starholder">
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star-empty.png"
+                    alt="a empty star"
+                /></span>
+              </div>
+
+              <div class="card__participants">2-6 participants</div>
             </div>
-
-            <div class="card__participants">2-6 participants</div>
-          </div>
-          <div class="card__description">
-            <p>
-              Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-              nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-            </p>
-          </div>
-          <div class="card__link">
-            <a href="#" role="link" class="button red-button-small"
-              >Book this room</a
-            >
+            <div class="card__description">
+              <p>
+                Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+                nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+              </p>
+            </div>
+            <div class="card__link">
+              <a href="#" role="link" class="button red-button-small"
+                >Book this room</a
+              >
+            </div>
           </div>
         </div>
-      </div>
-      <!--Ends card-->
+        <!--Ends card-->
 
-      <div class="card">
-        <img
-          class="card__image"
-          src="images/hacker.jpg"
-          alt="A hacker sits turned away at a computer"
-        />
+        <div class="card">
+          <img
+            class="card__image"
+            src="images/hacker.jpg"
+            alt="A hacker sits turned away at a computer"
+          />
 
-        <div class="card__body">
-          <h3 class="card__title">Title of room (on-site)</h3>
+          <div class="card__body">
+            <h3 class="card__title">Title of room (on-site)</h3>
 
-          <div class="card__review">
-            <div class="card__starholder">
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star-empty.png"
-                  alt="a empty star"
-              /></span>
+            <div class="card__review">
+              <div class="card__starholder">
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star-empty.png"
+                    alt="a empty star"
+                /></span>
+              </div>
+
+              <div class="card__participants">2-6 participants</div>
             </div>
-
-            <div class="card__participants">2-6 participants</div>
-          </div>
-          <div class="card__description">
-            <p>
-              Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-              nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-            </p>
-          </div>
-          <div class="card__link">
-            <a href="#" role="link" class="button red-button-small"
-              >Book this room</a
-            >
+            <div class="card__description">
+              <p>
+                Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+                nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+              </p>
+            </div>
+            <div class="card__link">
+              <a href="#" role="link" class="button red-button-small"
+                >Book this room</a
+              >
+            </div>
           </div>
         </div>
-      </div>
-      <!--Ends card-->
+        <!--Ends card-->
 
-      <div class="card">
-        <img
-          class="card__image"
-          src="images/hacker.jpg"
-          alt="A hacker sits turned away at a computer"
-        />
+        <div class="card">
+          <img
+            class="card__image"
+            src="images/hacker.jpg"
+            alt="A hacker sits turned away at a computer"
+          />
 
-        <div class="card__body">
-          <h3 class="card__title">Title of room (on-site)</h3>
+          <div class="card__body">
+            <h3 class="card__title">Title of room (on-site)</h3>
 
-          <div class="card__review">
-            <div class="card__starholder">
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star.png"
-                  alt="a star"
-              /></span>
-              <span
-                ><img
-                  class="starholder__item"
-                  src="images/star-empty.png"
-                  alt="a empty star"
-              /></span>
+            <div class="card__review">
+              <div class="card__starholder">
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star.png"
+                    alt="a star"
+                /></span>
+                <span
+                  ><img
+                    class="starholder__item"
+                    src="images/star-empty.png"
+                    alt="a empty star"
+                /></span>
+              </div>
+
+              <div class="card__participants">2-6 participants</div>
             </div>
-
-            <div class="card__participants">2-6 participants</div>
-          </div>
-          <div class="card__description">
-            <p>
-              Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-              nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-            </p>
-          </div>
-          <div class="card__link">
-            <a href="#" role="link" class="button red-button-small"
-              >Book this room</a
-            >
+            <div class="card__description">
+              <p>
+                Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+                nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+              </p>
+            </div>
+            <div class="card__link">
+              <a href="#" role="link" class="button red-button-small"
+                >Book this room</a
+              >
+            </div>
           </div>
         </div>
+        <!--Ends card-->
       </div>
-      <!--Ends card-->
-
-    </div> <!--Ends card_container-->
-
-      
+      <!--Ends card_container-->
 
       <div class="challenges__container">
         <a href="#" role="link" class="button red-button challenges__red-link"
@@ -358,7 +386,8 @@
       <img
         class="article__img"
         src="images/kelly.jpg"
-        alt="A man and a woman looking at a computerscreen"/>
+        alt="A man and a woman looking at a computerscreen"
+      />
 
       <div class="article__text-container">
         <h2 class="article__title">
@@ -369,11 +398,13 @@
           inuitam. Nemo nocere tibi erit, et non inimicos, et
         </p>
         <div class="article__link">
-          <a href="#" role="link" class="button red-button">See all challenges</a>
+          <a href="#" role="link" class="button red-button"
+            >See all challenges</a
+          >
         </div>
       </div>
     </article>
-   <!-- Ends articles-->
+    <!-- Ends articles-->
 
     <footer>
       <div class="footer__information">
@@ -393,9 +424,7 @@
               <a href="#" class="footer-nav__item" role="menuitem">The Story</a>
             </li>
             <li>
-              <a href="#" class="footer-nav__item" role="menuitem"
-                >Contact Us</a
-              >
+              <a href="#" class="footer-nav__item" role="menuitem">Contact Us</a>
             </li>
             <li>
               <a href="#" class="footer-nav__item" role="menuitem">Legal</a>
@@ -434,5 +463,6 @@
         </nav>
       </div>
     </footer>
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
