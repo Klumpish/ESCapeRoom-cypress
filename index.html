@@ -26,42 +26,32 @@
   </head>
   <body>
     <header>
-      <div class="logotype">
-        <a href="#" role="link">
-          <img
-            class="logotype__image"
-            src="images/logotype.png"
-            alt="Escaperoom logotype"/>
-        </a>
-        <h1 class="logotype__title">Hacker Escape Rooms</h1>
-        <nav class="ham-menu__container">
-          <div class="ham-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </nav>
-       </div>
+     <div class="header-content">
+        <div class="logotype">
+          <a href="#" role="link">
+            <img
+              class="logotype__image"
+              src="images/logotype.png"
+              alt="Escaperoom logotype"/>
+          </a>
+          <h1 class="logotype__title">Hacker Escape Rooms</h1>
 
-        <!-- <div class="off-screen__menu">
-          <ul role="presentation" class="off-screen-nav">
-            <li class="off-screen__item">
-              <a href="#" role="menuitem" class="off-screen__link">Play on-site</a>
-            </li>
-            <li class="off-screen__item">
-              <a href="#" role="menuitem" class="off-screen__link">Play online</a>
-            </li>
-            <li class="off-screen__item">
-              <a href="#" role="menuitem" class="off-screen__link">The Story</a>
-            </li>
-            <li class="off-screen__item">
-              <a href="#" role="menuitem" class="off-screen__link">Contact Us</a>
-            </li>
-          </ul>
-        </div> -->
+          
+        </div>
+      
 
       <nav role="menu">
-        <div class="main-nav__container">
+        <span id="nav-label" hidden>Navigation</span>
+        <button id="btnOpen" class="topnav__open" aria-expanded="false" aria-labelledby="nav-label">
+          <img src="images/open.svg" alt="" width="50" height="50">
+        </button>
+
+        <div class="main-nav__container" role="dialog" aria-labelledby="nav-label">
+          
+          <button id="btnClose" aria-label="Close" class="topnav__close" >
+            <img src="images/close.svg" alt="" height="50" width="50">
+          </button>
+
           <ul role="presentation" class="main-nav">
             <li class="main-nav__item">
               <a href="#" role="menuitem" class="main-nav__item-link"
@@ -82,6 +72,8 @@
           </ul>
         </div>
       </nav>
+    </div><!--Ends header-content-->
+    
     </header>
 
     <section class="hero">

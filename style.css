@@ -127,72 +127,26 @@ header {
   }
 }
 
-.off-screen__menu {
-  background-color: #011827;
-  height: 80vh;
-  width: 80%;
-  position: fixed;
-  top: 0;
+.header-content {
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
-  font-size: 3rem;
-  transition: 0.3s ease;
+  flex-wrap: wrap;
 }
 
-.off-screen__menu.active {
-  right: 0;
-}
-
-.ham-menu__container {
-  padding: 1rem;
-}
-@media screen and (min-width: 768px) {
-  .ham-menu__container {
-    display: none;
+@media screen and (max-width: 640px) {
+  .main-nav__container {
+    position: fixed;
+    inset: 0;
+    padding: 1.5rem;
+    margin: 1rem;
+    background-color: #011827;
+    transform: scale(0.9);
+    opacity: 0.8;
+    transition: transform 0.3s ease-in-out;
   }
-}
-
-.ham-menu {
-  height: 50px;
-  width: 50px;
-  margin-left: auto;
-  position: relative;
-  z-index: 999;
-}
-.ham-menu span {
-  height: 5px;
-  width: 100%;
-  background-color: #ffffff;
-  border-radius: 25px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.3s ease;
-}
-.ham-menu span:nth-child(1) {
-  top: 25%;
-}
-.ham-menu span:nth-child(3) {
-  top: 75%;
-}
-.ham-menu.active span:nth-child(1) {
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-.ham-menu.active span:nth-child(2) {
-  opacity: 0;
-}
-.ham-menu.active span:nth-child(3) {
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.main-nav__container {
-  display: none;
 }
 @media screen and (min-width: 768px) {
   .main-nav__container {
@@ -210,6 +164,15 @@ header {
   display: inline;
   padding: 0 1rem;
 }
+@media screen and (max-width: 640px) {
+  .main-nav__item {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1.125rem 0;
+    font-size: 2rem;
+  }
+}
 @media screen and (min-width: 768px) {
   .main-nav__item {
     font-size: 0.9rem;
@@ -224,6 +187,37 @@ header {
 }
 .main-nav__item-link:hover, .main-nav__item-link:active {
   color: #8acfe5;
+}
+
+.topnav__open {
+  border: none;
+  padding: 0;
+  display: block;
+  margin-inline-start: auto;
+}
+@media screen and (min-width: 768px) {
+  .topnav__open {
+    display: none;
+  }
+}
+
+.topnav__open[aria-expanded=true] + .main-nav__container {
+  background-color: #e3170a;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.topnav__close {
+  border: none;
+  padding: 0;
+  display: block;
+  margin-inline-start: auto;
+  margin-block-end: 8rem;
+}
+@media screen and (min-width: 768px) {
+  .topnav__close {
+    display: none;
+  }
 }
 
 /* //////////////// HERO //////////////// */

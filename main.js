@@ -1,8 +1,13 @@
-const hamMenu = document.querySelector('.ham-menu');
-const offScreenMenu = document.querySelector('.off-screen__menu');
+const btnOpen = document.querySelector('#btnOpen');
+const btnClose = document.querySelector('#btnClose');
 
+function openMobileMenu(){
+    btnOpen.setAttribute('aria-expanded', 'true');
+}
 
-hamMenu.addEventListener('click', () => {
-    hamMenu.classList.toggle('active');
-    offScreenMenu.classList.toggle('active');
-})
+function closeMobileMenu(){
+    btnOpen.setAttribute('aria-expanded', 'false');
+}
+
+btnOpen.addEventListener('click', openMobileMenu);
+btnClose.addEventListener('click', closeMobileMenu);
