@@ -166,17 +166,9 @@ header {
 
 //////////////////// MAIN NAVIGATION ///////////////////
 
-.header-content {
-  // max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
 
 .main-nav__container {
+
 
   @media screen and (max-width: $mobile-breakepoint) {
     position: fixed;
@@ -185,9 +177,8 @@ header {
     margin: 1rem;
     background-color: #011827;
     transform: scale(.9);
-    opacity: 0.8;
+    opacity: 0;
     transition: transform 0.3s ease-in-out;
-
   }
 
   @media screen and (min-width: $small-breakepoint) {

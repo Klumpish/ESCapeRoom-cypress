@@ -127,15 +127,6 @@ header {
   }
 }
 
-.header-content {
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 @media screen and (max-width: 640px) {
   .main-nav__container {
     position: fixed;
@@ -144,7 +135,7 @@ header {
     margin: 1rem;
     background-color: #011827;
     transform: scale(0.9);
-    opacity: 0.8;
+    opacity: 0;
     transition: transform 0.3s ease-in-out;
   }
 }
