@@ -22,10 +22,10 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-
   </head>
   <body>
     <header>
+        <div class="header-content">
         <div class="logotype">
           <a href="#" role="link">
             <img
@@ -34,39 +34,46 @@
               alt="Escaperoom logotype"/>
           </a>
           <h1 class="logotype__title">Hacker Escape Rooms</h1>
-       
-        <nav role="menu">
-          <!-- <span id="nav-label" hidden>Navigation</span>
-          <button id="btnOpen" class="topnav__open" aria-expanded="false" aria-labelledby="nav-label">
-            <img src="images/open.svg" alt="" width="50" height="50">
-          </button> -->
-
-          <div class="main-nav__container" role="dialog" aria-labelledby="nav-label">
-            
-            <!-- <button id="btnClose" aria-label="Close" class="topnav__close" >
-              <img src="images/close.svg" alt="" height="50" width="50">
-            </button> -->
-
-            <ul role="presentation" class="main-nav">
-              <li class="main-nav__item">
-                <a href="#" role="menuitem" class="main-nav__item-link"
-                  >Play on-site</a>
-              </li>
-              <li class="main-nav__item">
-                <a href="#" role="menuitem" class="main-nav__item-link"
-                  >Play online</a>
-              </li>
-              <li class="main-nav__item">
-                <a href="#" role="menuitem" class="main-nav__item-link"
-                  >The Story</a>
-              </li>
-              <li class="main-nav__item">
-                <a href="#" role="menuitem" class="main-nav__item-link"
-                  >Contact Us</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        </div>
+        <button class="btnOpen">
+          <svg viewBox="0 0 100 100" width="40">
+            <rect class="top" width="80" height="10" x="10" y="25" rx="5">
+            </rect>
+            <rect class="middle" width="80" height="10" x="10" y="45" rx="5">
+            </rect>
+            <rect class="bottom" width="80" height="10" x="10" y="65" rx="5">
+            </rect>
+          </svg>
+        </button>
+        
+      </div>
+      <nav role="menu" >
+        <div class="main-nav__container">
+          <ul role="presentation" class="main-nav">
+            <button class="btnClose">
+              <svg width="40" height="40" viewbox="0 0 40 40">
+                <path d="M 10,10 L 30,30 M 30,10 L 10,30" stroke="white" stroke-width="4" />
+              </svg>
+            </button>
+            <li class="main-nav__item">
+              <a href="#" role="menuitem" class="main-nav__item-link"
+                >Play on-site</a>
+            </li>
+            <li class="main-nav__item">
+              <a href="#" role="menuitem" class="main-nav__item-link"
+                >Play online</a>
+            </li>
+            <li class="main-nav__item">
+              <a href="#" role="menuitem" class="main-nav__item-link"
+                >The Story</a>
+            </li>
+            <li class="main-nav__item">
+              <a href="#" role="menuitem" class="main-nav__item-link"
+                >Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <section class="hero">
@@ -84,12 +91,12 @@
         >
       </div>
       <div class="hero__container">
-        <a class="hero__small-link" role="link" href="#">Online challenges</a>
+        <a class="hero__small-link" href="#">Online challenges</a>
       </div>
     </section>
     <!--Ends hero-->
 
-    <blockquote class="testimonial__container snaps-inline">
+    <blockquote class="testimonial__container">
       <div class="testimonial">
         <picture>
           <img
@@ -108,7 +115,7 @@
           </small>
         </div>
       </div>
-      <div class="testimonial">
+      <div class="testimonial testimonial--second">
         <picture>
           <img
             class="testimonial__img"
@@ -133,190 +140,192 @@
       <h2 class="challenges__title">Popular challenges right now</h2>
 
       <div class="card__container snaps-inline">
-        <div class="card">
-          <img
-            class="card__image"
-            src="images/hacker.jpg"
-            alt="A hacker sits turned away at a computer"
-          />
+       <div class="card">
+         <img
+          class="card__image"
+          src="images/hacker.jpg"
+          alt="A hacker sits turned away at a computer"
+        />
 
-          <div class="card__body">
-            <h3 class="card__title">Title of room (on-site)</h3>
+        <div class="card__body">
+          <h3 class="card__title">Title of room (on-site)</h3>
 
-            <div class="card__review">
-              <div class="card__starholder">
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star-empty.png"
-                    alt="a empty star"
-                /></span>
-              </div>
+          <div class="card__review">
+            <div class="card__starholder">
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star-empty.png"
+                  alt="a empty star"
+              /></span>
+            </div>
 
-              <div class="card__participants">2-6 participants</div>
-            </div>
-            <div class="card__description">
-              <p>
-                Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-                nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-              </p>
-            </div>
-            <div class="card__link">
-              <a href="#" role="link" class="button red-button-small"
-                >Book this room</a
-              >
-            </div>
+            <div class="card__participants">2-6 participants</div>
+          </div>
+          <div class="card__description">
+            <p>
+              Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+              nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+            </p>
+          </div>
+          <div class="card__link">
+            <a href="#" role="link" class="button red-button-small"
+              >Book this room</a
+            >
           </div>
         </div>
-        <!--Ends card-->
-
-        <div class="card">
-          <img
-            class="card__image"
-            src="images/hacker.jpg"
-            alt="A hacker sits turned away at a computer"
-          />
-
-          <div class="card__body">
-            <h3 class="card__title">Title of room (on-site)</h3>
-
-            <div class="card__review">
-              <div class="card__starholder">
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star-empty.png"
-                    alt="a empty star"
-                /></span>
-              </div>
-
-              <div class="card__participants">2-6 participants</div>
-            </div>
-            <div class="card__description">
-              <p>
-                Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-                nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-              </p>
-            </div>
-            <div class="card__link">
-              <a href="#" role="link" class="button red-button-small"
-                >Book this room</a
-              >
-            </div>
-          </div>
-        </div>
-        <!--Ends card-->
-
-        <div class="card">
-          <img
-            class="card__image"
-            src="images/hacker.jpg"
-            alt="A hacker sits turned away at a computer"
-          />
-
-          <div class="card__body">
-            <h3 class="card__title">Title of room (on-site)</h3>
-
-            <div class="card__review">
-              <div class="card__starholder">
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star.png"
-                    alt="a star"
-                /></span>
-                <span
-                  ><img
-                    class="starholder__item"
-                    src="images/star-empty.png"
-                    alt="a empty star"
-                /></span>
-              </div>
-
-              <div class="card__participants">2-6 participants</div>
-            </div>
-            <div class="card__description">
-              <p>
-                Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-                nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-              </p>
-            </div>
-            <div class="card__link">
-              <a href="#" role="link" class="button red-button-small"
-                >Book this room</a
-              >
-            </div>
-          </div>
-        </div>
-        <!--Ends card-->
       </div>
-      <!--Ends card_container-->
+      <!--Ends card-->
+
+      <div class="card">
+        <img
+          class="card__image"
+          src="images/hacker.jpg"
+          alt="A hacker sits turned away at a computer"
+        />
+
+        <div class="card__body">
+          <h3 class="card__title">Title of room (on-site)</h3>
+
+          <div class="card__review">
+            <div class="card__starholder">
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star-empty.png"
+                  alt="a empty star"
+              /></span>
+            </div>
+
+            <div class="card__participants">2-6 participants</div>
+          </div>
+          <div class="card__description">
+            <p>
+              Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+              nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+            </p>
+          </div>
+          <div class="card__link">
+            <a href="#" role="link" class="button red-button-small"
+              >Book this room</a
+            >
+          </div>
+        </div>
+      </div>
+      <!--Ends card-->
+
+      <div class="card">
+        <img
+          class="card__image"
+          src="images/hacker.jpg"
+          alt="A hacker sits turned away at a computer"
+        />
+
+        <div class="card__body">
+          <h3 class="card__title">Title of room (on-site)</h3>
+
+          <div class="card__review">
+            <div class="card__starholder">
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star.png"
+                  alt="a star"
+              /></span>
+              <span
+                ><img
+                  class="starholder__item"
+                  src="images/star-empty.png"
+                  alt="a empty star"
+              /></span>
+            </div>
+
+            <div class="card__participants">2-6 participants</div>
+          </div>
+          <div class="card__description">
+            <p>
+              Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+              nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+            </p>
+          </div>
+          <div class="card__link">
+            <a href="#" role="link" class="button red-button-small"
+              >Book this room</a
+            >
+          </div>
+        </div>
+      </div>
+      <!--Ends card-->
+
+    </div> <!--Ends card_container-->
+
+      
 
       <div class="challenges__container">
         <a href="#" role="link" class="button red-button challenges__red-link"
@@ -371,8 +380,7 @@
       <img
         class="article__img"
         src="images/kelly.jpg"
-        alt="A man and a woman looking at a computerscreen"
-      />
+        alt="A man and a woman looking at a computerscreen"/>
 
       <div class="article__text-container">
         <h2 class="article__title">
@@ -383,13 +391,11 @@
           inuitam. Nemo nocere tibi erit, et non inimicos, et
         </p>
         <div class="article__link">
-          <a href="#" role="link" class="button red-button"
-            >See all challenges</a
-          >
+          <a href="#" role="link" class="button red-button">See all challenges</a>
         </div>
       </div>
     </article>
-    <!-- Ends articles-->
+   <!-- Ends articles-->
 
     <footer>
       <div class="footer__information">
@@ -409,7 +415,9 @@
               <a href="#" class="footer-nav__item" role="menuitem">The Story</a>
             </li>
             <li>
-              <a href="#" class="footer-nav__item" role="menuitem">Contact Us</a>
+              <a href="#" class="footer-nav__item" role="menuitem"
+                >Contact Us</a
+              >
             </li>
             <li>
               <a href="#" class="footer-nav__item" role="menuitem">Legal</a>

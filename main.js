@@ -1,13 +1,12 @@
-const btnOpen = document.querySelector('#btnOpen');
-const btnClose = document.querySelector('#btnClose');
+const mainNavContainer = document.querySelector('.main-nav__container');
 
-function openMobileMenu(){
-    btnOpen.setAttribute('aria-expanded', 'true');
-}
+const btnOpen = document.querySelector('.btnOpen');
+const btnClose = document.querySelector('.btnClose');
 
-function closeMobileMenu(){
-    btnOpen.setAttribute('aria-expanded', 'false');
-}
+btnOpen.addEventListener('click', () => {
+    mainNavContainer.classList.add('main-nav__container--active');
+})
 
-btnOpen.addEventListener('click', openMobileMenu);
-btnClose.addEventListener('click', closeMobileMenu);
+btnClose.addEventListener('click', () => {
+    mainNavContainer.classList.remove('main-nav__container--active');
+})

@@ -126,6 +126,13 @@ header {
   }
 }
 
+.header-content {
+  // background-color: #c91609;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .logotype {
   display: flex;
   justify-content: start;
@@ -163,22 +170,22 @@ header {
   }
 }
 
-
 //////////////////// MAIN NAVIGATION ///////////////////
 
-
 .main-nav__container {
-
-
   @media screen and (max-width: $mobile-breakepoint) {
     position: fixed;
     inset: 0;
-    padding: 1.5rem;
-    margin: 1rem;
-    background-color: #011827;
-    transform: scale(.9);
-    opacity: 0;
-    transition: transform 0.3s ease-in-out;
+    background-color: #ffffff90;
+    display: none;
+    justify-content: stretch;
+    align-items: stretch;
+    transform: scale(1);
+    transition: transform 3s ease-in-out;
+
+    &--active {
+      display: flex;
+    }
   }
 
   @media screen and (min-width: $small-breakepoint) {
@@ -191,19 +198,34 @@ header {
 .main-nav {
   font-family: Roboto, sans-serif;
   font-weight: 700;
- 
+
+  @keyframes openAnimation {
+    from   {transform: scale(.8); opacity: 0;}
+    to {transform: scale(1);opacity: 1;}
+  }
+
+  @media screen and (max-width: $mobile-breakepoint) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin: 1rem;
+    font-size: 2rem;
+    background-color: #011827;
+    box-shadow: 0 0 0.1rem 0 rgba(0, 0, 0, 0.3);
+    animation: openAnimation .3s forwards;
+    }
 
   &__item {
     display: inline;
     padding: 0 1rem;
 
     @media screen and (max-width: $mobile-breakepoint) {
-     display: block;
-     text-align: center;
-     margin-top: 1rem;
-     padding: 1.125rem 0;
-     font-size: 2rem;
+      font-size: 2rem;
+      padding: 2rem;
     }
+
     @media screen and (min-width: $small-breakepoint) {
       font-size: 0.9rem;
       padding: 0 1.6rem;
@@ -213,7 +235,6 @@ header {
   &__item-link {
     color: $WHITE;
     text-decoration: none;
-    text-align: center;
     padding: 0.5rem;
 
     &:hover,
@@ -222,39 +243,29 @@ header {
     }
   }
 }
-.topnav__open {
+.btnOpen {
   border: none;
   padding: 0;
   display: block;
   margin-inline-start: auto;
+  fill: $WHITE;
+  background: transparent;
 
-  
-
-  @media screen and (min-width: $small-breakepoint) {
+  @media screen and (min-width: $mobile-breakepoint) {
     display: none;
-    }
+  }
 }
 
-  .topnav__open[aria-expanded="true"] {
-   
-    + .main-nav__container {
-      background-color: #e3170a;
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-
-.topnav__close {
+.btnClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   border: none;
-  padding: 0;
-  display: block;
-  margin-inline-start: auto;
-  margin-block-end: 8rem;
+  background: transparent;
 
-  @media screen and (min-width: $small-breakepoint) {
+  @media screen and (min-width: $mobile-breakepoint) {
     display: none;
-    }
+  }
 }
 
 /* //////////////// HERO //////////////// */
@@ -313,23 +324,13 @@ header {
   gap: 1.25rem;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
 
   @media screen and (min-width: $large-breakepoint) {
     padding: 0 10rem;
   }
 }
 
-.snaps-inline {
-  scroll-snap-type: inline mandatory;
-}
-
-.snaps-inline > * {
-  scroll-snap-align: center;
-}
-
-.testimonial {
+.testimonial{
   display: grid;
   gap: 1rem;
   grid-template-columns: 4rem 1fr;
@@ -355,6 +356,11 @@ header {
     font-style: normal;
   }
 }
+@media screen and (max-width: $mobile-breakepoint) {
+  .testimonial--second {
+    display: none;
+  }
+}
 
 @media screen and (min-width: $small-breakepoint) {
   .testimonial__container {
@@ -367,6 +373,7 @@ header {
   .testimonial {
     margin: 0 1rem;
   }
+
 }
 
 /* ///////////////// CHALLENGES /////////////// */
@@ -430,6 +437,14 @@ header {
   }
 }
 
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+}
+
+.snaps-inline > * {
+  scroll-snap-align: center;
+}
+
 /* //////////// CARDS //////////////*/
 
 .card__container {
@@ -443,23 +458,23 @@ header {
   padding-top: 1rem;
   padding-left: 6rem;
 
-      @media screen and (min-width: $small-breakepoint) {
-        gap: 2rem;
-        grid-auto-columns: 40%;
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
+  @media screen and (min-width: $small-breakepoint) {
+    gap: 2rem;
+    grid-auto-columns: 40%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-      @media screen and (min-width: $medium-breakepoint) {
-        gap: 2rem;
-        grid-auto-columns: 31%;
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
+  @media screen and (min-width: $medium-breakepoint) {
+    gap: 2rem;
+    grid-auto-columns: 31%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-      @media screen and (min-width: $large-breakepoint) {
-        padding: 1rem 6rem 1rem;
-      }
+  @media screen and (min-width: $large-breakepoint) {
+    padding: 1rem 6rem 1rem;
+  }
 }
 
 .card {
@@ -468,44 +483,44 @@ header {
   padding: 0;
   height: auto;
 
-      &__image {
-        width: 100%;
-        height: auto;
-        border-radius: 5px 5px 0 0;
-      }
+  &__image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+  }
 
-      &__body {
-        padding: 0.125rem 1rem;
-      }
+  &__body {
+    padding: 0.125rem 1rem;
+  }
 
-      &__title {
-        font-size: 1.3rem;
-        font-weight: 400;
-        margin: 0;
-      }
+  &__title {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0;
+  }
 
-      &__review {
-        display: flex;
-        justify-content: space-between;
-      }
+  &__review {
+    display: flex;
+    justify-content: space-between;
+  }
 
-      &__description {
-        margin-bottom: 2rem;
-      }
+  &__description {
+    margin-bottom: 2rem;
+  }
 
-      &__link {
-        text-align: right;
-        margin-bottom: 1.2rem;
-      }
+  &__link {
+    text-align: right;
+    margin-bottom: 1.2rem;
+  }
 
-      &__participants {
-        font-size: 0.6rem;
-        display: inline-block;
-      }
+  &__participants {
+    font-size: 0.6rem;
+    display: inline-block;
+  }
 
-      @media screen and (min-width: $small-breakepoint) {
-        max-width: 19rem;
-      }
+  @media screen and (min-width: $small-breakepoint) {
+    max-width: 19rem;
+  }
 }
 
 .starholder__item {
