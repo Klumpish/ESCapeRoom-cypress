@@ -10,3 +10,6 @@ btnOpen.addEventListener('click', () => {
 btnClose.addEventListener('click', () => {
     mainNavContainer.classList.remove('main-nav__container--active');
 })
+
+
+
