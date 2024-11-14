@@ -391,8 +391,6 @@ header {
   gap: 1.5rem;
   grid-auto-flow: column;
   grid-auto-columns: 80%;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
   padding-bottom: 1rem;
   padding-top: 1rem;
   padding-left: 6rem;
@@ -415,37 +413,6 @@ header {
 }
 @media screen and (min-width: 1280px) {
   .card__container {
-    padding: 1rem 6rem 1rem;
-  }
-}
-
-.challenges-site .card__container {
-  display: grid;
-  gap: 1.5rem;
-  grid-auto-flow: column;
-  grid-auto-columns: 80%;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-  padding-left: 6rem;
-}
-@media screen and (min-width: 768px) {
-  .challenges-site .card__container {
-    gap: 2rem;
-    grid-auto-columns: 40%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-@media screen and (min-width: 992px) {
-  .challenges-site .card__container {
-    gap: 2rem;
-    grid-auto-columns: 31%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .challenges-site .card__container {
     padding: 1rem 6rem 1rem;
   }
 }
