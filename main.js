@@ -1,3 +1,5 @@
+import { challengeSort } from './challenges_rating_sort.js'
+
 const mainNavContainer = document.querySelector('.main-nav__container');
 
 const btnOpen = document.querySelector('.btnOpen');
@@ -18,3 +20,7 @@ async function challenges() {
         console.log(challenge.title)
     });
 }
+
+let array = challengeSort.ratingArray;
+array = await challengeSort.getApiToArray();
+challengeSort.createSpanChallenge();
