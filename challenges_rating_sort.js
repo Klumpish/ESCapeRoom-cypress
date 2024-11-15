@@ -82,16 +82,13 @@ const challengeSort = {
      * Function to create a challenge card.
      */
     createSpanChallenge () {
-        /* console.log(this.ratingArray) */
         const cardContainer = document.querySelector('.card__container');
+    
         /* loop through the three highest rated */
         for (let i = 0; i < 3; i++) {
             /* create div for card */
             const cardDiv = document.createElement('div');
             cardDiv.classList.add('card'); //add class for card
-            /**
-             * IMPORTANT Create img, create divs and more. MAKE THEM INTO function.
-             */
 
             /* create  div card__body */
             const divCardBody = document.createElement('div');
