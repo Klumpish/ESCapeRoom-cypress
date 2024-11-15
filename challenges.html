@@ -78,7 +78,8 @@
 						<h3 class="filterWindow__ByRating__h3">By rating</h3>
 						<!-- star rating -->
 						<!-- min star rating -->
-						<div>
+						<div class="Star-rating">
+							<!-- #todo- reminder to use sass not css -->
 							<!-- hide with display none on the raido buttons -->
 							<input type="radio" id="min-star-1" name="minRating" value="1" />
 							<label for="min-star-1" title="1 stars">★</label>
@@ -98,20 +99,22 @@
 					</div>
 					<div class="filterSection">
 						<!-- max star rating -->
-						<input type="radio" id="max-star-1" name="maxRating" value="1" />
-						<label for="max-star-1" title="1 stars">★</label>
+						<div class="Star-rating">
+							<input type="radio" id="max-star-1" name="maxRating" value="1" />
+							<label for="max-star-1" title="1 stars">★</label>
 
-						<input type="radio" id="max-star-2" name="maxRating" value="2" />
-						<label for="max-star-2" title="2 stars">★</label>
+							<input type="radio" id="max-star-2" name="maxRating" value="2" />
+							<label for="max-star-2" title="2 stars">★</label>
 
-						<input type="radio" id="max-star-3" name="maxRating" value="3" />
-						<label for="max-star-3" title="3 stars">★</label>
+							<input type="radio" id="max-star-3" name="maxRating" value="3" />
+							<label for="max-star-3" title="3 stars">★</label>
 
-						<input type="radio" id="max-star-4" name="maxRating" value="4" />
-						<label for="max-star-4" title="4 stars">★</label>
+							<input type="radio" id="max-star-4" name="maxRating" value="4" />
+							<label for="max-star-4" title="4 stars">★</label>
 
-						<input type="radio" id="max-star-5" name="maxRating" value="5" />
-						<label for="max-star-5" title="5 star">★</label>
+							<input type="radio" id="max-star-5" name="maxRating" value="5" />
+							<label for="max-star-5" title="5 star">★</label>
+						</div>
 					</div>
 				</form>
 				<!-- test end -->
@@ -121,6 +124,15 @@
 				<div class="filterWindow__ByTags">
 					<h3 class="filterWindow__ByTags__h3">By tags</h3>
 					<!-- by tags ex web/linux/crypto -->
+					<!-- #todo- make sure to check rooms for what tags they have -->
+					<div class="tag-filter">
+						<label> <input type="checkbox" name="tags" value="web" /> Web </label>
+						<label> <input type="checkbox" name="tags" value="linux" /> Linux </label>
+						<label>
+							<input type="checkbox" name="tags" value="cryptography" /> Cryptography
+						</label>
+						<label> <input type="checkbox" name="tags" value="coding" /> Coding </label>
+					</div>
 				</div>
 				<div class="filterWindow__Search">
 					<h3 class="filterWindow__Search__h3">Or type to search for keywords</h3>
