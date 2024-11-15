@@ -24,16 +24,21 @@ const challengeSort = {
         img.alt = 'A hacker sits turned away at a computer';
     },
     /**
-     * Function to convert a int into stars.
-     * TODO: Beginning of fixing the stars
+     * Function to convert numbers into stars.
      */
-    getStars (ratingValue) {
-        const fullStars = Math.floor(this.ratingArray[i].rating);
-        const hasHalfStar = (this.ratingArray[i].rating - fullStars) === 0.5;
-        result = "★".repeat(fullStars);
+    getStars (counter, fullStars, hasHalfStar) {
+        const starImg = document.createElement('img');
+        starImg.classList.add('starholder__item');
+        if (counter <= fullStars) {
+            starImg.src = './images/star.png';
+        } else if (hasHalfStar === true) {
+            starImg.src = './images/star.png';
+            starImg.style.clipPath = 'inset(0 50% 0 0)';
+        } else {
+            starImg.src = './images/star-empty.png';
+        }
 
-
-
+        return starImg;
     },
     /**
      * Function to create image for card.
@@ -120,42 +125,28 @@ const challengeSort = {
 
             /* TODO: NEED TO CHANGE starholder */
             starHolder.innerHTML = this.ratingArray[i].rating;
-            
 
-            /* TODO: Move this the tes img code to a function */
             /* test img */
             //create span
             const holder = document.createElement('div');
             holder.classList.add('card__starholder');
             cardReview.append(holder);
 
-            /* half and full stars */
-            /* check for full stars */
+            /* values to check for full stars */
             let counter = 1;
             const fullStars = Math.floor(this.ratingArray[i].rating);
             const hasHalfStar = (this.ratingArray[i].rating - fullStars) === 0.5;
 
-            for (let i=0; i<5; ++i) {
+            for (let i = 0; i < 5; ++i) {
                 //create span
-                const span = document.createElement('span')
-                holder.append(span)
+                const span = document.createElement('span');
+                holder.append(span);
 
-                const starImg = document.createElement('img')
-                starImg.classList.add('starholder__item');
-                if (counter <= fullStars) {
-                    starImg.src = './images/star.png';
-                } else if (hasHalfStar === true) {
-                    starImg.src = './images/star.png'
-                    starImg.style.clipPath = 'inset(0 50% 0 0)'
-                } else {
-                    starImg.src = './images/star-empty.png'
-                }
-                span.append(starImg)
-                counter++
+                //create the stars
+                const stars = this.getStars(counter, fullStars, hasHalfStar);
+                counter++;
+                span.append(stars);
             }
-            /* end test */
-
-            /* cardReview.append(starHolder); //to get the rating in numbers */
 
             /* Create participants div */
             const participantDiv = document.createElement('div');
