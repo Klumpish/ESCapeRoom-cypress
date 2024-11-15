@@ -761,7 +761,7 @@ button.filterBtn {
 
 .filterWindow__Checkbox label {
 	background-color: red;
-	display: ;
+	display: block;
 }
 
 .filter .filterWindow--active {
@@ -813,14 +813,16 @@ button.filterBtn {
 	cursor: pointer;
 	/* background-color: darkgray; */
 	transition: background-color 0.3s;
+	font-weight: 600;
 }
 .tag-filter label:hover {
 	background-color: gray;
 	color: white;
 }
 .tag-filter input[type="checkbox"] {
-	/* display: none; */
+	display: none;
 }
 .tag-filter input[type="checkbox"]:checked + label {
-	background-color: green;
+	background-color: gray;
+	color: white;
 }
