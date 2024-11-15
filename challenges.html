@@ -67,12 +67,54 @@
 				<div class="filterWindow__Checkbox">
 					<h3 class="filterWindow__ByType">By type</h3>
 					<!-- Checkboxes	  -->
-					<label type="Checkboxe" name="online" value="online">Online</label>
+					<label> <input type="checkbox" name="online" value="online" /> Online </label>
+					<label>
+						<input type="checkbox" name="on-site" value="on-site" /> On-site
+					</label>
 				</div>
-				<div class="filterWindow__ByRating">
-					<h3 class="filterWindow__ByRating__h3">By rating</h3>
-					<!-- star rating -->
-				</div>
+				<!-- test -->
+				<form class="filterForm">
+					<div class="filterWindow__ByRating">
+						<h3 class="filterWindow__ByRating__h3">By rating</h3>
+						<!-- star rating -->
+						<!-- min star rating -->
+						<div>
+							<!-- hide with display none on the raido buttons -->
+							<input type="radio" id="min-star-1" name="minRating" value="1" />
+							<label for="min-star-1" title="1 stars">★</label>
+
+							<input type="radio" id="min-star-2" name="mi2Rating" value="2" />
+							<label for="min-star-2" title="2 stars">★</label>
+
+							<input type="radio" id="min-star-3" name="minRating" value="3" />
+							<label for="min-star-3" title="3 stars">★</label>
+
+							<input type="radio" id="min-star-4" name="minRating" value="4" />
+							<label for="min-star-4" title="4 stars">★</label>
+
+							<input type="radio" id="min-star-5" name="minRating" value="5" />
+							<label for="min-star-5" title="5 star">★</label>
+						</div>
+					</div>
+					<div class="filterSection">
+						<!-- max star rating -->
+						<input type="radio" id="max-star-1" name="maxRating" value="1" />
+						<label for="max-star-1" title="1 stars">★</label>
+
+						<input type="radio" id="max-star-2" name="maxRating" value="2" />
+						<label for="max-star-2" title="2 stars">★</label>
+
+						<input type="radio" id="max-star-3" name="maxRating" value="3" />
+						<label for="max-star-3" title="3 stars">★</label>
+
+						<input type="radio" id="max-star-4" name="maxRating" value="4" />
+						<label for="max-star-4" title="4 stars">★</label>
+
+						<input type="radio" id="max-star-5" name="maxRating" value="5" />
+						<label for="max-star-5" title="5 star">★</label>
+					</div>
+				</form>
+				<!-- test end -->
 
 				<!-- close button -->
 
