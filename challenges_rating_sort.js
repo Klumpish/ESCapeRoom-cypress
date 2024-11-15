@@ -60,19 +60,6 @@ const challengeSort = {
         return h3;
     },
     /**
-     * Function to create text div
-     * TODO: This function is f***ing wothless fix it.
-     */
-    createTxt (stringTxt) {
-        const divTxt = document.createElement('div');
-        divTxt.classList.add('card__description');
-        const txt = document.createElement('p');
-        const paraString = /* this.ratingArray[i].description */stringTxt;
-        txt.innerHTML = paraString;
-        /* divTxt.append(txt); */
-        return [divTxt, txt];
-    },
-    /**
      * Function to create a button.
      */
     createBtn (btnParam) {
@@ -123,10 +110,6 @@ const challengeSort = {
             const starHolder = document.createElement('div');
             starHolder.classList.add('card__starholder');
 
-            /* TODO: NEED TO CHANGE starholder */
-            starHolder.innerHTML = this.ratingArray[i].rating;
-
-            /* test img */
             //create span
             const holder = document.createElement('div');
             holder.classList.add('card__starholder');
@@ -137,6 +120,7 @@ const challengeSort = {
             const fullStars = Math.floor(this.ratingArray[i].rating);
             const hasHalfStar = (this.ratingArray[i].rating - fullStars) === 0.5;
 
+            /* create spans and img for stars */
             for (let i = 0; i < 5; ++i) {
                 //create span
                 const span = document.createElement('span');
@@ -155,13 +139,12 @@ const challengeSort = {
             cardReview.append(participantDiv);
 
             /* Create text and div to contain text */
-            /* TODO: create this into a function */
             const divTxt = document.createElement('div');
             divTxt.classList.add('card__description');
             const txt = document.createElement('p');
             const paraString = this.ratingArray[i].description;
             txt.innerHTML = paraString;
-            /* const txtArray = this.createTxt(this.ratingArray[i].description); */
+
             divTxt.append(txt);
             divCardBody.append(divTxt);
 
