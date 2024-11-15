@@ -64,78 +64,116 @@
 			</div>
 			<div class="filterWindow">
 				<h2 class="filterwindow__Challenges">Filter challenges</h2>
+				<button class="filterBtnClose"></button>
 				<div class="filterWindow__Checkbox">
 					<h3 class="filterWindow__ByType">By type</h3>
 					<!-- Checkboxes	  -->
-					<label> <input type="checkbox" name="online" value="online" /> Online </label>
 					<label>
-						<input type="checkbox" name="on-site" value="on-site" /> On-site
+						<input type="checkbox" name="online" value="online" /> Include online
+						challenges
+					</label>
+					<label>
+						<input type="checkbox" name="on-site" value="on-site" /> Include on-site
+						challenges
 					</label>
 				</div>
-				<!-- test -->
+
 				<form class="filterForm">
 					<div class="filterWindow__ByRating">
 						<h3 class="filterWindow__ByRating__h3">By rating</h3>
 						<!-- star rating -->
 						<!-- min star rating -->
-						<div class="Star-rating">
+						<div class="star-rating">
 							<!-- #todo- reminder to use sass not css -->
 							<!-- hide with display none on the raido buttons -->
-							<input type="radio" id="min-star-1" name="minRating" value="1" />
-							<label for="min-star-1" title="1 stars">★</label>
-
-							<input type="radio" id="min-star-2" name="mi2Rating" value="2" />
-							<label for="min-star-2" title="2 stars">★</label>
-
-							<input type="radio" id="min-star-3" name="minRating" value="3" />
-							<label for="min-star-3" title="3 stars">★</label>
+							<input type="radio" id="min-star-5" name="minRating" value="5" />
+							<label for="min-star-5" title="5 stars">★</label>
 
 							<input type="radio" id="min-star-4" name="minRating" value="4" />
 							<label for="min-star-4" title="4 stars">★</label>
 
-							<input type="radio" id="min-star-5" name="minRating" value="5" />
-							<label for="min-star-5" title="5 star">★</label>
+							<input type="radio" id="min-star-3" name="minRating" value="3" />
+							<label for="min-star-3" title="3 stars">★</label>
+
+							<input type="radio" id="min-star-2" name="minRating" value="2" />
+							<label for="min-star-2" title="2 stars">★</label>
+
+							<input type="radio" id="min-star-1" name="minRating" value="1" />
+							<label for="min-star-1" title="1 star">★</label>
 						</div>
 					</div>
+					<p class="filterForm_p">To</p>
 					<div class="filterSection">
 						<!-- max star rating -->
-						<div class="Star-rating">
-							<input type="radio" id="max-star-1" name="maxRating" value="1" />
-							<label for="max-star-1" title="1 stars">★</label>
-
-							<input type="radio" id="max-star-2" name="maxRating" value="2" />
-							<label for="max-star-2" title="2 stars">★</label>
-
-							<input type="radio" id="max-star-3" name="maxRating" value="3" />
-							<label for="max-star-3" title="3 stars">★</label>
+						<div class="star-rating">
+							<input type="radio" id="max-star-5" name="maxRating" value="5" />
+							<label for="max-star-5" title="5 stars">★</label>
 
 							<input type="radio" id="max-star-4" name="maxRating" value="4" />
 							<label for="max-star-4" title="4 stars">★</label>
 
-							<input type="radio" id="max-star-5" name="maxRating" value="5" />
-							<label for="max-star-5" title="5 star">★</label>
+							<input type="radio" id="max-star-3" name="maxRating" value="3" />
+							<label for="max-star-3" title="3 stars">★</label>
+
+							<input type="radio" id="max-star-2" name="maxRating" value="2" />
+							<label for="max-star-2" title="2 stars">★</label>
+
+							<input type="radio" id="max-star-1" name="maxRating" value="1" />
+							<label for="max-star-1" title="1 star">★</label>
 						</div>
 					</div>
 				</form>
-				<!-- test end -->
-
-				<!-- close button -->
 
 				<div class="filterWindow__ByTags">
 					<h3 class="filterWindow__ByTags__h3">By tags</h3>
 					<!-- by tags ex web/linux/crypto -->
 					<!-- #todo- make sure to check rooms for what tags they have -->
 					<div class="tag-filter">
-						<label> <input type="checkbox" name="tags" value="web" /> Web </label>
-						<label> <input type="checkbox" name="tags" value="linux" /> Linux </label>
 						<label>
-							<input type="checkbox" name="tags" value="cryptography" /> Cryptography
+							<input type="checkbox" name="tags" value="javascript" />
+							JavaScript
 						</label>
-						<label> <input type="checkbox" name="tags" value="coding" /> Coding </label>
+						<label>
+							<input type="checkbox" name="tags" value="electronics" />
+							Electronics
+						</label>
+						<label>
+							<input type="checkbox" name="tags" value="linux" />
+							Linux
+						</label>
+						<label>
+							<input type="checkbox" name="tags" value="coding" />
+							Coding
+						</label>
+						<label>
+							<input type="checkbox" name="tags" value="ssh" />
+							SSH
+						</label>
+						<label>
+							<input type="checkbox" name="tags" value="phreaking" />
+							Phreaking
+						</label>
+						<label>
+							<input type="checkbox" name="tags" value="hacking" />
+							Hacking
+						</label>
+						<label>
+							<input type="checkbox" name="tags" value="web" />
+							Web
+						</label>
+						<label>
+							<input type="checkbox" name="tags" value="bash" />
+							Bash
+						</label>
+						<label>
+							<input type="checkbox" name="tags" value="ctf" />
+							CTF
+						</label>
 					</div>
 				</div>
 				<div class="filterWindow__Search">
 					<h3 class="filterWindow__Search__h3">Or type to search for keywords</h3>
+					<input class="filterSearch_input" type="text" value="Start typing to filter" />
 				</div>
 			</div>
 
