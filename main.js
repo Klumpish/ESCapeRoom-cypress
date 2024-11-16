@@ -22,7 +22,7 @@ async function challenges() {
 //FilterBtn open/close
 // filterBtn  filterWindow
 const filterBtnOpen = document.querySelector(".filterBtn");
-const filterBtnClose = document.querySelector(".filterBtnClose");
+const filterBtnClose = document.querySelector(".buttonX");
 const filterWindow = document.querySelector(".filterWindow");
 const filterBtnDiv = document.querySelector(".filterBtn__div");
 
@@ -31,10 +31,12 @@ filterBtnOpen.addEventListener("click", () => {
 	filterBtnDiv.classList.add("filterBtn--hidden");
 });
 
+// target the div to close
 filterBtnClose.addEventListener("click", () => {
 	filterWindow.classList.remove("filterWindow--active");
 	filterBtnDiv.classList.remove("filterBtn--hidden");
 });
+
 
 // show more tags
 document.querySelector("#show-more-tags-btn").addEventListener("click", (event)=>{

@@ -669,6 +669,7 @@ div.filterBtn__div {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-bottom: 2rem;
 }
 .filterBtn--hidden{
 	display:none !important
@@ -684,14 +685,15 @@ button.filterBtn {
 	border-radius: 4px;
 	border-color: rgb(222, 227, 245);
 	border-style: solid;
-	font-family: roboto;
 }
 
 /* filter button end */
 
 .filterWindow {
-	display: grid;
+	display: none;
 	max-width: 950px;
+	margin-left: auto;
+	margin-right: auto;
 	column-gap: 30px;
 	row-gap: 10px;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -702,11 +704,15 @@ button.filterBtn {
 	padding: 5px;
 	padding-left: 15px;
 }
+/* show filterwindow */
+.filterWindow--active {
+	display:grid;
+}
 
 .filterwindow__Challenges {
 	grid-column: 1 / span 2;
 	grid-row: 1;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	font-weight: 500;
 }
 
@@ -748,6 +754,7 @@ button.filterBtn {
 .buttonX {
 	margin-right: 0;
 	justify-self: end;
+	height: 2.2rem;
 }
 
 .filterBtnClose {
@@ -781,7 +788,7 @@ button.filterBtn {
 }
 
 .filterWindow__Checkbox label {
-	font-size: 0.7rem;
+	font-size: 0.8rem;
 	display: block;
 }
 
@@ -814,8 +821,8 @@ button.filterBtn {
 }
 
 .star-rating label {
-	font-size: 1rem;
-	padding: 0.1rem;
+	font-size: 1.1rem;
+	padding: 0.08rem;
 	color: #C5CED5;
 	cursor: pointer;
 	transition: color 0.2s;
@@ -838,13 +845,17 @@ button.filterBtn {
 }
 #extra-tags{
 	flex-wrap:wrap;
-	gap: 0.5rem
+	gap: 0.5rem;
+}
+
+#extra-tags label {
+	margin: 0.1rem;
 }
 .tag-filter label {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: 0.5rem 0.4rem;
+	padding: 0.35rem 0.4rem;
 	font-size: 0.65rem;
 	color: #788896;
 	border-radius: 20px;
@@ -861,7 +872,7 @@ button.filterBtn {
 	justify-content: center;
 	padding: 0.5rem 0.4rem;
 	font-size: 0.65rem;
-	color: #788896;
+	color: black;
 	border-radius: 20px;
 	border: 2px solid #CED4D9;
 	cursor: pointer;
@@ -895,5 +906,13 @@ button.filterBtn {
 	border: 2px solid #CED4D9;
 	border-radius: 3px;
 	margin-bottom: 0.8rem;
+}
+
+.filterSearch_input:focus {
+	border: 2px solid #4B5C6B;
+	outline: none;
+}
+
+::placeholder {
 	color: #CED4D9;
 }
