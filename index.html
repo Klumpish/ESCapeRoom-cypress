@@ -22,6 +22,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+     <link rel="stylesheet" type="text/css" media="screen" href="css/challenges.css"/> <!-- Challenges Tobias -->
   </head>
   <body class="challenges-site">
     <header>
@@ -325,9 +326,6 @@
       <!--Ends card-->
 
     </div> <!--Ends card_container-->
-
-      
-
       <div class="challenges__container">
         <a href="#" role="link" class="button red-button challenges__red-link"
           >Online challenges</a
@@ -342,6 +340,18 @@
         >
       </div>
     </section>
+<!--    Buttons for All Challenges Tobias -->
+      <container class="api-challenges">
+    <button id="load-challenges">All online challenges</button>
+    <div id="challenge-list"></div>
+
+    <button id="load-onsitechallenges"></button>
+    <div id="challenge-listOnSite"></div>
+</container>
+
+    <!--    Buttons for All Challenges  Tobias -->
+
+
     <!--Ends challenges-->
 
     <blockquote class="quote">
@@ -398,7 +408,7 @@
     </article>
    <!-- Ends articles-->
 
-    <footer>
+    <footer id="footer">
       <div class="footer__information">
         <h1 class="footer__heading">[Esc] Hacker Escape Rooms</h1>
         <p class="footer__text">
@@ -458,5 +468,6 @@
       </div>
     </footer>
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="challenges.js"></script>
   </body>
 </html>
