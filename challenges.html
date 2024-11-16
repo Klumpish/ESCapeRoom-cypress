@@ -64,7 +64,9 @@
 			</div>
 			<div class="filterWindow">
 				<h2 class="filterwindow__Challenges">Filter challenges</h2>
+				<div class="buttonX">
 				<button class="filterBtnClose"></button>
+				</div>
 				<div class="filterWindow__Checkbox">
 					<h3 class="filterWindow__ByType">By type</h3>
 					<!-- Checkboxes	  -->
@@ -79,8 +81,8 @@
 				</div>
 
 				<form class="filterForm">
+					<h3 class="filterWindow__ByRating__h3">By rating</h3>
 					<div class="filterWindow__ByRating">
-						<h3 class="filterWindow__ByRating__h3">By rating</h3>
 						<!-- star rating -->
 						<!-- min star rating -->
 						<div class="star-rating">
@@ -101,8 +103,8 @@
 							<input type="radio" id="min-star-1" name="minRating" value="1" />
 							<label for="min-star-1" title="1 star">★</label>
 						</div>
-					</div>
-					<p class="filterForm_p">To</p>
+					<div class="starRating__div"> 
+					<p class="filterForm_p">to</p>
 					<div class="filterSection">
 						<!-- max star rating -->
 						<div class="star-rating">
@@ -122,6 +124,8 @@
 							<label for="max-star-1" title="1 star">★</label>
 						</div>
 					</div>
+					</div>
+				</div>
 				</form>
 
 				<div class="filterWindow__ByTags">
@@ -140,7 +144,9 @@
 
 						<input type="checkbox" name="tags" value="coding" id="coding" />
 						<label for="coding">Coding</label>
-
+						<!--  -->
+						<div id="extra-tags" style="display:none;">
+						<!--  -->
 						<input type="checkbox" name="tags" value="ssh" id="ssh" />
 						<label for="ssh">SSH</label>
 
@@ -158,10 +164,12 @@
 
 						<input type="checkbox" name="tags" value="ctf" id="ctf" />
 						<label for="ctf">CTF</label>
+						</div>
+						<button id="show-more-tags-btn">Show more</button>
 					</div>
 				</div>
 				<div class="filterWindow__Search">
-					<h3 class="filterWindow__Search__h3">Or type to search for keywords</h3>
+					<h3 class="filterWindow__Search__h3">Or type to search for keyword</h3>
 					<input class="filterSearch_input" type="text" value="Start typing to filter" />
 				</div>
 			</div>

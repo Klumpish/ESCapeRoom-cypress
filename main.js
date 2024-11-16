@@ -24,13 +24,30 @@ async function challenges() {
 const filterBtnOpen = document.querySelector(".filterBtn");
 const filterBtnClose = document.querySelector(".filterBtnClose");
 const filterWindow = document.querySelector(".filterWindow");
+const filterBtnDiv = document.querySelector(".filterBtn__div");
 
 filterBtnOpen.addEventListener("click", () => {
 	filterWindow.classList.add("filterWindow--active");
-	filterBtnOpen.classList.add(".filterBtn--hiden");
+	filterBtnDiv.classList.add("filterBtn--hidden");
 });
 
 filterBtnClose.addEventListener("click", () => {
 	filterWindow.classList.remove("filterWindow--active");
-	filterBtnOpen.classList.remove(".filterBtn--hiden");
+	filterBtnDiv.classList.remove("filterBtn--hidden");
 });
+
+// show more tags
+document.querySelector("#show-more-tags-btn").addEventListener("click", (event)=>{
+    const extraTags = document.querySelector("#extra-tags");
+    const button = event.target;
+
+    if(extraTags.style.display === "none"){
+        extraTags.style.display = "block";
+        button.textContent = "Show Less";
+    } else {
+        extraTags.style.display = "none"
+        button.textContent = "Show More";
+
+
+    }
+})
