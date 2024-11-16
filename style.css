@@ -395,6 +395,7 @@ header {
 
 /* //////////// CARDS //////////////*/
 .card__container {
+
 	display: grid;
 	gap: 1.5rem;
 	grid-auto-flow: column;
@@ -404,6 +405,7 @@ header {
 	padding-bottom: 1rem;
 	padding-top: 1rem;
 	padding-left: 6rem;
+
 }
 @media screen and (min-width: 768px) {
 	.card__container {
@@ -426,6 +428,7 @@ header {
 		padding: 1rem 6rem 1rem;
 	}
 }
+
 
 .challenges-site .card__container {
 	display: grid;
@@ -457,6 +460,7 @@ header {
 		padding: 1rem 6rem 1rem;
 	}
 }
+
 
 .card {
 	box-shadow: 0px 0px 8px 0px rgba(182, 189, 181, 0.75);
