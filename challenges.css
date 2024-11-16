@@ -1,8 +1,7 @@
-
-.api-challenges { 
+/* .api-challenges { 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-}
+} */
 #content { 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -13,6 +12,3 @@ img {
 height: 50%; 
   width: 50%;
 }
-
-
-
