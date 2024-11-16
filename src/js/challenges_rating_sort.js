@@ -21,7 +21,7 @@ const challengeSort = {
         const img = document.createElement('img');
         img.classList.add('card__image');
         img.src = `${imageUrl}`;
-        img.alt = 'A hacker sits turned away at a computer';
+        img.alt = '';
     },
     /**
      * Function to convert numbers into stars.
@@ -31,9 +31,10 @@ const challengeSort = {
         starImg.classList.add('starholder__item');
         if (counter <= fullStars) {
             starImg.src = './images/star.png';
-        } else if (hasHalfStar === true) {
+        } else if (hasHalfStar === true && counter === fullStars + 1) {
             starImg.src = './images/star.png';
             starImg.style.clipPath = 'inset(0 50% 0 0)';
+            /* TODO: fix so starImg div get halved when halfStar */
         } else {
             starImg.src = './images/star-empty.png';
         }
@@ -83,7 +84,7 @@ const challengeSort = {
      */
     createSpanChallenge () {
         const cardContainer = document.querySelector('.card__container');
-    
+
         /* loop through the three highest rated */
         for (let i = 0; i < 3; i++) {
             /* create div for card */

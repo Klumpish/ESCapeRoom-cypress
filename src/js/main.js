@@ -23,4 +23,5 @@ async function challenges() {
 
 let array = challengeSort.ratingArray;
 array = await challengeSort.getApiToArray();
+console.log(array)
 challengeSort.createSpanChallenge();
