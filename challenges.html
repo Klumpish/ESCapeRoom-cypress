@@ -1,67 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>challenges</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <script src='main.js'></script>
-</head>
-<body>
-    <header>
-        <div class="header-content">
-        <div class="logotype">
-          <a href="#" role="link">
-            
-            <img
-              class="logotype__image"
-              src="images/logotype.png"
-              alt="Escaperoom logotype"/>
-          </a>
-          <h1 class="logotype__title">Hacker Escape Rooms</h1>
-        </div>
-        <button class="btnOpen">
-          <svg viewBox="0 0 100 100" width="40">
-            <rect class="top" width="80" height="10" x="10" y="25" rx="5">
-            </rect>
-            <rect class="middle" width="80" height="10" x="10" y="45" rx="5">
-            </rect>
-            <rect class="bottom" width="80" height="10" x="10" y="65" rx="5">
-            </rect>
-          </svg>
-        </button>
-        
-      </div>
-      <nav role="menu" >
-        <div class="main-nav__container">
-          <ul role="presentation" class="main-nav">
-            <button class="btnClose">
-              <svg width="40" height="40" viewbox="0 0 40 40">
-                <path d="M 10,10 L 30,30 M 30,10 L 10,30" stroke="white" stroke-width="4" />
-              </svg>
-            </button>
-            <li class="main-nav__item">
-              <a href="#" role="menuitem" class="main-nav__item-link"
-                >Play on-site</a>
-            </li>
-            <li class="main-nav__item">
-              <a href="#" role="menuitem" class="main-nav__item-link"
-                >Play online</a>
-            </li>
-            <li class="main-nav__item">
-              <a href="#" role="menuitem" class="main-nav__item-link"
-                >The Story</a>
-            </li>
-            <li class="main-nav__item">
-              <a href="#" role="menuitem" class="main-nav__item-link"
-                >Contact Us</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header><!--End header-->
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>challenges</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+	</head>
+	<body>
+		<header>
+			<div class="header-content">
+				<div class="logotype">
+					<a href="#" role="link">
+						<img
+							class="logotype__image"
+							src="images/logotype.png"
+							alt="Escaperoom logotype" />
+					</a>
+					<h1 class="logotype__title">Hacker Escape Rooms</h1>
+				</div>
+				<button class="btnOpen">
+					<svg viewBox="0 0 100 100" width="40">
+						<rect class="top" width="80" height="10" x="10" y="25" rx="5"></rect>
+						<rect class="middle" width="80" height="10" x="10" y="45" rx="5"></rect>
+						<rect class="bottom" width="80" height="10" x="10" y="65" rx="5"></rect>
+					</svg>
+				</button>
+			</div>
+			<nav role="menu">
+				<div class="main-nav__container">
+					<ul role="presentation" class="main-nav">
+						<button class="btnClose">
+							<svg width="40" height="40" viewbox="0 0 40 40">
+								<path
+									d="M 10,10 L 30,30 M 30,10 L 10,30"
+									stroke="white"
+									stroke-width="4" />
+							</svg>
+						</button>
+						<li class="main-nav__item">
+							<a href="#" role="menuitem" class="main-nav__item-link">Play on-site</a>
+						</li>
+						<li class="main-nav__item">
+							<a href="#" role="menuitem" class="main-nav__item-link">Play online</a>
+						</li>
+						<li class="main-nav__item">
+							<a href="#" role="menuitem" class="main-nav__item-link">The Story</a>
+						</li>
+						<li class="main-nav__item">
+							<a href="#" role="menuitem" class="main-nav__item-link">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!--End header-->
 
+highest_rating
     <section class="challenges">
         <h2 class="challenges__title">Popular challenges right now</h2>
   
@@ -85,5 +80,286 @@
       </section>
       <!--Ends challenges-->
       <script type="module" src="./main.js"></script>
-</body>
+  </body>
+		<section class="challenges">
+			<!-- #ToDo- change to correct text -->
+			<h2 class="challenges__title">Our challenges</h2>
+			<div class="filterBtn__div">
+				<button class="filterBtn">Filter challenges</button>
+			</div>
+			<div class="filterWindow">
+				<h2 class="filterwindow__Challenges">Filter challenges</h2>
+				<div class="filterWindow__Checkbox">
+					<h3 class="filterWindow__ByType">By type</h3>
+					<!-- Checkboxes	  -->
+					<label type="Checkboxe" name="online" value="online">Online</label>
+				</div>
+				<div class="filterWindow__ByRating">
+					<h3 class="filterWindow__ByRating__h3">By rating</h3>
+					<!-- star rating -->
+				</div>
+
+				<!-- close button -->
+
+				<div class="filterWindow__ByTags">
+					<h3 class="filterWindow__ByTags__h3">By tags</h3>
+					<!-- by tags ex web/linux/crypto -->
+				</div>
+				<div class="filterWindow__Search">
+					<h3 class="filterWindow__Search__h3">Or type to search for keywords</h3>
+				</div>
+			</div>
+
+			<div class="card__container">
+				<div class="card">
+					<img
+						class="card__image"
+						src="images/hacker.jpg"
+						alt="A hacker sits turned away at a computer" />
+
+					<div class="card__body">
+						<h3 class="card__title">Title of room (on-site)</h3>
+
+						<div class="card__review">
+							<div class="card__starholder">
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star-empty.png"
+										alt="a empty star"
+								/></span>
+							</div>
+
+							<div class="card__participants">2-6 participants</div>
+						</div>
+						<div class="card__description">
+							<p>
+								Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+								nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+							</p>
+						</div>
+						<div class="card__link">
+							<a href="#" role="link" class="button red-button-small"
+								>Book this room</a
+							>
+						</div>
+					</div>
+				</div>
+				<!--Ends card-->
+
+				<div class="card">
+					<img
+						class="card__image"
+						src="images/hacker.jpg"
+						alt="A hacker sits turned away at a computer" />
+
+					<div class="card__body">
+						<h3 class="card__title">Title of room (on-site)</h3>
+
+						<div class="card__review">
+							<div class="card__starholder">
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star-empty.png"
+										alt="a empty star"
+								/></span>
+							</div>
+
+							<div class="card__participants">2-6 participants</div>
+						</div>
+						<div class="card__description">
+							<p>
+								Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+								nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+							</p>
+						</div>
+						<div class="card__link">
+							<a href="#" role="link" class="button red-button-small"
+								>Book this room</a
+							>
+						</div>
+					</div>
+				</div>
+				<!--Ends card-->
+
+				<div class="card">
+					<img
+						class="card__image"
+						src="images/hacker.jpg"
+						alt="A hacker sits turned away at a computer" />
+
+					<div class="card__body">
+						<h3 class="card__title">Title of room (on-site)</h3>
+
+						<div class="card__review">
+							<div class="card__starholder">
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star.png"
+										alt="a star"
+								/></span>
+								<span
+									><img
+										class="starholder__item"
+										src="images/star-empty.png"
+										alt="a empty star"
+								/></span>
+							</div>
+
+							<div class="card__participants">2-6 participants</div>
+						</div>
+						<div class="card__description">
+							<p>
+								Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+								nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+							</p>
+						</div>
+						<div class="card__link">
+							<a href="#" role="link" class="button red-button-small"
+								>Book this room</a
+							>
+						</div>
+					</div>
+				</div>
+				<!--Ends card-->
+			</div>
+			<!--Ends card_container-->
+
+			<div class="challenges__container">
+				<a href="#" role="link" class="button red-button challenges__red-link"
+					>Online challenges</a
+				>
+				<a href="#" role="link" class="button blue-button challenges__blue-link"
+					>On-site challenges</a
+				>
+			</div>
+			<div class="challenges__link-container">
+				<a href="#" role="link" class="challenges__small-link">Online challenges</a>
+			</div>
+		</section>
+		<!--Ends challenges-->
+		<footer>
+			<div class="footer__information">
+				<h1 class="footer__heading">[Esc] Hacker Escape Rooms</h1>
+				<p class="footer__text">
+					Quodsi haberent magnalia inter potentiam et divitias, et non illam quidem haec
+					eo spectant haec quoque vos omnino desit illud quo solo felicitatis
+					libertatisque perficiuntur.
+				</p>
+			</div>
+
+			<div class="footer__contact">
+				<h1 class="footer__heading">Site map</h1>
+				<nav class="footer-nav" role="menu">
+					<ul role="presentation">
+						<li>
+							<a href="#" class="footer-nav__item" role="menuitem">The Story</a>
+						</li>
+						<li>
+							<a href="#" class="footer-nav__item" role="menuitem">Contact Us</a>
+						</li>
+						<li>
+							<a href="#" class="footer-nav__item" role="menuitem">Legal</a>
+						</li>
+					</ul>
+
+					<ul role="presentation">
+						<li>
+							<a href="#" class="footer-nav__item" role="menuitem">Play online</a>
+						</li>
+						<li>
+							<a href="#" class="footer-nav__item" role="menuitem">Play on-site</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="footer__social">
+				<h1 class="footer__heading">Follow us on</h1>
+				<nav class="footer-nav" role="menu">
+					<ul role="presentation">
+						<li>
+							<a href="#" class="footer-nav__item" role="menuitem">Facebook</a>
+						</li>
+						<li>
+							<a href="#" class="footer-nav__item" role="menuitem">Instagram</a>
+						</li>
+						<li>
+							<a href="#" class="footer-nav__item" role="menuitem">Twitter</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</footer>
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+
 </html>
