@@ -4,13 +4,13 @@
   "description": "task 2 in the course html and css",
   "main": "index.js",
   "scripts": {
-      "sass:compile": "sass src/style.scss style.css",
-      "sass:watch": "sass --watch src/style.scss style.css",
-      "test": "echo \"Error: no test specified\" && exit 1"
+    "sass:compile": "sass src/style.scss style.css",
+    "sass:watch": "sass --watch src/style.scss style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "sass": "^1.80.4"
+  "devDependencies": {
+    "sass": "^1.80.7"
   }
 }
