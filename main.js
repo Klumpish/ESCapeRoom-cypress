@@ -2,7 +2,6 @@
 import { challengeSort } from './challenges_rating_sort.js';
 
 const mainNavContainer = document.querySelector('.main-nav__container');
-=======
 const mainNavContainer = document.querySelector(".main-nav__container");
 
 
@@ -50,16 +49,33 @@ async function challenges() {
 //FilterBtn open/close
 // filterBtn  filterWindow
 const filterBtnOpen = document.querySelector(".filterBtn");
-const filterBtnClose = document.querySelector(".filterBtnClose");
+const filterBtnClose = document.querySelector(".buttonX");
 const filterWindow = document.querySelector(".filterWindow");
+const filterBtnDiv = document.querySelector(".filterBtn__div");
 
 filterBtnOpen.addEventListener("click", () => {
 	filterWindow.classList.add("filterWindow--active");
-	filterBtnOpen.classList.add(".filterBtn--hiden");
+	filterBtnDiv.classList.add("filterBtn--hidden");
 });
 
+// target the div to close
 filterBtnClose.addEventListener("click", () => {
 	filterWindow.classList.remove("filterWindow--active");
-	filterBtnOpen.classList.remove(".filterBtn--hiden");
+	filterBtnDiv.classList.remove("filterBtn--hidden");
 });
 
+// show more tags
+document.querySelector("#show-more-tags-btn").addEventListener("click", (event)=>{
+    const extraTags = document.querySelector("#extra-tags");
+    const button = event.target;
+
+    if(extraTags.style.display === "none"){
+        extraTags.style.display = "block";
+        button.textContent = "Show Less";
+    } else {
+        extraTags.style.display = "none"
+        button.textContent = "Show More";
+
+
+    }
+})
