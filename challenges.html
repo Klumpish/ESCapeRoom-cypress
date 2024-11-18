@@ -56,34 +56,8 @@
 			</nav>
 		</header>
 		<!--End header-->
-
-highest_rating
-    <section class="challenges">
-        <h2 class="challenges__title">Popular challenges right now</h2>
-  
-        <div class="card__container"></div><!--Ends card_container-->
-  
-        
-  
-        <div class="challenges__container">
-          <a href="#" role="link" class="button red-button challenges__red-link"
-            >Online challenges</a
-          >
-          <a href="#" role="link" class="button blue-button challenges__blue-link"
-            >On-site challenges</a
-          >
-        </div>
-        <div class="challenges__link-container">
-          <a href="#" role="link" class="challenges__small-link"
-            >Online challenges</a
-          >
-        </div>
-      </section>
-      <!--Ends challenges-->
-      <script type="module" src="./main.js"></script>
-  </body>
 		<section class="challenges">
-			<!-- #ToDo- change to correct text -->
+			<!-- TODO- change to correct text -->
 			<h2 class="challenges__title">Our challenges</h2>
 			<div class="filterBtn__div">
 				<button class="filterBtn">Filter challenges</button>
@@ -91,7 +65,7 @@ highest_rating
 			<div class="filterWindow">
 				<h2 class="filterwindow__Challenges">Filter challenges</h2>
 				<div class="buttonX">
-				<button class="filterBtnClose"></button>
+					<button class="filterBtnClose"></button>
 				</div>
 				<div class="filterWindow__Checkbox">
 					<h3 class="filterWindow__ByType">By type</h3>
@@ -129,29 +103,49 @@ highest_rating
 							<input type="radio" id="min-star-1" name="minRating" value="1" />
 							<label for="min-star-1" title="1 star">★</label>
 						</div>
-					<div class="starRating__div"> 
-					<p class="filterForm_p">to</p>
-					<div class="filterSection">
-						<!-- max star rating -->
-						<div class="star-rating">
-							<input type="radio" id="max-star-5" name="maxRating" value="5" />
-							<label for="max-star-5" title="5 stars">★</label>
+						<div class="starRating__div">
+							<p class="filterForm_p">to</p>
+							<div class="filterSection">
+								<!-- max star rating -->
+								<div class="star-rating">
+									<input
+										type="radio"
+										id="max-star-5"
+										name="maxRating"
+										value="5" />
+									<label for="max-star-5" title="5 stars">★</label>
 
-							<input type="radio" id="max-star-4" name="maxRating" value="4" />
-							<label for="max-star-4" title="4 stars">★</label>
+									<input
+										type="radio"
+										id="max-star-4"
+										name="maxRating"
+										value="4" />
+									<label for="max-star-4" title="4 stars">★</label>
 
-							<input type="radio" id="max-star-3" name="maxRating" value="3" />
-							<label for="max-star-3" title="3 stars">★</label>
+									<input
+										type="radio"
+										id="max-star-3"
+										name="maxRating"
+										value="3" />
+									<label for="max-star-3" title="3 stars">★</label>
 
-							<input type="radio" id="max-star-2" name="maxRating" value="2" />
-							<label for="max-star-2" title="2 stars">★</label>
+									<input
+										type="radio"
+										id="max-star-2"
+										name="maxRating"
+										value="2" />
+									<label for="max-star-2" title="2 stars">★</label>
 
-							<input type="radio" id="max-star-1" name="maxRating" value="1" />
-							<label for="max-star-1" title="1 star">★</label>
+									<input
+										type="radio"
+										id="max-star-1"
+										name="maxRating"
+										value="1" />
+									<label for="max-star-1" title="1 star">★</label>
+								</div>
+							</div>
 						</div>
 					</div>
-					</div>
-				</div>
 				</form>
 
 				<div class="filterWindow__ByTags">
@@ -171,223 +165,40 @@ highest_rating
 						<input type="checkbox" name="tags" value="coding" id="coding" />
 						<label for="coding">Coding</label>
 						<!--  -->
-						<div id="extra-tags" style="display:none;">
-						<!--  -->
-						<input type="checkbox" name="tags" value="ssh" id="ssh" />
-						<label for="ssh">SSH</label>
+						<div id="extra-tags" style="display: none">
+							<!--  -->
+							<input type="checkbox" name="tags" value="ssh" id="ssh" />
+							<label for="ssh">SSH</label>
 
-						<input type="checkbox" name="tags" value="phreaking" id="phreaking" />
-						<label for="phreaking">Phreaking</label>
+							<input type="checkbox" name="tags" value="phreaking" id="phreaking" />
+							<label for="phreaking">Phreaking</label>
 
-						<input type="checkbox" name="tags" value="hacking" id="hacking" />
-						<label for="hacking">Hacking</label>
+							<input type="checkbox" name="tags" value="hacking" id="hacking" />
+							<label for="hacking">Hacking</label>
 
-						<input type="checkbox" name="tags" value="web" id="web" />
-						<label for="web">Web</label>
+							<input type="checkbox" name="tags" value="web" id="web" />
+							<label for="web">Web</label>
 
-						<input type="checkbox" name="tags" value="bash" id="bash" />
-						<label for="bash">Bash</label>
+							<input type="checkbox" name="tags" value="bash" id="bash" />
+							<label for="bash">Bash</label>
 
-						<input type="checkbox" name="tags" value="ctf" id="ctf" />
-						<label for="ctf">CTF</label>
+							<input type="checkbox" name="tags" value="ctf" id="ctf" />
+							<label for="ctf">CTF</label>
 						</div>
 						<button id="show-more-tags-btn">Show more</button>
 					</div>
 				</div>
 				<div class="filterWindow__Search">
 					<h3 class="filterWindow__Search__h3">Or type to search for keyword</h3>
-					<input class="filterSearch_input" type="text" placeholder="Start typing to filter" />
+					<input
+						class="filterSearch_input"
+						type="text"
+						placeholder="Start typing to filter" />
 				</div>
 			</div>
-
-			<div class="card__container">
-				<div class="card">
-					<img
-						class="card__image"
-						src="images/hacker.jpg"
-						alt="A hacker sits turned away at a computer" />
-
-					<div class="card__body">
-						<h3 class="card__title">Title of room (on-site)</h3>
-
-						<div class="card__review">
-							<div class="card__starholder">
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star-empty.png"
-										alt="a empty star"
-								/></span>
-							</div>
-
-							<div class="card__participants">2-6 participants</div>
-						</div>
-						<div class="card__description">
-							<p>
-								Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-								nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-							</p>
-						</div>
-						<div class="card__link">
-							<a href="#" role="link" class="button red-button-small"
-								>Book this room</a
-							>
-						</div>
-					</div>
-				</div>
-				<!--Ends card-->
-
-				<div class="card">
-					<img
-						class="card__image"
-						src="images/hacker.jpg"
-						alt="A hacker sits turned away at a computer" />
-
-					<div class="card__body">
-						<h3 class="card__title">Title of room (on-site)</h3>
-
-						<div class="card__review">
-							<div class="card__starholder">
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star-empty.png"
-										alt="a empty star"
-								/></span>
-							</div>
-
-							<div class="card__participants">2-6 participants</div>
-						</div>
-						<div class="card__description">
-							<p>
-								Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-								nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-							</p>
-						</div>
-						<div class="card__link">
-							<a href="#" role="link" class="button red-button-small"
-								>Book this room</a
-							>
-						</div>
-					</div>
-				</div>
-				<!--Ends card-->
-
-				<div class="card">
-					<img
-						class="card__image"
-						src="images/hacker.jpg"
-						alt="A hacker sits turned away at a computer" />
-
-					<div class="card__body">
-						<h3 class="card__title">Title of room (on-site)</h3>
-
-						<div class="card__review">
-							<div class="card__starholder">
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star.png"
-										alt="a star"
-								/></span>
-								<span
-									><img
-										class="starholder__item"
-										src="images/star-empty.png"
-										alt="a empty star"
-								/></span>
-							</div>
-
-							<div class="card__participants">2-6 participants</div>
-						</div>
-						<div class="card__description">
-							<p>
-								Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
-								nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
-							</p>
-						</div>
-						<div class="card__link">
-							<a href="#" role="link" class="button red-button-small"
-								>Book this room</a
-							>
-						</div>
-					</div>
-				</div>
-				<!--Ends card-->
-			</div>
-
 
 			<container class="api-challenges">
-				<button id="load-challenges">All online challenges</button>
 				<div id="challenge-list"></div>
-			
-				<button id="load-onsitechallenges"></button>
 				<div id="challenge-listOnSite"></div>
 			</container>
 			<!--Ends card_container-->
@@ -458,8 +269,7 @@ highest_rating
 				</nav>
 			</div>
 		</footer>
-		<script type="text/javascript" src="main.js"></script>
+		<script type="module" src="main.js"></script>
 		<script type="text/javascript" src="challenges.js"></script>
 	</body>
-
 </html>
