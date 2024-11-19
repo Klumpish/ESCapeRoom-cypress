@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const title = document.createElement('h3');
         title.classList.add('card__title');
-        title.textContent = `${challenge.title} (${challenge.type === 'on-site' ? 'on-site' : 'online'})`;
+        title.textContent = `${challenge.title} (${challenge.type === 'onsite' ? 'on-site' : 'online'})`;
 
         const review = document.createElement('div');
         review.classList.add('card__review');
