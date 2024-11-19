@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const contentContainer = document.querySelector('.api-challenges'); // Show challenges
 
   // Dynamic loading of challenges.js only if location is challenge.html 
+  
   if (currentPath.includes('challenges.html')) {
     try {
       const response = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');

@@ -1,6 +1,7 @@
 /**
  * @author Marcus Möller
  */
+const currentPath = window.location.pathname;
 const challengeSort = {
     ratingArray: [],
     /**
@@ -83,6 +84,9 @@ const challengeSort = {
      * Function to create a challenge card.
      */
     createSpanChallenge () {
+    if (currentPath === "/"){
+
+    
         const cardContainer = document.querySelector('.card__container');
 
         /* loop through the three highest rated */
@@ -159,6 +163,7 @@ const challengeSort = {
             cardDiv.append(divCardBody);
             divCardBody.append(btnDiv);
         }
+    }
     }
 };
 
