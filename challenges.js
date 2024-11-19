@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       data.challenges.forEach(challenge => {
         const challengeItem = document.createElement('div');
         challengeItem.classList.add('card'); // classes for challenges
-
         // Create card structure manually instead of innerHTML
         const img = document.createElement('img');
         img.classList.add('card__image');
