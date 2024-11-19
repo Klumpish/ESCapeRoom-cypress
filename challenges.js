@@ -1,6 +1,6 @@
 ////// Challenges loading from button (All online challenges & All on-site challenges)
 
-document.addEventListener('DOMContentLoaded', async () => {
+/* document.addEventListener('DOMContentLoaded', async () => {
   const currentPath = window.location.pathname; // fetch challenges.html
   const contentContainer = document.querySelector('.api-challenges'); // Show challenges
 
@@ -10,12 +10,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
       const response = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
       const data = await response.json();
+      const challengeArray = data.challenges
+      console.log(challengeArray)
 
       // Create new container for API 
       const newContent = document.createElement('div');
       newContent.id = 'content';
 
-      data.challenges.forEach(challenge => {
+      challengeArray.forEach(challenge => {
+        // Write out the order of challenge
         const challengeItem = document.createElement('div');
         challengeItem.classList.add('card'); // classes for challenges
 
@@ -30,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const title = document.createElement('h3');
         title.classList.add('card__title');
-        title.textContent = `${challenge.title} (${challenge.type === 'on-site' ? 'on-site' : 'online'})`;
+        title.textContent = `${challenge.title} (${challenge.type === 'onsite' ? 'on-site' : 'online'})`;
 
         const review = document.createElement('div');
         review.classList.add('card__review');
@@ -49,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         link.classList.add('card__link');
         const button = document.createElement('a');
         button.classList.add('button', 'red-button-small');
-        button.textContent = 'Book this room';
+        button.textContent = `${ challenge.type === 'onsite' ? 'Book this room' : 'Take challenges online'}`;;
         link.appendChild(button);
 
         // To show in order
@@ -80,8 +83,99 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.error('Error fetching challenges:', error);
     }
   }
-});
+}); */
 
 
   ////// Challenges loading from button (All online challenges & All on-site challenges)
-  
+
+//Commentated out Tobias code and added it as a function in challenges.js
+// Retrieves information loaded from the api in the object challengeSort
+// Changed so the button writes diffrent text depending on online or onsite
+// Added document.addEventListener('DOMContentLoaded', createChallengeCards(array)) into main.js
+// TODO: Fix so we get stars into the cards
+// TODO: Maybe add this function into the object so we can discard this js file.
+
+function createChallengeCards (challengeArray) {
+  const currentPath = window.location.pathname; // fetch challenges.html
+  const contentContainer = document.querySelector('.api-challenges'); // Show challenges
+
+  // Dynamic loading of challenges.js only if location is challenge.html 
+
+  if (currentPath.includes('challenges.html')) {
+    try {
+      /* const challengeArray = array; */
+      console.log(challengeArray);
+
+      // Create new container for API 
+      const newContent = document.createElement('div');
+      newContent.id = 'content';
+
+      challengeArray.forEach(challenge => {
+        // Write out the order of challenge
+        const challengeItem = document.createElement('div');
+        challengeItem.classList.add('card'); // classes for challenges
+
+        // Create card structure manually instead of innerHTML
+        const img = document.createElement('img');
+        img.classList.add('card__image');
+        img.src = challenge.image;
+        img.alt = challenge.title;
+
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card__body');
+
+        const title = document.createElement('h3');
+        title.classList.add('card__title');
+        title.textContent = `${challenge.title} (${challenge.type === 'onsite' ? 'on-site' : 'online'})`;
+
+        const review = document.createElement('div');
+        review.classList.add('card__review');
+
+        const participants = document.createElement('div');
+        participants.classList.add('card__participants');
+        participants.textContent = `${challenge.minParticipants} - ${challenge.maxParticipants} participants`;
+
+        const description = document.createElement('div');
+        description.classList.add('card__description');
+        const p = document.createElement('p');
+        p.textContent = challenge.description; // Challenge description
+        description.appendChild(p);
+
+        const link = document.createElement('div');
+        link.classList.add('card__link');
+        const button = document.createElement('a');
+        button.classList.add('button', 'red-button-small');
+        button.textContent = `${challenge.type === 'onsite' ? 'Book this room' : 'Take challenges online'}`;;
+        link.appendChild(button);
+
+        // To show in order
+        cardBody.appendChild(title);
+        cardBody.appendChild(review);
+        cardBody.appendChild(participants);
+        cardBody.appendChild(description);
+        cardBody.appendChild(link);
+        challengeItem.appendChild(img);
+        challengeItem.appendChild(cardBody);
+        newContent.appendChild(challengeItem);
+      });
+
+      // The new content is between header & footer
+      contentContainer.appendChild(newContent);
+
+      // Temporary back to top button
+      const backButton = document.createElement('button');
+      backButton.textContent = 'Back to top';
+      backButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      newContent.appendChild(backButton);
+
+      //Error message in console if error occurs 
+
+    } catch (error) {
+      console.error('Error fetching challenges:', error);
+    }
+  }
+}
+
+export {createChallengeCards};

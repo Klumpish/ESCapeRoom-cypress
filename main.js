@@ -1,5 +1,6 @@
 
 import { challengeSort } from './challenges_rating_sort.js';
+import { createChallengeCards } from './challenges.js';
 
 const mainNavContainer = document.querySelector('.main-nav__container');
 
@@ -19,7 +20,7 @@ btnClose.addEventListener('click', () => {
 // read data from api and set it into ratingArray.
 let array = challengeSort.ratingArray;
 array = await challengeSort.getApiToArray();
-
+console.log(array)
 // sort arrray in descending order.
 challengeSort.sortAscendingOrder();
 /* console.log(challengeSort.ratingArray, "hello hello") */
@@ -34,8 +35,15 @@ btnClose.addEventListener("click", () => {
 	mainNavContainer.classList.remove("main-nav__container--active");
 });
 
-/* TODO: fix Tobias code to challenge object. */
-/* challengeSort.tobiasFunction() */
+/* TODO: fix challengeSort.tobiasFunction. */
+//Should take array
+//Remove response, data.
+//Load content from array
+
+/* challengeSort.tobiasFunction(array) */
+array.forEach(challenge => {
+    console.log(challenge.id, "hej")
+})
 
 /* async function challenges() {
 	const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/challenges");
@@ -79,5 +87,5 @@ document.querySelector("#show-more-tags-btn").addEventListener("click", (event)=
     }
 })
 
-/* TODO: fix Tobias code to challenge object. */
-challengeSort.tobiasFunction();
+/* Challenges loading from button (All online challenges & All on-site challenges) */
+document.addEventListener('DOMContentLoaded', createChallengeCards(array));

@@ -1,5 +1,5 @@
 /**
- * @author Marcus Möller
+ * @author Marcus och Tobias
  */
 const currentPath = window.location.pathname;
 const challengeSort = {
@@ -39,8 +39,6 @@ const challengeSort = {
             starImg.src = './images/star.png';
         } else if (hasHalfStar === true && counter === fullStars + 1) {
             starImg.src = './images/half-star.png';
-            /* starImg.style.clipPath = 'inset(0 50% 0 0)'; */
-            /* TODO: fix so starImg div get halved when halfStar */
         } else {
             starImg.src = './images/star-empty.png';
         }
@@ -77,7 +75,7 @@ const challengeSort = {
         btn.href = '#';
         const online = 'Take challenge online';
         const onsite = 'Book this room';
-        if (/* this.ratingArray[i].type */btnParam === 'online') {
+        if (btnParam === 'online') {
             btn.innerHTML = online;
         } else {
             btn.innerHTML = onsite;
@@ -173,8 +171,9 @@ const challengeSort = {
     /**
      * Function from tobias file.
      */
-    async tobiasFunction () {
-        document.addEventListener('DOMContentLoaded', async () => {
+    tobiasFunction (array) {
+        document.addEventListener('DOMContentLoaded', () => {
+            /* console.log("hej") */
             const currentPath = window.location.pathname; // fetch challenges.html
             const contentContainer = document.querySelector('.api-challenges'); // Show challenges
 
@@ -182,14 +181,14 @@ const challengeSort = {
 
             if (currentPath.includes('challenges.html')) {
                 try {
-                    const response = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
-                    const data = await response.json();
+                    /* const response = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
+                    const data = await response.json(); */
 
                     // Create new container for API 
                     const newContent = document.createElement('div');
                     newContent.id = 'content';
 
-                    data.challenges.forEach(challenge => {
+                    array.forEach(challenge => {
                         const challengeItem = document.createElement('div');
                         challengeItem.classList.add('card'); // classes for challenges
 
