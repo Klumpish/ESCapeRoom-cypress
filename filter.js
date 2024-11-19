@@ -1,13 +1,29 @@
 /* 
 1.get data.
     -from main.js maybe.
+    -get filter choices from filterwindow options
 2.filtrera hämtad data.
-- make sure all data is lowercase
+    -make sure all data is lowercase
 
 3. send filter data to challenges.js
-    -to be showned
+    -to show filtered cards
 
  */
+
+// eventListener for filter input
+const filterWindow = document.querySelector(".filterWindow");
+// make an object to store all the filtersettings?
+const filterVariables = {};
+
+filterWindow.addEventListener("change",function(event){ 
+    const target = event.target;
+    console.log(target)
+
+
+
+ });
+
+
 const fakeAPI = [
   {
     id: 1,
@@ -60,7 +76,7 @@ function searchType (fakeAPI, byType) {
 function supersearchFilter(rating = null,type=null,c=null,d=null){
 
     if(d === null){
-        console.log("jag är en potatis")
+        // console.log("jag är en potatis")
     }
 
 }
