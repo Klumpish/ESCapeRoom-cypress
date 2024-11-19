@@ -16,11 +16,15 @@ btnClose.addEventListener('click', () => {
     mainNavContainer.classList.remove('main-nav__container--active');
 });
 
-
+// read data from api and set it into ratingArray.
 let array = challengeSort.ratingArray;
 array = await challengeSort.getApiToArray();
-console.log(array);
-challengeSort.createSpanChallenge();
+
+// sort arrray in descending order.
+challengeSort.sortAscendingOrder();
+/* console.log(challengeSort.ratingArray, "hello hello") */
+// show the three highest cards.
+challengeSort.createChallenge();
 
 btnOpen.addEventListener("click", () => {
 	mainNavContainer.classList.add("main-nav__container--active");
@@ -30,13 +34,16 @@ btnClose.addEventListener("click", () => {
 	mainNavContainer.classList.remove("main-nav__container--active");
 });
 
-async function challenges() {
+/* TODO: fix Tobias code to challenge object. */
+/* challengeSort.tobiasFunction() */
+
+/* async function challenges() {
 	const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/challenges");
 	const data = await res.json();
 	data.challenges.forEach((challenge) => {
 		console.log(challenge.title);
 	});
-}
+} */
 
 //FilterBtn open/close
 // filterBtn  filterWindow
@@ -71,3 +78,6 @@ document.querySelector("#show-more-tags-btn").addEventListener("click", (event)=
 
     }
 })
+
+/* TODO: fix Tobias code to challenge object. */
+challengeSort.tobiasFunction();
