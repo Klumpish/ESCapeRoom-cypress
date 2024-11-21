@@ -1,5 +1,6 @@
 
 import { challengeSort } from './challenges_rating_sort.js';
+import {createChallengeCards} from "./challenges.js";
 
 const mainNavContainer = document.querySelector('.main-nav__container');
 
@@ -21,6 +22,9 @@ let array = challengeSort.ratingArray;
 array = await challengeSort.getApiToArray();
 console.log(array);
 challengeSort.createSpanChallenge();
+// 
+export {array}
+// 
 
 btnOpen.addEventListener("click", () => {
 	mainNavContainer.classList.add("main-nav__container--active");
