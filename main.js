@@ -2,6 +2,8 @@
 import { challengeSort } from './challenges_rating_sort.js';
 import {createChallengeCards} from "./challenges.js";
 
+
+
 const mainNavContainer = document.querySelector('.main-nav__container');
 
 
@@ -20,11 +22,13 @@ btnClose.addEventListener('click', () => {
 
 let array = challengeSort.ratingArray;
 array = await challengeSort.getApiToArray();
-console.log(array);
+// console.log(array);
 challengeSort.createSpanChallenge();
 // 
 export {array}
 // 
+
+// document.addEventListener("DOMContentLoaded", createChallengeCards(array));
 
 btnOpen.addEventListener("click", () => {
 	mainNavContainer.classList.add("main-nav__container--active");
@@ -75,3 +79,6 @@ document.querySelector("#show-more-tags-btn").addEventListener("click", (event)=
 
     }
 })
+
+
+document.addEventListener("DOMContentLoaded", createChallengeCards(array), false);

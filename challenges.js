@@ -1,6 +1,7 @@
 ////// Challenges loading from button (All online challenges & All on-site challenges)
 
 function createChallengeCards (challengeArray) {
+  console.log(challengeArray)
   const currentPath = window.location.pathname; // fetch challenges.html
   const contentContainer = document.querySelector('.api-challenges'); // Show challenges
 
@@ -9,7 +10,6 @@ function createChallengeCards (challengeArray) {
   if (currentPath.includes('challenges.html')) {
     try {
       /* const challengeArray = array; */
-      console.log(challengeArray);
 
       // Create new container for API 
       const newContent = document.createElement('div');

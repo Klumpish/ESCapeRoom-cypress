@@ -14,7 +14,7 @@
  */
 
 
-// asdasd
+// TODO: fix rating stars. Gives five hole stars sometimes.
 
 import { createChallengeCards } from "./challenges.js";
 import { array } from "./main.js";
@@ -24,16 +24,18 @@ filterWindow.addEventListener("change", filterFunctionWindow);
 
 
 /*
-#TODO 
-card need to reset so that its not 300+cards
-by-type - online/on-site not working
-remove back to top button
+# TODO:
+card need to reset so that its not 300+cards -check
+by-type - online/on-site - check if one or both are "checked" -not done
+remove back to top button - dont wanna.
 
--clear existing cards before adding new ones
-  -delete div #content
+-clear existing cards before adding new ones - checked
+  -delete div #content -checked
 
--move filtering in to a function
-  -filter type/rating/search/tags in to there own function
+-move filtering in to a function -checked
+  -filter type/rating/search/tags in to their own function - not done
+  
+-we might wanna remove the resetBtn and have it listening for something else.
 
 */
 
@@ -48,8 +50,8 @@ function filterFunctionWindow () {
 	// Get the checkbox for active items
 	// checkboxes "name put to activeItems"
 	// Get the selected type (online or onsite)
-	const selectedTypeRadio = filterWindow.querySelector('input[name="activeItems"]:checked');
-	const selectedType = selectedTypeRadio ? selectedTypeRadio.value : "";
+	const selectedTypeBox = filterWindow.querySelector('input[name="activeItems"]:checked');
+	const selectedType = selectedTypeBox ? selectedTypeBox.value : "";
 
 	// Get all checked checkboxes for tags
 	// Array.from makes queryselectorall in to a "normal array so we can use . things behind it"
@@ -99,11 +101,46 @@ function filterFunctionWindow () {
 
 		return matches;
 	});
-
-	console.log(filterData);
+  
+  clearCards()
+	// console.log(filterData);
 	createChallengeCards(filterData);
 }
 
 function clearCards(){
   document.querySelector("#content").remove();
 }
+
+
+// resetButton
+const resetBtn = document.querySelector("#resetFilters")
+
+resetBtn.addEventListener("click",()=>{
+  // reset text
+  const searchInput = filterWindow.querySelector('input[type="text"]');
+  searchInput.value = "";
+
+  const tags = filterWindow.querySelectorAll('input[name="tags"]');
+  tags.forEach(checkbox => {
+    checkbox.checked = false; //should uncheck
+  })
+
+  const activeCheckbox = filterWindow.querySelectorAll("input[name='activeItems'");
+    activeCheckbox.forEach((checkbox) => {
+      checkbox.checked = false;
+    })
+
+  const maxStars = filterWindow.querySelectorAll('input[name="maxRating"]');
+  maxStars.forEach(star => {
+    star.checked = false;
+  });
+
+  const minStars = filterWindow.querySelectorAll('input[name="minRating"]');
+  minStars.forEach(star => {
+    star.checked = false;
+  });
+
+  clearCards()
+  createChallengeCards(array);
+
+})
