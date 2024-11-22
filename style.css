@@ -690,20 +690,22 @@ button.filterBtn {
 /* filter button end */
 
 .filterWindow {
-  display: none;
-  max-width: 950px;
-  margin-left: auto;
-  margin-right: auto;
-  column-gap: 30px;
-  row-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto;
-  border-radius: 2px;
-  border-style: solid;
-  border-color: lightgray;
-  padding: 5px;
-  padding-left: 15px;
+	display: none;
+	max-width: 950px;
+	margin-left: auto;
+	margin-right: auto;
+	column-gap: 30px;
+	row-gap: 10px;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto auto auto;
+	border-radius: 2px;
+	border-style: solid;
+	border-color: lightgray;
+	padding: 5px;
+	padding-left: 15px;
+	margin-bottom: 3rem;
 }
+
 /* show filterwindow */
 .filterWindow--active {
   display: grid;
