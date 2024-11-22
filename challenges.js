@@ -1,7 +1,13 @@
+/**
+ * 
+ * @author Marcus och Tobias
+ */
 ////// Challenges loading from button (All online challenges & All on-site challenges)
-
+/**
+ * Function to read from array and dynamically make challenge cards. 
+ */
 function createChallengeCards (challengeArray) {
-  console.log(challengeArray)
+  main
   const currentPath = window.location.pathname; // fetch challenges.html
   const contentContainer = document.querySelector('.api-challenges'); // Show challenges
 
@@ -10,6 +16,7 @@ function createChallengeCards (challengeArray) {
   if (currentPath.includes('challenges.html')) {
     try {
       /* const challengeArray = array; */
+      console.log(challengeArray);
 
       // Create new container for API 
       const newContent = document.createElement('div');
@@ -123,7 +130,3 @@ function createChallengeCards (challengeArray) {
 }
 
 export { createChallengeCards };
-
-
-  ////// Challenges loading from button (All online challenges & All on-site challenges)
-  
