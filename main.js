@@ -1,22 +1,18 @@
+import { challengeSort } from "./challenges_rating_sort.js";
 
-import { challengeSort } from './challenges_rating_sort.js';
+import { createChallengeCards } from "./challenges.js";
 
-import {createChallengeCards} from "./challenges.js";
-
-
-const mainNavContainer = document.querySelector('.main-nav__container');
-
+const mainNavContainer = document.querySelector(".main-nav__container");
 
 const btnOpen = document.querySelector(".btnOpen");
 const btnClose = document.querySelector(".btnClose");
 
-
-btnOpen.addEventListener('click', () => {
-    mainNavContainer.classList.add('main-nav__container--active');
+btnOpen.addEventListener("click", () => {
+	mainNavContainer.classList.add("main-nav__container--active");
 });
 
-btnClose.addEventListener('click', () => {
-    mainNavContainer.classList.remove('main-nav__container--active');
+btnClose.addEventListener("click", () => {
+	mainNavContainer.classList.remove("main-nav__container--active");
 });
 
 // read data from api and set it into ratingArray.
@@ -24,20 +20,19 @@ let array = challengeSort.ratingArray;
 array = await challengeSort.getApiToArray();
 
 // console.log(array);
-challengeSort.createSpanChallenge();
-// 
-export {array}
-// 
+// challengeSort.createSpanChallenge();
+//
+export { array };
+//
 
 // document.addEventListener("DOMContentLoaded", createChallengeCards(array));
 
-console.log(array)
+console.log(array);
 // sort arrray in descending order.
 challengeSort.sortAscendingOrder();
 /* console.log(challengeSort.ratingArray, "hello hello") */
 // show the three highest cards.
 challengeSort.createChallenge();
-
 
 btnOpen.addEventListener("click", () => {
 	mainNavContainer.classList.add("main-nav__container--active");
@@ -53,9 +48,6 @@ btnClose.addEventListener("click", () => {
 //Load content from array
 
 /* challengeSort.tobiasFunction(array) */
-array.forEach(challenge => {
-    console.log(challenge.id, "hej")
-})
 
 /* async function challenges() {
 	const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/challenges");
@@ -84,24 +76,18 @@ filterBtnClose.addEventListener("click", () => {
 });
 
 // show more tags
-document.querySelector("#show-more-tags-btn").addEventListener("click", (event)=>{
-    const extraTags = document.querySelector("#extra-tags");
-    const button = event.target;
+document.querySelector("#show-more-tags-btn").addEventListener("click", (event) => {
+	const extraTags = document.querySelector("#extra-tags");
+	const button = event.target;
 
-    if(extraTags.style.display === "none"){
-        extraTags.style.display = "block";
-        button.textContent = "Show Less";
-    } else {
-        extraTags.style.display = "none"
-        button.textContent = "Show More";
-
-
-    }
-})
-
-
-
-document.addEventListener("DOMContentLoaded", createChallengeCards(array), false);
+	if (extraTags.style.display === "none") {
+		extraTags.style.display = "block";
+		button.textContent = "Show Less";
+	} else {
+		extraTags.style.display = "none";
+		button.textContent = "Show More";
+	}
+});
 
 /* Challenges loading from button (All online challenges & All on-site challenges) */
-document.addEventListener('DOMContentLoaded', createChallengeCards(array));
+document.addEventListener("DOMContentLoaded", createChallengeCards(array), false);
