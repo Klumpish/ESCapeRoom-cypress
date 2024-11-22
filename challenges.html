@@ -7,12 +7,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="challenges.css" />
+		<link rel="stylesheet" href="Datepicker/datepicker.material.css">
+		<script src="Datepicker/datepicker.js"></script>
 	</head>
 	<body>
 		<header>
 			<div class="header-content">
 				<div class="logotype">
-					<a href="#" role="link">
+					<a href="index.html" role="link">
 						<img
 							class="logotype__image"
 							src="images/logotype.png"
@@ -56,6 +58,9 @@
 			</nav>
 		</header>
 		<!--End header-->
+
+		<button class="button open-button">open modal</button>
+
 		<section class="challenges">
 			<!-- TODO- change to correct text -->
 			<h2 class="challenges__title">Our challenges</h2>
@@ -273,7 +278,117 @@
 				</nav>
 			</div>
 		</footer>
+
+		<!-- Modal-dialog -->
+		<dialog class="modal" id="modal">
+			<span class="close-modal-button">&times;</span>
+			  
+			<form data-multi-step class="multi-step-form" method="dialog">
+			  
+			  <!-- .multi-step-form__completed -->
+			  <div class="multi-step-form__completed" hidden>
+				<svg
+				  xmlns="http://www.w3.org/2000/svg"
+				  fill="none"
+				  viewBox="0 0 24 24"
+				  stroke-width="1.5"
+				  stroke="currentColor">
+				  <path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+				  />
+				</svg>
+			
+				<h3 class="multi-step-form__title">Thank You!</h3>
+				<p class="multi-step-form__link">
+				  <a href="challenges.html">Back to challenges</a>
+				</p>
+			  </div>
+			  <!-- /.multi-step-form__completed -->
+			
+			  <!-- .booking-card -->
+			  <div class="booking-card active" data-step>
+				<h2 class="booking-card__header" id="header1"></h2>
+				<p class="booking-card__description">What date would you like to come?</p>
+			
+				<input type="text" name="challenge" id="challenge"
+				  class="booking-card__input"readonly hidden />
+			
+				<label for="simple" class="booking-card__label">Date</label>
+				<input type="date" id="simple" class="booking-card__input booking-card__input--date" required/>
+			
+				<div class="booking-card__controls">
+				  <button
+					type="button"
+					class="booking-card__button booking-card__button--next"
+					next-data
+				  >
+					Search available times
+				  </button>
+				</div>
+			  </div>
+			  <!-- /.booking-card -->
+			
+			  <!-- .booking-card -->
+			  <div class="booking-card" data-step>
+				<h2 class="booking-card__header" id="header2"></h2>
+			
+				<label for="name" class="booking-card__label">Name</label>
+				<input
+				  type="text"
+				  name="name"
+				  id="name"
+				  class="booking-card__input booking-card__input--text"
+				  placeholder="Name"
+				/>
+			
+				<label for="email" class="booking-card__label">E-mail</label>
+				<input
+				  type="email"
+				  name="email"
+				  id="email"
+				  class="booking-card__input booking-card__input--email"
+				  placeholder="Email address"
+				/>
+			
+				<label for="time" class="booking-card__label">What time?</label>
+				<select name="time" id="time" class="booking-card__select"></select>
+			
+				<label for="participants" class="booking-card__label">How many participants?</label>
+				<input
+				  type="number"
+				  name="participants"
+				  id="participants"
+				  class="booking-card__input booking-card__input--number"
+				/>
+			
+				<div class="booking-card__controls">
+				  <button
+					type="button"
+					class="booking-card__button booking-card__button--prev"
+					data-previous
+				  >
+					Back to date
+				  </button>
+				  <button
+					type="submit"
+					class="booking-card__button booking-card__button--submit"
+				  >
+					Submit booking
+				  </button>
+				</div>
+			  </div>
+			  <!-- /.booking-card -->
+			</form>
+			
+			</div>
+		  </dialog>
+		<!-- End Modal-dialog -->
+
 		<script type="module" src="main.js"></script>
+		<script type="text/javascript" src="challenges.js"></script>
+		<script src="js/booking.js"></script>
 		<script type="module" src="filter.js"></script>
 	</body>
 </html>
