@@ -6,10 +6,21 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;  
-  
-}
+  }
 
-img { 
+  @media screen and (max-width: 768px) {
+    #content {
+      grid-template-columns: 1fr;
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      #content {
+        grid-template-columns: 1fr 1fr;
+        }
+      }
+
+/* img { 
 height: 50%; 
   width: 50%;
-}
+} */
