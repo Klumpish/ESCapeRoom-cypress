@@ -7,6 +7,7 @@
  * Function to read from array and dynamically make challenge cards. 
  */
 function createChallengeCards (challengeArray) {
+  main
   const currentPath = window.location.pathname; // fetch challenges.html
   const contentContainer = document.querySelector('.api-challenges'); // Show challenges
 

@@ -707,6 +707,7 @@ button.filterBtn {
 	border-color: lightgray;
 	padding: 5px;
 	padding-left: 15px;
+	margin-bottom: 3rem;
 }
 /* show filterwindow */
 .filterWindow--active {

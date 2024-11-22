@@ -1,6 +1,8 @@
 
 import { challengeSort } from './challenges_rating_sort.js';
-import { createChallengeCards } from './challenges.js';
+
+import {createChallengeCards} from "./challenges.js";
+
 
 const mainNavContainer = document.querySelector('.main-nav__container');
 
@@ -20,12 +22,22 @@ btnClose.addEventListener('click', () => {
 // read data from api and set it into ratingArray.
 let array = challengeSort.ratingArray;
 array = await challengeSort.getApiToArray();
+
+// console.log(array);
+challengeSort.createSpanChallenge();
+// 
+export {array}
+// 
+
+// document.addEventListener("DOMContentLoaded", createChallengeCards(array));
+
 console.log(array)
 // sort arrray in descending order.
 challengeSort.sortAscendingOrder();
 /* console.log(challengeSort.ratingArray, "hello hello") */
 // show the three highest cards.
 challengeSort.createChallenge();
+
 
 btnOpen.addEventListener("click", () => {
 	mainNavContainer.classList.add("main-nav__container--active");
@@ -86,6 +98,10 @@ document.querySelector("#show-more-tags-btn").addEventListener("click", (event)=
 
     }
 })
+
+
+
+document.addEventListener("DOMContentLoaded", createChallengeCards(array), false);
 
 /* Challenges loading from button (All online challenges & All on-site challenges) */
 document.addEventListener('DOMContentLoaded', createChallengeCards(array));

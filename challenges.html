@@ -71,11 +71,11 @@
 					<h3 class="filterWindow__ByType">By type</h3>
 					<!-- Checkboxes	  -->
 					<label>
-						<input type="checkbox" name="online" value="online" /> Include online
+						<input type="checkbox" name="activeItems" value="online" /> Include online
 						challenges
 					</label>
 					<label>
-						<input type="checkbox" name="on-site" value="on-site" /> Include on-site
+						<input type="checkbox" name="activeItems" value="onsite" /> Include on-site
 						challenges
 					</label>
 				</div>
@@ -195,6 +195,10 @@
 						type="text"
 						placeholder="Start typing to filter" />
 				</div>
+				<div class="resetBtn">
+					<button id="resetFilters">Reset</button>
+				</div>
+
 			</div>
 
 			<container class="api-challenges">
@@ -270,5 +274,6 @@
 			</div>
 		</footer>
 		<script type="module" src="main.js"></script>
+		<script type="module" src="filter.js"></script>
 	</body>
 </html>
