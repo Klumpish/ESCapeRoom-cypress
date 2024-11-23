@@ -49,30 +49,33 @@ const filterBtnClose = document.querySelector(".buttonX");
 const filterWindow = document.querySelector(".filterWindow");
 const filterBtnDiv = document.querySelector(".filterBtn__div");
 
-filterBtnOpen.addEventListener("click", () => {
-	filterWindow.classList.add("filterWindow--active");
-	filterBtnDiv.classList.add("filterBtn--hidden");
-});
+if (challengeSort.currentPath.includes("challenges.html")) {
 
-// target the div to close
-filterBtnClose.addEventListener("click", () => {
-	filterWindow.classList.remove("filterWindow--active");
-	filterBtnDiv.classList.remove("filterBtn--hidden");
-});
+	filterBtnOpen.addEventListener("click", () => {
+		filterWindow.classList.add("filterWindow--active");
+		filterBtnDiv.classList.add("filterBtn--hidden");
+	});
 
-// show more tags
-document.querySelector("#show-more-tags-btn").addEventListener("click", (event) => {
-	const extraTags = document.querySelector("#extra-tags");
-	const button = event.target;
+	// target the div to close
+	filterBtnClose.addEventListener("click", () => {
+		filterWindow.classList.remove("filterWindow--active");
+		filterBtnDiv.classList.remove("filterBtn--hidden");
+	});
 
-	if (extraTags.style.display === "none") {
-		extraTags.style.display = "block";
-		button.textContent = "Show Less";
-	} else {
-		extraTags.style.display = "none";
-		button.textContent = "Show More";
-	}
-});
+	// show more tags
+	document.querySelector("#show-more-tags-btn").addEventListener("click", (event) => {
+		const extraTags = document.querySelector("#extra-tags");
+		const button = event.target;
+	
+		if (extraTags.style.display === "none") {
+			extraTags.style.display = "block";
+			button.textContent = "Show Less";
+		} else {
+			extraTags.style.display = "none";
+			button.textContent = "Show More";
+		}
+	});
+}
 
 /* Challenges loading from button (All online challenges & All on-site challenges) */
 document.addEventListener("DOMContentLoaded", challengeSort.createChallengeCardsToFilter(array), false);
