@@ -1,6 +1,6 @@
 /* import { challengeSort } from "./challenges_rating_sort.js"; */
 
-import { challengeSort } from "./challenges.js";
+import { challengeSort } from "./modules/challenges.js";
 
 const mainNavContainer = document.querySelector(".main-nav__container");
 
