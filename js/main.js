@@ -16,18 +16,18 @@ btnClose.addEventListener("click", () => {
 });
 
 // read data from api and set it into ratingArray.
-let array = challengeSort.ratingArray;
-array = await challengeSort.getApiToArray();
+let ApiArray = challengeSort.ratingArray;
+ApiArray = await challengeSort.getApiToArray();
 
 // console.log(array);
 // challengeSort.createSpanChallenge();
 //
-export { array };
+export { ApiArray };
 //
 
 // document.addEventListener("DOMContentLoaded", createChallengeCards(array));
 
-console.log(array);
+console.log(ApiArray);
 // sort arrray in descending order.
 challengeSort.sortAscendingOrder();
 /* console.log(challengeSort.ratingArray, "hello hello") */
@@ -78,4 +78,4 @@ if (challengeSort.currentPath.includes("challenges.html")) {
 }
 
 /* Challenges loading from button (All online challenges & All on-site challenges) */
-document.addEventListener("DOMContentLoaded", challengeSort.createChallengeCardsToFilter(array), false);
+document.addEventListener("DOMContentLoaded", challengeSort.createChallengeCardsToFilter(ApiArray), false);

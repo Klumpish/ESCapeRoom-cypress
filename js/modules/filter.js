@@ -17,7 +17,7 @@
 // TODO: fix rating stars. Gives five hole stars sometimes.
 
 import { createChallengeCards } from "./challenges.js";
-import { array } from "../main.js";
+import { ApiArray as array } from "../main.js";
 
 const filterWindow = document.querySelector(".filterWindow");
 filterWindow.addEventListener("change", filterFunctionWindow);
