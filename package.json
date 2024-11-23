@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "task 2 in the course html and css",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "sass:compile": "sass src/style.scss style.css",
     "sass:watch": "sass --watch src/style.scss style.css",
