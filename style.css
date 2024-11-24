@@ -1099,11 +1099,33 @@ button.filterBtn {
     font-weight: 400;
   }
 
+  button#resetFilters {
+    border: none;
+    background-color: transparent;
+    color: #4b5c6b;
+    font-size: 20px;
+    padding-top: 1rem;
+    align-content: center;
+    justify-items: center;
+  }
+
+  button#resetFilters:hover {
+    color: #c91609;
+    cursor: pointer;
+  }
+
+  div.resetBtn {
+    align-content: center;
+    justify-content: center;
+  }
+
 
   @media only screen and (max-width: 600px) {
     .filterWindow--active {
       display: flex;
+      align-items: center;
       flex-direction: column;
+      text-align: center;
     }
     div.buttonX {
       position: absolute;
@@ -1112,6 +1134,7 @@ button.filterBtn {
     }
     div.resetBtn {
       padding-bottom: 2rem;
+      align-items: center;
     } 
     }
 
