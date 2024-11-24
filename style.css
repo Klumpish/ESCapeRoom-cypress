@@ -1119,6 +1119,11 @@ button.filterBtn {
     justify-content: center;
   }
 
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 
   @media only screen and (max-width: 600px) {
     .filterWindow--active {
@@ -1136,5 +1141,16 @@ button.filterBtn {
       padding-bottom: 2rem;
       align-items: center;
     } 
+    
+    div#content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    div.card {
+      max-width: 30rem;
+    }
+
     }
 
