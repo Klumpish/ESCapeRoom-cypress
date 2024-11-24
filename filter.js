@@ -45,11 +45,10 @@ function filterFunctionWindow() {
 	// ternary opperator aka sshorthand for an if-else statement
 	const searchValue = searchInput ? searchInput.value.trim() : "";
 
-	// Get the checkbox for active items
-	// checkboxes "name put to activeItems"
-	// Get the selected type (online or onsite)
-	const selectedTypeBox = filterWindow.querySelector('input[name="activeItems"]:checked');
-	const selectedType = selectedTypeBox ? selectedTypeBox.value : "";
+	// Get the selected type (online or onsite or both)
+	const selectedTypes = Array.from(
+		filterWindow.querySelectorAll('input[name="activeItems"]:checked')
+	).map((checkbox) => checkbox.value);
 
 	// Get all checked checkboxes for tags
 	// Array.from makes queryselectorall in to a "normal array so we can use . things behind it"
@@ -92,8 +91,8 @@ function filterFunctionWindow() {
 		if (maxRating && card.rating > parseFloat(maxRating)) {
 			matches = false;
 		}
-
-		if (selectedType && card.type !== selectedType) {
+		// filter selected types if any are selected
+		if (selectedTypes.length > 0 && !selectedTypes.includes(card.type)) {
 			matches = false;
 		}
 
