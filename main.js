@@ -16,10 +16,15 @@ btnClose.addEventListener("click", () => {
 });
 
 // read data from api and set it into ratingArray.
-let ApiArray = challengeSort.ratingArray;
 
+let ApiArray = challengeSort.ratingArray;
 ApiArray = await challengeSort.getApiToArray();
 
+// console.log(array);
+// challengeSort.createSpanChallenge();
+//
+
+challengeSort.sortAscendingOrder();
 export { ApiArray };
 //
 
@@ -27,7 +32,6 @@ export { ApiArray };
 
 console.log(ApiArray);
 // sort arrray in descending order.
-challengeSort.sortAscendingOrder();
 /* console.log(challengeSort.ratingArray, "hello hello") */
 // show the three highest cards.
 challengeSort.createChallenge();
