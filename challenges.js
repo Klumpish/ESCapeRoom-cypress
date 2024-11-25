@@ -10,11 +10,17 @@ const challengeSort = {
 	 * Function to read from api. 
 	*/
 	async getApiToArray () {
-		const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
-		const data = await res.json();
-		this.ratingArray = data.challenges;
+		try {
 
-		return this.ratingArray;
+			const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
+			const data = await res.json();
+			this.ratingArray = data.challenges;
+
+			return this.ratingArray;
+		} catch (error) {
+			console.error('Error in getApiToArray', error);
+		}
+
 	},
 	/**
 	 * Function to sort rating in descending order. 
@@ -184,6 +190,15 @@ const challengeSort = {
 				// Create new container for API
 				const newContent = document.createElement("div");
 				newContent.id = "content";
+
+				if (challengeArray.length === 0) {
+					const noMatchingChallenges = document.createElement("h2");
+					noMatchingChallenges.id = "noChallengeh2";
+					noMatchingChallenges.textContent = "No matching challenges";
+					newContent.appendChild(noMatchingChallenges);
+					contentContainer.appendChild(newContent);
+					return;
+				}
 
 				challengeArray.forEach((challenge) => {
 					// Write out the order of challenge
