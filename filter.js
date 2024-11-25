@@ -13,7 +13,6 @@
 
  */
 
-
 // TODO: fix rating stars. Gives five hole stars sometimes.
 
 import { createChallengeCards } from "./challenges.js";
@@ -21,7 +20,6 @@ import { array } from "./main.js";
 
 const filterWindow = document.querySelector(".filterWindow");
 filterWindow.addEventListener("change", filterFunctionWindow);
-
 
 /*
 # TODO:
@@ -39,19 +37,18 @@ remove back to top button - dont wanna.
 
 */
 
-function filterFunctionWindow () {
-  // grabs what we are clicking on
+function filterFunctionWindow() {
+	// grabs what we are clicking on
 
 	// Get the value of the search input inside filterWindow
 	const searchInput = filterWindow.querySelector('input[type="text"]');
 	// ternary opperator aka sshorthand for an if-else statement
 	const searchValue = searchInput ? searchInput.value.trim() : "";
 
-	// Get the checkbox for active items
-	// checkboxes "name put to activeItems"
-	// Get the selected type (online or onsite)
-	const selectedTypeBox = filterWindow.querySelector('input[name="activeItems"]:checked');
-	const selectedType = selectedTypeBox ? selectedTypeBox.value : "";
+	// Get the selected type (online or onsite or both)
+	const selectedTypes = Array.from(
+		filterWindow.querySelectorAll('input[name="activeItems"]:checked')
+	).map((checkbox) => checkbox.value);
 
 	// Get all checked checkboxes for tags
 	// Array.from makes queryselectorall in to a "normal array so we can use . things behind it"
@@ -74,8 +71,8 @@ function filterFunctionWindow () {
 		if (
 			searchValue &&
 			!(
-				card.title.toLowerCase().includes(searchValue) ||
-				card.description.toLowerCase().includes(searchValue)
+				card.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+				card.description.toLowerCase().includes(searchValue.toLowerCase())
 			)
 		) {
 			matches = false;
@@ -94,53 +91,51 @@ function filterFunctionWindow () {
 		if (maxRating && card.rating > parseFloat(maxRating)) {
 			matches = false;
 		}
-
-		if (selectedType && card.type !== selectedType) {
+		// filter selected types if any are selected
+		if (selectedTypes.length > 0 && !selectedTypes.includes(card.type)) {
 			matches = false;
 		}
 
 		return matches;
 	});
-  
-  clearCards()
+
+	clearCards();
 	// console.log(filterData);
 	createChallengeCards(filterData);
 }
 
-function clearCards(){
-  document.querySelector("#content").remove();
+function clearCards() {
+	document.querySelector("#content").remove();
 }
 
-
 // resetButton
-const resetBtn = document.querySelector("#resetFilters")
+const resetBtn = document.querySelector("#resetFilters");
 
-resetBtn.addEventListener("click",()=>{
-  // reset text
-  const searchInput = filterWindow.querySelector('input[type="text"]');
-  searchInput.value = "";
+resetBtn.addEventListener("click", () => {
+	// reset text
+	const searchInput = filterWindow.querySelector('input[type="text"]');
+	searchInput.value = "";
 
-  const tags = filterWindow.querySelectorAll('input[name="tags"]');
-  tags.forEach(checkbox => {
-    checkbox.checked = false; //should uncheck
-  })
+	const tags = filterWindow.querySelectorAll('input[name="tags"]');
+	tags.forEach((checkbox) => {
+		checkbox.checked = false; //should uncheck
+	});
 
-  const activeCheckbox = filterWindow.querySelectorAll("input[name='activeItems'");
-    activeCheckbox.forEach((checkbox) => {
-      checkbox.checked = false;
-    })
+	const activeCheckbox = filterWindow.querySelectorAll("input[name='activeItems'");
+	activeCheckbox.forEach((checkbox) => {
+		checkbox.checked = false;
+	});
 
-  const maxStars = filterWindow.querySelectorAll('input[name="maxRating"]');
-  maxStars.forEach(star => {
-    star.checked = false;
-  });
+	const maxStars = filterWindow.querySelectorAll('input[name="maxRating"]');
+	maxStars.forEach((star) => {
+		star.checked = false;
+	});
 
-  const minStars = filterWindow.querySelectorAll('input[name="minRating"]');
-  minStars.forEach(star => {
-    star.checked = false;
-  });
+	const minStars = filterWindow.querySelectorAll('input[name="minRating"]');
+	minStars.forEach((star) => {
+		star.checked = false;
+	});
 
-  clearCards()
-  createChallengeCards(array);
-
-})
+	clearCards();
+	createChallengeCards(array);
+});
