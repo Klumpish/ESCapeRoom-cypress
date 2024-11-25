@@ -1,6 +1,6 @@
-import { challengeSort } from "./challenges_rating_sort.js";
+/* import { challengeSort } from "./challenges_rating_sort.js"; */
 
-import { createChallengeCards } from "./challenges.js";
+import { challengeSort } from "./challenges.js";
 
 const mainNavContainer = document.querySelector(".main-nav__container");
 
@@ -16,25 +16,26 @@ btnClose.addEventListener("click", () => {
 });
 
 // read data from api and set it into ratingArray.
-let array = challengeSort.ratingArray;
+let ApiArray = challengeSort.ratingArray;
 
-try { 
-array = await challengeSort.getApiToArray();
+try {
+ApiArray = await challengeSort.getApiToArray();
 
 // console.log(array);
 // challengeSort.createSpanChallenge();
 //
-
-// document.addEventListener("DOMContentLoaded", createChallengeCards(array));
-challengeSort.sortAscendingOrder();
-console.log(array);
-} catch(error){ 
+} catch (error) {
 	console.error('Error in getApiToArray', error);
 }
+
+export { ApiArray };
+//
+
+// document.addEventListener("DOMContentLoaded", createChallengeCards(array));
+
+console.log(ApiArray);
 // sort arrray in descending order.
-
-
-export { array };
+challengeSort.sortAscendingOrder();
 /* console.log(challengeSort.ratingArray, "hello hello") */
 // show the three highest cards.
 challengeSort.createChallenge();
@@ -47,21 +48,6 @@ btnClose.addEventListener("click", () => {
 	mainNavContainer.classList.remove("main-nav__container--active");
 });
 
-/* TODO: fix challengeSort.tobiasFunction. */
-//Should take array
-//Remove response, data.
-//Load content from array
-
-/* challengeSort.tobiasFunction(array) */
-
-/* async function challenges() {
-	const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/challenges");
-	const data = await res.json();
-	data.challenges.forEach((challenge) => {
-		console.log(challenge.title);
-	});
-} */
-
 //FilterBtn open/close
 // filterBtn  filterWindow
 const filterBtnOpen = document.querySelector(".filterBtn");
@@ -69,30 +55,33 @@ const filterBtnClose = document.querySelector(".buttonX");
 const filterWindow = document.querySelector(".filterWindow");
 const filterBtnDiv = document.querySelector(".filterBtn__div");
 
-filterBtnOpen.addEventListener("click", () => {
-	filterWindow.classList.add("filterWindow--active");
-	filterBtnDiv.classList.add("filterBtn--hidden");
-});
+if (challengeSort.currentPath.includes("challenges.html")) {
 
-// target the div to close
-filterBtnClose.addEventListener("click", () => {
-	filterWindow.classList.remove("filterWindow--active");
-	filterBtnDiv.classList.remove("filterBtn--hidden");
-});
+	filterBtnOpen.addEventListener("click", () => {
+		filterWindow.classList.add("filterWindow--active");
+		filterBtnDiv.classList.add("filterBtn--hidden");
+	});
 
-// show more tags
-document.querySelector("#show-more-tags-btn").addEventListener("click", (event) => {
-	const extraTags = document.querySelector("#extra-tags");
-	const button = event.target;
+	// target the div to close
+	filterBtnClose.addEventListener("click", () => {
+		filterWindow.classList.remove("filterWindow--active");
+		filterBtnDiv.classList.remove("filterBtn--hidden");
+	});
 
-	if (extraTags.style.display === "none") {
-		extraTags.style.display = "block";
-		button.textContent = "Show Less";
-	} else {
-		extraTags.style.display = "none";
-		button.textContent = "Show More";
-	}
-});
+	// show more tags
+	document.querySelector("#show-more-tags-btn").addEventListener("click", (event) => {
+		const extraTags = document.querySelector("#extra-tags");
+		const button = event.target;
+	
+		if (extraTags.style.display === "none") {
+			extraTags.style.display = "block";
+			button.textContent = "Show Less";
+		} else {
+			extraTags.style.display = "none";
+			button.textContent = "Show More";
+		}
+	});
+}
 
 /* Challenges loading from button (All online challenges & All on-site challenges) */
-document.addEventListener("DOMContentLoaded", createChallengeCards(array), false);
+document.addEventListener("DOMContentLoaded", challengeSort.createChallengeCardsToFilter(ApiArray), false);
