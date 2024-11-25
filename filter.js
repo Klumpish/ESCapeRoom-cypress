@@ -14,6 +14,7 @@
  */
 
 // TODO: fix rating stars. Gives five hole stars sometimes.
+// - challengeArray - if not displayed a div with 'no matching challenges' will appear. if-statement
 
 import { createChallengeCards } from "./challenges.js";
 import { array } from "./main.js";
