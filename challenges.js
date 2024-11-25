@@ -20,7 +20,6 @@ const challengeSort = {
 		} catch (error) {
 			console.error('Error in getApiToArray', error);
 		}
-
 	},
 	/**
 	 * Function to sort rating in descending order. 
@@ -95,8 +94,7 @@ const challengeSort = {
 	 * Function to create a challenge card.
 	 */
 	createChallenge () {
-		if (this.currentPath === "/index.html") {
-
+		if (this.currentPath.includes("index.html")) {
 
 			const cardContainer = document.querySelector('.card__container');
 
@@ -180,12 +178,11 @@ const challengeSort = {
 	 * Function to read from array and dynamically make challenge cards.
 	   */
 	createChallengeCardsToFilter (challengeArray) {
-		const currentPath = window.location.pathname; // fetch challenges.html
 		const contentContainer = document.querySelector(".api-challenges"); // Show challenges
 
 		// Dynamic loading of challenges.js only if location is challenge.html
 
-		if (currentPath.includes("challenges.html")) {
+		if (this.currentPath.includes("challenges.html")) {
 			try {
 				// Create new container for API
 				const newContent = document.createElement("div");
