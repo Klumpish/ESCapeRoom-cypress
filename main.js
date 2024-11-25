@@ -1,6 +1,6 @@
 /* import { challengeSort } from "./challenges_rating_sort.js"; */
 
-import { challengeSort } from "./modules/challenges.js";
+import { challengeSort } from "./challenges.js";
 
 const mainNavContainer = document.querySelector(".main-nav__container");
 
@@ -17,11 +17,17 @@ btnClose.addEventListener("click", () => {
 
 // read data from api and set it into ratingArray.
 let ApiArray = challengeSort.ratingArray;
+
+try {
 ApiArray = await challengeSort.getApiToArray();
 
 // console.log(array);
 // challengeSort.createSpanChallenge();
 //
+} catch (error) {
+	console.error('Error in getApiToArray', error);
+}
+
 export { ApiArray };
 //
 

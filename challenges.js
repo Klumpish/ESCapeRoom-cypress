@@ -172,7 +172,7 @@ const challengeSort = {
 	},
 	/**
 	 * Function to read from array and dynamically make challenge cards.
- 	 */
+	   */
 	createChallengeCardsToFilter (challengeArray) {
 		const currentPath = window.location.pathname; // fetch challenges.html
 		const contentContainer = document.querySelector(".api-challenges"); // Show challenges
@@ -298,4 +298,4 @@ export { challengeSort };
 
 //export individuall function
 const createChallengeCards = challengeSort.createChallengeCardsToFilter.bind(challengeSort);
-export { createChallengeCards }
+export { createChallengeCards };
