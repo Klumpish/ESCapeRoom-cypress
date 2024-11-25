@@ -17,19 +17,24 @@ btnClose.addEventListener("click", () => {
 
 // read data from api and set it into ratingArray.
 let array = challengeSort.ratingArray;
+
+try { 
 array = await challengeSort.getApiToArray();
 
 // console.log(array);
 // challengeSort.createSpanChallenge();
 //
-export { array };
-//
 
 // document.addEventListener("DOMContentLoaded", createChallengeCards(array));
-
-console.log(array);
-// sort arrray in descending order.
 challengeSort.sortAscendingOrder();
+console.log(array);
+} catch(error){ 
+	console.error('Error in getApiToArray', error);
+}
+// sort arrray in descending order.
+
+
+export { array };
 /* console.log(challengeSort.ratingArray, "hello hello") */
 // show the three highest cards.
 challengeSort.createChallenge();
