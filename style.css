@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap");
 /* VARIABLES */
 :root {
 	--light-gray: ;
@@ -10,7 +11,6 @@
 	margin: 0;
 } */
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap");
 html {
 	font-size: 16px;
 	max-width: 1280px;
@@ -22,6 +22,7 @@ body {
 	font-weight: 400;
 	font-style: normal;
 	width: 100%;
+	margin: 0;
 }
 
 ul {
