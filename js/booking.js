@@ -4,8 +4,6 @@
 
 const modal = document.querySelector("#modal");
 const openModal = document.querySelectorAll(".open-button");
-const openModals = document.querySelector(".open-button"); //new code
-// const openModal = document.querySelector(".open-button");
 const closeModal = document.querySelector(".close-modal-button");
 const multiStepForm = document.querySelector("[data-multi-step]");
 const formSteps = [...multiStepForm.querySelectorAll("[data-step]")];
@@ -20,32 +18,30 @@ const header2 = multiStepForm.querySelector("#header2");
 
 import { ApiArray as events } from "../main.js";
 
+// global variable to get id from challenge button.
 let eventId;
 // goes through all classes of .open-button and gets rooms number."
-openModal.forEach(
-	(openModal) =>
-		openModal.addEventListener("click", () => {
-			modal.showModal();
-			eventId = parseInt(openModal.getAttribute("id"));
-			const eventDetails = events.find((event) => event.id === eventId);
-			header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
+openModal.forEach((openModal) =>
+	openModal.addEventListener("click", () => {
+		modal.showModal();
+		eventId = parseInt(openModal.getAttribute("id"));
+		const eventDetails = events.find((event) => event.id === eventId);
+		header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
 
-			if (challengeInput) {
-				challengeInput.value = eventId;
-			} else {
-				console.error("The inputfield could not be found");
-			}
-		})
-	//here
+		if (challengeInput) {
+			challengeInput.value = eventId;
+		} else {
+			console.error("The inputfield could not be found");
+		}
+	})
 );
 
 closeModal.addEventListener("click", () => {
+	location.reload();
 	modal.close();
 });
 
 nextButton.addEventListener("click", () => {
-	// eventId = parseInt(openModals.getAttribute("id"));
-	console.log(eventId, "nextButton");
 	const eventDetails = events.find((event) => event.id === eventId);
 	header2.textContent = `Book room "${eventDetails.title}" (step 2)`;
 	const date = dateInput.value;
@@ -56,7 +52,7 @@ nextButton.addEventListener("click", () => {
 	for (let i = 1; i <= eventDetails.maxParticipants; i++) {
 		const option = document.createElement("option");
 		option.value = i;
-		option.textContent = i;
+		option.textContent = i + " participants";
 		participantsSelect.appendChild(option);
 	}
 });
