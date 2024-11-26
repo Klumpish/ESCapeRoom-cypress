@@ -511,6 +511,12 @@ header {
 	display: inline-block;
 }
 
+@media  screen and (max-width: 767px) {
+  .testimonial--second {
+    display: none;
+  }
+}
+
 /* ///////////////////// QUOTE /////////////////// */
 .quote {
 	background-color: #011827;
