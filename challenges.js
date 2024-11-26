@@ -12,7 +12,7 @@ const challengeSort = {
 	async getApiToArray() {
 		try {
 			const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/challenges");
-  
+
 			const data = await res.json();
 			this.ratingArray = data.challenges;
 
@@ -74,17 +74,17 @@ const challengeSort = {
 	/**
 	 * Function to create a button.
 	 */
-	createBtn (btnParam, btnId) {
-		const btn = document.createElement('a');
-		btn.classList.add('button');
-		btn.classList.add('red-button-small');
-		btn.classList.add('open-button');
-		btn.role = 'link';
-		btn.href = '#';
-		const online = 'Take challenge online';
-		const onsite = 'Book this room';
+	createBtn(btnParam, btnId) {
+		const btn = document.createElement("a");
+		btn.classList.add("button");
+		btn.classList.add("red-button-small");
+		btn.classList.add("open-button");
+		btn.role = "link";
+		btn.href = "#";
+		const online = "Take challenge online";
+		const onsite = "Book this room";
 		btn.id = btnId;
-		if (btnParam === 'online') {
+		if (btnParam === "online") {
 			btn.innerHTML = online;
 		} else {
 			btn.innerHTML = onsite;
@@ -165,7 +165,7 @@ const challengeSort = {
 				btnDiv.classList.add("card__link");
 
 				/* Create button and append it to a div*/
-				console.log(this.ratingArray[i].id)
+				console.log(this.ratingArray[i].id);
 				btnDiv.append(this.createBtn(this.ratingArray[i].type, this.ratingArray[i].id));
 
 				/* append divs for cards */
@@ -267,9 +267,11 @@ const challengeSort = {
 					const link = document.createElement("div");
 					link.classList.add("card__link");
 					const button = document.createElement("a");
-          
-					button.classList.add("button", "red-button-small", "button-open");
-					button.textContent = `${challenge.type === "onsite" ? "Book this room" : "Take challenges online"}`;
+
+					button.classList.add("button", "red-button-small", "open-button");
+					button.textContent = `${
+						challenge.type === "onsite" ? "Book this room" : "Take challenges online"
+					}`;
 					button.id = `${challenge.id}`;
 					link.appendChild(button);
 
