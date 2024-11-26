@@ -3,7 +3,9 @@
  */
 
 const modal = document.querySelector("#modal");
-const openModal = document.querySelector(".open-button");
+const openModal = document.querySelectorAll(".open-button");
+const openModals = document.querySelector(".open-button"); //new code
+// const openModal = document.querySelector(".open-button");
 const closeModal = document.querySelector(".close-modal-button");
 const multiStepForm = document.querySelector("[data-multi-step]");
 const formSteps = [...multiStepForm.querySelectorAll("[data-step]")];
@@ -16,38 +18,43 @@ const challengeInput = multiStepForm.querySelector("#challenge");
 const header1 = multiStepForm.querySelector("#header1");
 const header2 = multiStepForm.querySelector("#header2");
 
+import { ApiArray as events } from "../main.js";
 
-import {ApiArray as events} from "../main.js";
+let eventId;
+// goes through all classes of .open-button and gets rooms number."
+openModal.forEach(
+	(openModal) =>
+		openModal.addEventListener("click", () => {
+			modal.showModal();
+			eventId = parseInt(openModal.getAttribute("id"));
+			const eventDetails = events.find((event) => event.id === eventId);
+			header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
 
-
-openModal.addEventListener("click", () => {
-	modal.showModal();
-	const eventId = parseInt(openModal.getAttribute('data-id'));
-	const eventDetails = events.find(event => event.id === eventId);
-	header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
-	
-	if (challengeInput) {
-		challengeInput.value = eventId;
-	} else {
-		console.error("The inputfield could not be found");
-	}
-});
+			if (challengeInput) {
+				challengeInput.value = eventId;
+			} else {
+				console.error("The inputfield could not be found");
+			}
+		})
+	//here
+);
 
 closeModal.addEventListener("click", () => {
 	modal.close();
 });
 
 nextButton.addEventListener("click", () => {
-	const eventId = parseInt(openModal.getAttribute('data-id'));
-	const eventDetails = events.find(event => event.id === eventId);
+	// eventId = parseInt(openModals.getAttribute("id"));
+	console.log(eventId, "nextButton");
+	const eventDetails = events.find((event) => event.id === eventId);
 	header2.textContent = `Book room "${eventDetails.title}" (step 2)`;
 	const date = dateInput.value;
-	fetchAvailableTimes(date, 3);
+	fetchAvailableTimes(date, eventId);
 
 	// Fyll select med deltagarantal
-	participantsSelect.innerHTML = ''; // Rensa tidigare alternativ
+	participantsSelect.innerHTML = ""; // Rensa tidigare alternativ
 	for (let i = 1; i <= eventDetails.maxParticipants; i++) {
-		const option = document.createElement('option');
+		const option = document.createElement("option");
 		option.value = i;
 		option.textContent = i;
 		participantsSelect.appendChild(option);
