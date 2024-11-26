@@ -288,7 +288,7 @@ const challengeSort = {
 
 				// Temporary back to top button
 				const backButton = document.createElement("button");
-				backButton.textContent = "Back to top";
+				backButton.id = "backToTopButton";
 				backButton.addEventListener("click", () => {
 					window.scrollTo({ top: 0, behavior: "smooth" });
 				});
