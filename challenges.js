@@ -73,7 +73,7 @@ const challengeSort = {
 	/**
 	 * Function to create a button.
 	 */
-	createBtn (btnParam) {
+	createBtn (btnParam, btnId) {
 		const btn = document.createElement('a');
 		btn.classList.add('button');
 		btn.classList.add('red-button-small');
@@ -81,12 +81,11 @@ const challengeSort = {
 		btn.href = '#';
 		const online = 'Take challenge online';
 		const onsite = 'Book this room';
+		btn.id = btnId;
 		if (btnParam === 'online') {
 			btn.innerHTML = online;
-			btn.id = 'online';
 		} else {
 			btn.innerHTML = onsite;
-			btn.id = 'onsite';
 		}
 
 		return btn;
@@ -165,7 +164,8 @@ const challengeSort = {
 				btnDiv.classList.add('card__link');
 
 				/* Create button and append it to a div*/
-				btnDiv.append(this.createBtn(this.ratingArray[i].type));
+				console.log(this.ratingArray[i].id)
+				btnDiv.append(this.createBtn(this.ratingArray[i].type, this.ratingArray[i].id));
 
 				/* append divs for cards */
 				cardContainer.append(cardDiv);
@@ -275,7 +275,7 @@ const challengeSort = {
 					const button = document.createElement("a");
 					button.classList.add("button", "red-button-small");
 					button.textContent = `${challenge.type === "onsite" ? "Book this room" : "Take challenges online"}`;
-					button.id = `${challenge.type === "onsite" ? "onsite" : "online"}`;
+					button.id = `${challenge.id}`;
 					link.appendChild(button);
 
 					// To show in order
