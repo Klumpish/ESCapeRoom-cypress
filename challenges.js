@@ -11,7 +11,6 @@ const challengeSort = {
 	*/
 	async getApiToArray () {
 		try {
-
 			const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
 			const data = await res.json();
 			this.ratingArray = data.challenges;
@@ -84,8 +83,10 @@ const challengeSort = {
 		const onsite = 'Book this room';
 		if (btnParam === 'online') {
 			btn.innerHTML = online;
+			btn.id = 'online';
 		} else {
 			btn.innerHTML = onsite;
+			btn.id = 'onsite';
 		}
 
 		return btn;
@@ -94,7 +95,7 @@ const challengeSort = {
 	 * Function to create a challenge card.
 	 */
 	createChallenge () {
-		if (this.currentPath.includes("index.html")) {
+		if (this.currentPath.includes('index.html')) {
 
 			const cardContainer = document.querySelector('.card__container');
 
@@ -273,8 +274,8 @@ const challengeSort = {
 					link.classList.add("card__link");
 					const button = document.createElement("a");
 					button.classList.add("button", "red-button-small");
-					button.textContent = `${challenge.type === "onsite" ? "Book this room" : "Take challenges online"
-						}`;
+					button.textContent = `${challenge.type === "onsite" ? "Book this room" : "Take challenges online"}`;
+					button.id = `${challenge.type === "onsite" ? "onsite" : "online"}`;
 					link.appendChild(button);
 
 					// To show in order
