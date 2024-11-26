@@ -17,7 +17,6 @@ btnClose.addEventListener("click", () => {
 
 // read data from api and set it into ratingArray.
 
-
 let ApiArray = challengeSort.ratingArray;
 ApiArray = await challengeSort.getApiToArray();
 
@@ -53,7 +52,6 @@ const filterWindow = document.querySelector(".filterWindow");
 const filterBtnDiv = document.querySelector(".filterBtn__div");
 
 if (challengeSort.currentPath.includes("challenges.html")) {
-
 	filterBtnOpen.addEventListener("click", () => {
 		filterWindow.classList.add("filterWindow--active");
 		filterBtnDiv.classList.add("filterBtn--hidden");
@@ -69,7 +67,7 @@ if (challengeSort.currentPath.includes("challenges.html")) {
 	document.querySelector("#show-more-tags-btn").addEventListener("click", (event) => {
 		const extraTags = document.querySelector("#extra-tags");
 		const button = event.target;
-	
+
 		if (extraTags.style.display === "none") {
 			extraTags.style.display = "block";
 			button.textContent = "Show Less";
@@ -81,4 +79,8 @@ if (challengeSort.currentPath.includes("challenges.html")) {
 }
 
 /* Challenges loading from button (All online challenges & All on-site challenges) */
-document.addEventListener("DOMContentLoaded", challengeSort.createChallengeCardsToFilter(ApiArray), false);
+document.addEventListener(
+	"DOMContentLoaded",
+	challengeSort.createChallengeCardsToFilter(ApiArray),
+	false
+);
