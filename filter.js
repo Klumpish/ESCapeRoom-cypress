@@ -1,42 +1,8 @@
-/* 
-1.get data.
-    -from main.js maybe.
-    -get filter choices from filterwindow options
-    -add them to array.
-2.filtrera hämtad data.
-    -make sure all data is lowercase
-    -get filter array from listener
-    -then sort according to array.
-
-3. send filter data to challenges.js
-    -to show filtered cards
-
- */
-
-// TODO: fix rating stars. Gives five hole stars sometimes.
-// - challengeArray - if not displayed a div with 'no matching challenges' will appear. if-statement
-
 import { createChallengeCards } from "./challenges.js";
 import { ApiArray as array } from "./main.js";
 
 const filterWindow = document.querySelector(".filterWindow");
 filterWindow.addEventListener("change", filterFunctionWindow);
-
-/*
-# TODO:
-card need to reset so that its not 300+cards -check
-by-type - online/on-site - check if one or both are "checked" -not done
-remove back to top button - dont wanna.
-
--clear existing cards before adding new ones - checked
-  -delete div #content -checked
-
--move filtering in to a function -checked
-  -filter type/rating/search/tags in to their own function - not done
-  
--we might wanna remove the resetBtn and have it listening for something else.
-
-*/
 
 function filterFunctionWindow() {
 	// grabs what we are clicking on

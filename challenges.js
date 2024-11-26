@@ -7,46 +7,47 @@ const challengeSort = {
 	ratingArray: [],
 	currentPath: window.location.pathname,
 	/**
-	 * Function to read from api. 
-	*/
-	async getApiToArray () {
+	 * Function to read from api.
+	 */
+	async getApiToArray() {
 		try {
-			const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
+			const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/challenges");
+  
 			const data = await res.json();
 			this.ratingArray = data.challenges;
 
 			return this.ratingArray;
 		} catch (error) {
-			console.error('Error in getApiToArray', error);
+			console.error("Error in getApiToArray", error);
 		}
 	},
 	/**
-	 * Function to sort rating in descending order. 
+	 * Function to sort rating in descending order.
 	 */
-	sortAscendingOrder () {
+	sortAscendingOrder() {
 		this.ratingArray.sort((a, b) => b.rating - a.rating);
 	},
 	/**
 	 * Function to create img for div.
 	 * */
-	appendImg (imageUrl) {
-		const img = document.createElement('img');
-		img.classList.add('card__image');
+	appendImg(imageUrl) {
+		const img = document.createElement("img");
+		img.classList.add("card__image");
 		img.src = `${imageUrl}`;
-		img.alt = '';
+		img.alt = "";
 	},
 	/**
 	 * Function to convert numbers into stars.
 	 */
-	getStars (counter, fullStars, hasHalfStar) {
-		const starImg = document.createElement('img');
-		starImg.classList.add('starholder__item');
+	getStars(counter, fullStars, hasHalfStar) {
+		const starImg = document.createElement("img");
+		starImg.classList.add("starholder__item");
 		if (counter <= fullStars) {
-			starImg.src = './images/star.png';
+			starImg.src = "./images/star.png";
 		} else if (hasHalfStar === true && counter === fullStars + 1) {
-			starImg.src = './images/half-star.png';
+			starImg.src = "./images/half-star.png";
 		} else {
-			starImg.src = './images/star-empty.png';
+			starImg.src = "./images/star-empty.png";
 		}
 
 		return starImg;
@@ -54,20 +55,20 @@ const challengeSort = {
 	/**
 	 * Function to create image for card.
 	 */
-	createImg (imgSrc) {
-		const img = document.createElement('img');
-		img.classList.add('card__image');
+	createImg(imgSrc) {
+		const img = document.createElement("img");
+		img.classList.add("card__image");
 		img.src = `${imgSrc}`;
-		img.alt = 'A hacker sits turned away at a computer';
+		img.alt = "A hacker sits turned away at a computer";
 		return img;
 	},
 	/**
 	 * Function to create title for the cards.
 	 */
-	createTitle (title) {
-		const h3 = document.createElement('h3');
+	createTitle(title) {
+		const h3 = document.createElement("h3");
 		h3.innerHTML = title;
-		h3.classList.add('card__title');
+		h3.classList.add("card__title");
 		return h3;
 	},
 	/**
@@ -94,48 +95,47 @@ const challengeSort = {
 	/**
 	 * Function to create a challenge card.
 	 */
-	createChallenge () {
-		if (this.currentPath.includes('index.html')) {
-
-			const cardContainer = document.querySelector('.card__container');
+	createChallenge() {
+		if (this.currentPath === "/" || this.currentPath === "/index.html") {
+			const cardContainer = document.querySelector(".card__container");
 
 			/* loop through the three highest rated */
 			for (let i = 0; i < 3; i++) {
 				/* create div for card */
-				const cardDiv = document.createElement('div');
-				cardDiv.classList.add('card'); //add class for card
+				const cardDiv = document.createElement("div");
+				cardDiv.classList.add("card"); //add class for card
 
 				/* create  div card__body */
-				const divCardBody = document.createElement('div');
-				divCardBody.classList.add('card__body');
+				const divCardBody = document.createElement("div");
+				divCardBody.classList.add("card__body");
 
 				/* h3 title */
 				const h3String = `${this.ratingArray[i].title} (${this.ratingArray[i].type})`;
 				divCardBody.append(this.createTitle(h3String)); //append to div where text is placed inside card
 
 				/* Create div for rating and participants */
-				const cardReview = document.createElement('div');
-				cardReview.classList.add('card__review');
+				const cardReview = document.createElement("div");
+				cardReview.classList.add("card__review");
 				divCardBody.append(cardReview);
 
 				/* create rating stars div */
-				const starHolder = document.createElement('div');
-				starHolder.classList.add('card__starholder');
+				const starHolder = document.createElement("div");
+				starHolder.classList.add("card__starholder");
 
 				//create span
-				const holder = document.createElement('div');
-				holder.classList.add('card__starholder');
+				const holder = document.createElement("div");
+				holder.classList.add("card__starholder");
 				cardReview.append(holder);
 
 				/* values to check for full stars */
 				let counter = 1;
 				const fullStars = Math.floor(this.ratingArray[i].rating);
-				const hasHalfStar = (this.ratingArray[i].rating - fullStars) === 0.5;
+				const hasHalfStar = this.ratingArray[i].rating - fullStars === 0.5;
 
 				/* create spans and img for stars */
 				for (let i = 0; i < 5; ++i) {
 					//create span
-					const span = document.createElement('span');
+					const span = document.createElement("span");
 					holder.append(span);
 
 					//create the stars
@@ -145,15 +145,15 @@ const challengeSort = {
 				}
 
 				/* Create participants div */
-				const participantDiv = document.createElement('div');
-				participantDiv.classList.add('card__participants');
+				const participantDiv = document.createElement("div");
+				participantDiv.classList.add("card__participants");
 				participantDiv.innerHTML = `${this.ratingArray[i].minParticipants}-${this.ratingArray[i].maxParticipants} participants`;
 				cardReview.append(participantDiv);
 
 				/* Create text and div to contain text */
-				const divTxt = document.createElement('div');
-				divTxt.classList.add('card__description');
-				const txt = document.createElement('p');
+				const divTxt = document.createElement("div");
+				divTxt.classList.add("card__description");
+				const txt = document.createElement("p");
 				const paraString = this.ratingArray[i].description;
 				txt.innerHTML = paraString;
 
@@ -161,8 +161,8 @@ const challengeSort = {
 				divCardBody.append(divTxt);
 
 				/* Create div for button */
-				const btnDiv = document.createElement('div');
-				btnDiv.classList.add('card__link');
+				const btnDiv = document.createElement("div");
+				btnDiv.classList.add("card__link");
 
 				/* Create button and append it to a div*/
 				console.log(this.ratingArray[i].id)
@@ -178,8 +178,9 @@ const challengeSort = {
 	},
 	/**
 	 * Function to read from array and dynamically make challenge cards.
-	   */
-	createChallengeCardsToFilter (challengeArray) {
+	 */
+	createChallengeCardsToFilter(challengeArray) {
+		const currentPath = window.location.pathname; // fetch challenges.html
 		const contentContainer = document.querySelector(".api-challenges"); // Show challenges
 
 		// Dynamic loading of challenges.js only if location is challenge.html
@@ -215,8 +216,9 @@ const challengeSort = {
 
 					const title = document.createElement("h3");
 					title.classList.add("card__title");
-					title.textContent = `${challenge.title} (${challenge.type === "onsite" ? "on-site" : "online"
-						})`;
+					title.textContent = `${challenge.title} (${
+						challenge.type === "onsite" ? "on-site" : "online"
+					})`;
 
 					const review = document.createElement("div");
 					review.classList.add("card__review"); //Adding cardparticipants in review
@@ -274,6 +276,7 @@ const challengeSort = {
 					const link = document.createElement("div");
 					link.classList.add("card__link");
 					const button = document.createElement("a");
+          
 					button.classList.add("button", "red-button-small", "button-open");
 					button.textContent = `${challenge.type === "onsite" ? "Book this room" : "Take challenges online"}`;
 					button.id = `${challenge.id}`;
@@ -305,7 +308,7 @@ const challengeSort = {
 				console.error("Error fetching challenges:", error);
 			}
 		}
-	}
+	},
 };
 
 export { challengeSort };
