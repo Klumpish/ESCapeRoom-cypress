@@ -77,6 +77,7 @@ const challengeSort = {
 		const btn = document.createElement('a');
 		btn.classList.add('button');
 		btn.classList.add('red-button-small');
+		btn.classList.add('open-button');
 		btn.role = 'link';
 		btn.href = '#';
 		const online = 'Take challenge online';
@@ -273,7 +274,7 @@ const challengeSort = {
 					const link = document.createElement("div");
 					link.classList.add("card__link");
 					const button = document.createElement("a");
-					button.classList.add("button", "red-button-small");
+					button.classList.add("button", "red-button-small", "button-open");
 					button.textContent = `${challenge.type === "onsite" ? "Book this room" : "Take challenges online"}`;
 					button.id = `${challenge.id}`;
 					link.appendChild(button);
