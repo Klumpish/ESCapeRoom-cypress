@@ -191,15 +191,6 @@ const challengeSort = {
 				const newContent = document.createElement("div");
 				newContent.id = "content";
 
-				if (challengeArray.length === 0) {
-					const noMatchingChallenges = document.createElement("h2");
-					noMatchingChallenges.id = "noChallengeh2";
-					noMatchingChallenges.textContent = "No matching challenges";
-					newContent.appendChild(noMatchingChallenges);
-					contentContainer.appendChild(newContent);
-					return;
-				}
-
 				challengeArray.forEach((challenge) => {
 					// Write out the order of challenge
 					const challengeItem = document.createElement("div");
