@@ -11,21 +11,23 @@ const submitButton = multiStepForm.querySelector(".booking-card__button--submit"
 const nextButton = multiStepForm.querySelector(".booking-card__button--next");
 const dateInput = multiStepForm.querySelector("#simple");
 const timeSelect = multiStepForm.querySelector("#time");
+const participantsSelect = multiStepForm.querySelector("#participants");
 const challengeInput = multiStepForm.querySelector("#challenge");
 const header1 = multiStepForm.querySelector("#header1");
 const header2 = multiStepForm.querySelector("#header2");
 
-const title = "Munken i kärret";
-const challengeID = "20";
+
+import {ApiArray as events} from "../main.js";
+
 
 openModal.addEventListener("click", () => {
-	console.log("open");
 	modal.showModal();
-	// kollar knappens value = id på rum
-	// från array hämtar title  min och max personer
-	header1.textContent = `Book room "${title}" (step 1)`;
+	const eventId = parseInt(openModal.getAttribute('data-id'));
+	const eventDetails = events.find(event => event.id === eventId);
+	header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
+	
 	if (challengeInput) {
-		challengeInput.value = challengeID;
+		challengeInput.value = eventId;
 	} else {
 		console.error("The inputfield could not be found");
 	}
@@ -36,9 +38,20 @@ closeModal.addEventListener("click", () => {
 });
 
 nextButton.addEventListener("click", () => {
-	header2.textContent = `Book room "${title}" (step 2)`;
+	const eventId = parseInt(openModal.getAttribute('data-id'));
+	const eventDetails = events.find(event => event.id === eventId);
+	header2.textContent = `Book room "${eventDetails.title}" (step 2)`;
 	const date = dateInput.value;
 	fetchAvailableTimes(date, 3);
+
+	// Fyll select med deltagarantal
+	participantsSelect.innerHTML = ''; // Rensa tidigare alternativ
+	for (let i = 1; i <= eventDetails.maxParticipants; i++) {
+		const option = document.createElement('option');
+		option.value = i;
+		option.textContent = i;
+		participantsSelect.appendChild(option);
+	}
 });
 
 const simple = new Datepicker("#simple");

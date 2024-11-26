@@ -79,7 +79,7 @@
         </div>
       </nav>
     </header>
-    <button class="button open-button">open modal</button>
+    <button class="button open-button" data-id="1">open modal</button>
     <section class="hero">
       <img
         class="hero__img"
@@ -538,12 +538,11 @@
           <select name="time" id="time" class="booking-card__select"></select>
       
           <label for="participants" class="booking-card__label">How many participants?</label>
-          <input
+          <select
             type="number"
             name="participants"
             id="participants"
-            class="booking-card__input booking-card__input--number"
-          />
+            class="booking-card__input booking-card__input--number"></select>
       
           <div class="booking-card__controls">
             <button
@@ -568,6 +567,6 @@
     </dialog>
     <!-- End Modal-dialog -->
     <script type="module" src="./main.js"></script>
-    <script src="js/booking.js"></script>
+    <script type="module" src="js/booking.js"></script>
   </body>
 </html>
