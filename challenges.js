@@ -95,8 +95,12 @@ const challengeSort = {
 	/**
 	 * Function to create a challenge card.
 	 */
+	// this current path = /HACKER-ESCAPEROOM/
 	createChallenge() {
-		if (this.currentPath === "/" || this.currentPath === "/index.html") {
+		// #TODO
+		console.log(this.currentPath)
+		// 
+		if (this.currentPath == "/" || this.currentPath === "/index.html" || this.currentPath == "/HACKER-ESCAPEROOM/") {
 			const cardContainer = document.querySelector(".card__container");
 
 			/* loop through the three highest rated */
