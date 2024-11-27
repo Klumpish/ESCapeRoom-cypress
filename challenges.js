@@ -96,7 +96,7 @@ const challengeSort = {
 	 * Function to create a challenge card.
 	 */
 	createChallenge() {
-		if (this.currentPath === "/" || this.currentPath.includes("/index.html")) {
+		if (this.currentPath != "/challenges.html" || this.currentPath.includes("/index.html")) {
 			const cardContainer = document.querySelector(".card__container");
 
 			/* loop through the three highest rated */
