@@ -815,10 +815,12 @@ button.filterBtn {
 
 .filterBtnClose:hover {
   background-color: #c91609;
+  cursor: pointer;
 }
 
 .filterBtnClose:hover::before {
   background-color: #c91609;
+  cursor: pointer;
 }
 
 .filterWindow__Checkbox label {

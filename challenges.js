@@ -195,6 +195,15 @@ const challengeSort = {
 				const newContent = document.createElement("div");
 				newContent.id = "content";
 
+					if (challengeArray.length === 0) {
+					const noMatchingChallenges = document.createElement("h2");
+					noMatchingChallenges.id = "noChallengeh2";
+					noMatchingChallenges.textContent = "No matching challenges";
+					newContent.appendChild(noMatchingChallenges);
+					contentContainer.appendChild(newContent);
+					return;
+				}
+
 				challengeArray.forEach((challenge) => {
 					// Write out the order of challenge
 					const challengeItem = document.createElement("div");
@@ -292,13 +301,25 @@ const challengeSort = {
 				// The new content is between header & footer
 				contentContainer.appendChild(newContent);
 
-				// Temporary back to top button
+			/* 	// Trying to fix the button
+				const backButtonDiv = document.createElement("div");
 				const backButton = document.createElement("button");
 				backButton.id = "backToTopButton";
 				backButton.addEventListener("click", () => {
 					window.scrollTo({ top: 0, behavior: "smooth" });
 				});
-				//newContent.appendChild(backButton);
+				backButtonDiv.appendChild(backButton); */
+
+				// Temporary back to top button
+				const backButtonDiv = document.createElement("div");
+				const backButton = document.createElement("button");
+				backButton.id = "backToTopButton";
+				backButton.addEventListener("click", () => {
+					window.scrollTo({ top: 0, behavior: "smooth" });
+				});
+				backButtonDiv.appendChild(backButton);
+
+				/* newContent.appendChild(backButton); */
 				contentContainer.append(backButton);
 
 				//Error message in console if error occurs
