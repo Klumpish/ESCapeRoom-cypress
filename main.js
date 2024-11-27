@@ -34,7 +34,7 @@ console.log(ApiArray);
 // sort arrray in descending order.
 /* console.log(challengeSort.ratingArray, "hello hello") */
 // show the three highest cards.
-challengeSort.createChallenge();
+document.addEventListener('DOMContentLoaded', challengeSort.createChallenge());
 
 btnOpen.addEventListener("click", () => {
 	mainNavContainer.classList.add("main-nav__container--active");
