@@ -144,6 +144,8 @@ header {
     width: 20rem;
     padding: 0 0.6rem 0.2rem;
   }
+
+  
 }
 
 @media screen and (max-width: 640px) {
@@ -794,6 +796,7 @@ button.filterBtn {
   margin-left: auto;
   margin-top: 15px;
   margin-bottom: auto;
+  transition: background-color 0.3s ease;
 }
 
 .filterBtnClose::before {
@@ -807,6 +810,15 @@ button.filterBtn {
   height: 0.3rem;
   transform: rotate(90deg) translateX(-0.075rem) translateY(0.35rem);
   top: 0.6rem;
+  transition: background-color 0.3s ease;
+}
+
+.filterBtnClose:hover {
+  background-color: #c91609;
+}
+
+.filterBtnClose:hover::before {
+  background-color: #c91609;
 }
 
 .filterWindow__Checkbox label {
@@ -1153,8 +1165,10 @@ div.resetBtn {
 	background: none;
 	cursor: pointer; 
 	padding: 0;
-	grid-column: 3;
-	place-self: end;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
 }
 
 #backToTopButton:hover {

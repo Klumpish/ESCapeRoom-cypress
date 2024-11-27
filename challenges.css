@@ -10,15 +10,21 @@
 
   @media screen and (max-width: 768px) {
     #content {
+      grid-template-columns: 1fr 1fr ;
+      }
+    } 
+/* 
+  @media screen and (max-width: 768px) {
+    #content {
       grid-template-columns: 1fr;
       }
-    }
-
+    } */
+/* 
     @media screen and (max-width: 992px) {
       #content {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         }
-      }
+      } */
 
 /* img { 
 height: 50%; 

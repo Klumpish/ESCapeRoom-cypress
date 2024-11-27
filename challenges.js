@@ -298,7 +298,8 @@ const challengeSort = {
 				backButton.addEventListener("click", () => {
 					window.scrollTo({ top: 0, behavior: "smooth" });
 				});
-				newContent.appendChild(backButton);
+				//newContent.appendChild(backButton);
+				contentContainer.append(backButton);
 
 				//Error message in console if error occurs
 			} catch (error) {
