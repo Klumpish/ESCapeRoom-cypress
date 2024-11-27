@@ -96,7 +96,7 @@ const challengeSort = {
 	 * Function to create a challenge card.
 	 */
 	createChallenge() {
-		if (this.currentPath != "/challenges.html" || this.currentPath.includes("/index.html")) {
+		if (this.currentPath === "/" || this.currentPath === "/index.html") {
 			const cardContainer = document.querySelector(".card__container");
 
 			/* loop through the three highest rated */
@@ -190,15 +190,6 @@ const challengeSort = {
 				// Create new container for API
 				const newContent = document.createElement("div");
 				newContent.id = "content";
-
-				if (challengeArray.length === 0) {
-					const noMatchingChallenges = document.createElement("h2");
-					noMatchingChallenges.id = "noChallengeh2";
-					noMatchingChallenges.textContent = "No matching challenges";
-					newContent.appendChild(noMatchingChallenges);
-					contentContainer.appendChild(newContent);
-					return;
-				}
 
 				challengeArray.forEach((challenge) => {
 					// Write out the order of challenge
@@ -299,7 +290,7 @@ const challengeSort = {
 
 				// Temporary back to top button
 				const backButton = document.createElement("button");
-				backButton.id = "backToTopButton";
+				backButton.textContent = "Back to top";
 				backButton.addEventListener("click", () => {
 					window.scrollTo({ top: 0, behavior: "smooth" });
 				});
