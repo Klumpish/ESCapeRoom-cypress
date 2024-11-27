@@ -1143,6 +1143,25 @@ div.resetBtn {
   margin-right: auto;
 }
 
+#backToTopButton {
+	width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 40px solid #4b5c6b;
+	border-top: 0;
+	background: none;
+	cursor: pointer; 
+	padding: 0;
+	grid-column: 3;
+	place-self: end;
+}
+
+#backToTopButton:hover {
+	transform: scale(1.2);
+	border-bottom: 50px solid #c91609;
+}
+
 @media only screen and (max-width: 600px) {
   .filterWindow--active {
     display: flex;
