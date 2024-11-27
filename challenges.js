@@ -11,14 +11,15 @@ const challengeSort = {
 	*/
 	async getApiToArray () {
 		try {
-
 			const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
 			const data = await res.json();
 			this.ratingArray = data.challenges;
-
+			
 			return this.ratingArray;
 		} catch (error) {
 			console.error('Error in getApiToArray', error);
+			this.ratingArray = [];
+			return this.ratingArray;
 		}
 
 	},
@@ -293,7 +294,7 @@ const challengeSort = {
 				// The new content is between header & footer
 				contentContainer.appendChild(newContent);
 
-				// Temporary back to top button
+				//  Back to top button
 				const backButton = document.createElement("button");
 				backButton.textContent = "Back to top";
 				backButton.addEventListener("click", () => {
