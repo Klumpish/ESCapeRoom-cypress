@@ -1,5 +1,5 @@
 import fetchMock from 'jest-fetch-mock'; 
-import {getApiToArray} from './challenges.js'; 
+import {getApiToArray} from '../challenges.js'; 
 
 fetchMock.enableMocks(); 
 
