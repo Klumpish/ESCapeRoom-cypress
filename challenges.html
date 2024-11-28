@@ -60,7 +60,6 @@
 		</header>
 		<!--End header-->
 
-		<button class="button open-button">open modal</button>
 
 		<section class="challenges">
 			<!-- TODO- change to correct text -->
@@ -215,7 +214,7 @@
 			</container>
 			<!--Ends card_container-->
 
-			<div class="challenges__container">
+			<!-- <div class="challenges__container">
 				<a href="#" role="link" class="button red-button challenges__red-link"
 					>Online challenges</a
 				>
@@ -225,7 +224,7 @@
 			</div>
 			<div class="challenges__link-container">
 				<a href="#" role="link" class="challenges__small-link">Online challenges</a>
-			</div>
+			</div> -->
 		</section>
 		<!--Ends challenges-->
 		<footer>
@@ -359,12 +358,12 @@
 				<select name="time" id="time" class="booking-card__select"></select>
 			
 				<label for="participants" class="booking-card__label">How many participants?</label>
-				<input
+				<select
 				  type="number"
 				  name="participants"
 				  id="participants"
 				  class="booking-card__input booking-card__input--number"
-				/>
+				></select>
 			
 				<div class="booking-card__controls">
 				  <button
@@ -389,9 +388,9 @@
 		  </dialog>
 		<!-- End Modal-dialog -->
 
-		<script type="module" src="./main.js"></script>
-		<script type="module" src="./challenges.js"></script>
-		<script src="js/booking.js"></script>
-		<script type="module" src="./filter.js"></script>
+		<script type="module" src="main.js"></script>
+		<script type="module" src="challenges.js"></script>
+		<script type="module" src="js/booking.js"></script>
+		<script type="module" src="filter.js"></script>
 	</body>
 </html>

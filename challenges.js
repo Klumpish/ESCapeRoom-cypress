@@ -8,7 +8,7 @@ const challengeSort = {
 	currentPath: window.location.pathname,
 	/**
 	 * Function to read from api. 
-	*/
+	 */
 	async getApiToArray () {
 		let successful = false;
 		try {
@@ -27,32 +27,32 @@ const challengeSort = {
 			return this.ratingArray;
 		},
 	/**
-	 * Function to sort rating in descending order. 
+	 * Function to sort rating in descending order.
 	 */
-	sortAscendingOrder () {
+	sortAscendingOrder() {
 		this.ratingArray.sort((a, b) => b.rating - a.rating);
 	},
 	/**
 	 * Function to create img for div.
 	 * */
-	appendImg (imageUrl) {
-		const img = document.createElement('img');
-		img.classList.add('card__image');
+	appendImg(imageUrl) {
+		const img = document.createElement("img");
+		img.classList.add("card__image");
 		img.src = `${imageUrl}`;
-		img.alt = '';
+		img.alt = "";
 	},
 	/**
 	 * Function to convert numbers into stars.
 	 */
-	getStars (counter, fullStars, hasHalfStar) {
-		const starImg = document.createElement('img');
-		starImg.classList.add('starholder__item');
+	getStars(counter, fullStars, hasHalfStar) {
+		const starImg = document.createElement("img");
+		starImg.classList.add("starholder__item");
 		if (counter <= fullStars) {
-			starImg.src = './images/star.png';
+			starImg.src = "./images/star.png";
 		} else if (hasHalfStar === true && counter === fullStars + 1) {
-			starImg.src = './images/half-star.png';
+			starImg.src = "./images/half-star.png";
 		} else {
-			starImg.src = './images/star-empty.png';
+			starImg.src = "./images/star-empty.png";
 		}
 
 		return starImg;
@@ -60,34 +60,36 @@ const challengeSort = {
 	/**
 	 * Function to create image for card.
 	 */
-	createImg (imgSrc) {
-		const img = document.createElement('img');
-		img.classList.add('card__image');
+	createImg(imgSrc) {
+		const img = document.createElement("img");
+		img.classList.add("card__image");
 		img.src = `${imgSrc}`;
-		img.alt = 'A hacker sits turned away at a computer';
+		img.alt = "A hacker sits turned away at a computer";
 		return img;
 	},
 	/**
 	 * Function to create title for the cards.
 	 */
-	createTitle (title) {
-		const h3 = document.createElement('h3');
+	createTitle(title) {
+		const h3 = document.createElement("h3");
 		h3.innerHTML = title;
-		h3.classList.add('card__title');
+		h3.classList.add("card__title");
 		return h3;
 	},
 	/**
 	 * Function to create a button.
 	 */
-	createBtn (btnParam) {
-		const btn = document.createElement('a');
-		btn.classList.add('button');
-		btn.classList.add('red-button-small');
-		btn.role = 'link';
-		btn.href = '#';
-		const online = 'Take challenge online';
-		const onsite = 'Book this room';
-		if (btnParam === 'online') {
+	createBtn(btnParam, btnId) {
+		const btn = document.createElement("a");
+		btn.classList.add("button");
+		btn.classList.add("red-button-small");
+		btn.classList.add("open-button");
+		btn.role = "link";
+		btn.href = "#";
+		const online = "Take challenge online";
+		const onsite = "Book this room";
+		btn.id = btnId;
+		if (btnParam === "online") {
 			btn.innerHTML = online;
 		} else {
 			btn.innerHTML = onsite;
@@ -98,49 +100,51 @@ const challengeSort = {
 	/**
 	 * Function to create a challenge card.
 	 */
-	createChallenge () {
-		if (this.currentPath === "/index.html") {
-
-
-			const cardContainer = document.querySelector('.card__container');
+	// this current path = /HACKER-ESCAPEROOM/
+	createChallenge() {
+		// #TODO
+		console.log(this.currentPath)
+		// 
+		if (this.currentPath == "/" || this.currentPath === "/index.html" || this.currentPath == "/HACKER-ESCAPEROOM/" || this.currentPath == "/HACKER-ESCAPEROOM/index.html") {
+			const cardContainer = document.querySelector(".card__container");
 
 			/* loop through the three highest rated */
 			for (let i = 0; i < 3; i++) {
 				/* create div for card */
-				const cardDiv = document.createElement('div');
-				cardDiv.classList.add('card'); //add class for card
+				const cardDiv = document.createElement("div");
+				cardDiv.classList.add("card"); //add class for card
 
 				/* create  div card__body */
-				const divCardBody = document.createElement('div');
-				divCardBody.classList.add('card__body');
+				const divCardBody = document.createElement("div");
+				divCardBody.classList.add("card__body");
 
 				/* h3 title */
 				const h3String = `${this.ratingArray[i].title} (${this.ratingArray[i].type})`;
 				divCardBody.append(this.createTitle(h3String)); //append to div where text is placed inside card
 
 				/* Create div for rating and participants */
-				const cardReview = document.createElement('div');
-				cardReview.classList.add('card__review');
+				const cardReview = document.createElement("div");
+				cardReview.classList.add("card__review");
 				divCardBody.append(cardReview);
 
 				/* create rating stars div */
-				const starHolder = document.createElement('div');
-				starHolder.classList.add('card__starholder');
+				const starHolder = document.createElement("div");
+				starHolder.classList.add("card__starholder");
 
 				//create span
-				const holder = document.createElement('div');
-				holder.classList.add('card__starholder');
+				const holder = document.createElement("div");
+				holder.classList.add("card__starholder");
 				cardReview.append(holder);
 
 				/* values to check for full stars */
 				let counter = 1;
 				const fullStars = Math.floor(this.ratingArray[i].rating);
-				const hasHalfStar = (this.ratingArray[i].rating - fullStars) === 0.5;
+				const hasHalfStar = this.ratingArray[i].rating - fullStars === 0.5;
 
 				/* create spans and img for stars */
 				for (let i = 0; i < 5; ++i) {
 					//create span
-					const span = document.createElement('span');
+					const span = document.createElement("span");
 					holder.append(span);
 
 					//create the stars
@@ -150,15 +154,15 @@ const challengeSort = {
 				}
 
 				/* Create participants div */
-				const participantDiv = document.createElement('div');
-				participantDiv.classList.add('card__participants');
+				const participantDiv = document.createElement("div");
+				participantDiv.classList.add("card__participants");
 				participantDiv.innerHTML = `${this.ratingArray[i].minParticipants}-${this.ratingArray[i].maxParticipants} participants`;
 				cardReview.append(participantDiv);
 
 				/* Create text and div to contain text */
-				const divTxt = document.createElement('div');
-				divTxt.classList.add('card__description');
-				const txt = document.createElement('p');
+				const divTxt = document.createElement("div");
+				divTxt.classList.add("card__description");
+				const txt = document.createElement("p");
 				const paraString = this.ratingArray[i].description;
 				txt.innerHTML = paraString;
 
@@ -166,11 +170,12 @@ const challengeSort = {
 				divCardBody.append(divTxt);
 
 				/* Create div for button */
-				const btnDiv = document.createElement('div');
-				btnDiv.classList.add('card__link');
+				const btnDiv = document.createElement("div");
+				btnDiv.classList.add("card__link");
 
 				/* Create button and append it to a div*/
-				btnDiv.append(this.createBtn(this.ratingArray[i].type));
+				console.log(this.ratingArray[i].id);
+				btnDiv.append(this.createBtn(this.ratingArray[i].type, this.ratingArray[i].id));
 
 				/* append divs for cards */
 				cardContainer.append(cardDiv);
@@ -182,25 +187,29 @@ const challengeSort = {
 	},
 	/**
 	 * Function to read from array and dynamically make challenge cards.
-	   */
-	createChallengeCardsToFilter (challengeArray) {
+	 */
+	createChallengeCardsToFilter(challengeArray) {
 		const currentPath = window.location.pathname; // fetch challenges.html
 		const contentContainer = document.querySelector(".api-challenges"); // Show challenges
 
 		// Dynamic loading of challenges.js only if location is challenge.html
 
-		if (currentPath.includes("challenges.html")) {
+		if (this.currentPath.includes("challenges.html")) {
 			try {
 				// Create new container for API
 				const newContent = document.createElement("div");
 				newContent.id = "content";
 
 				if (challengeArray.length === 0) {
+					const backToTopButton = document.querySelector('#backToTopButton');
 					const noMatchingChallenges = document.createElement("h2");
+
 					noMatchingChallenges.id = "noChallengeh2";
 					noMatchingChallenges.textContent = "No matching challenges";
 					newContent.appendChild(noMatchingChallenges);
-					contentContainer.appendChild(newContent);
+
+					//insert h2 no matching before button
+					contentContainer.insertBefore(newContent, backToTopButton);
 					return;
 				}
 
@@ -220,8 +229,9 @@ const challengeSort = {
 
 					const title = document.createElement("h3");
 					title.classList.add("card__title");
-					title.textContent = `${challenge.title} (${challenge.type === "onsite" ? "on-site" : "online"
-						})`;
+					title.textContent = `${challenge.title} (${
+						challenge.type === "onsite" ? "on-site" : "online"
+					})`;
 
 					const review = document.createElement("div");
 					review.classList.add("card__review"); //Adding cardparticipants in review
@@ -279,9 +289,12 @@ const challengeSort = {
 					const link = document.createElement("div");
 					link.classList.add("card__link");
 					const button = document.createElement("a");
-					button.classList.add("button", "red-button-small");
-					button.textContent = `${challenge.type === "onsite" ? "Book this room" : "Take challenges online"
-						}`;
+
+					button.classList.add("button", "red-button-small", "open-button");
+					button.textContent = `${
+						challenge.type === "onsite" ? "Book this room" : "Take challenges online"
+					}`;
+					button.id = `${challenge.id}`;
 					link.appendChild(button);
 
 					// To show in order
@@ -297,20 +310,25 @@ const challengeSort = {
 				// The new content is between header & footer
 				contentContainer.appendChild(newContent);
 
-				//  Back to top button
+				// Temporary back to top button
+				const backButtonDiv = document.createElement("div");
 				const backButton = document.createElement("button");
-				backButton.textContent = "Back to top";
+				backButton.id = "backToTopButton";
 				backButton.addEventListener("click", () => {
 					window.scrollTo({ top: 0, behavior: "smooth" });
 				});
-				newContent.appendChild(backButton);
+				const divChallenges = document.querySelector("#content")
+				console.log(divChallenges)
+				backButtonDiv.appendChild(backButton);
+
+				divChallenges.append(backButton);
 
 				//Error message in console if error occurs
 			} catch (error) {
 				console.error("Error fetching challenges:", error);
 			}
 		}
-	}
+	},
 };
 
 export { challengeSort };

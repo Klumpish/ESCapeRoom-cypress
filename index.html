@@ -22,7 +22,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-     <link rel="stylesheet" type="text/css" media="screen" href="challenges.css"/> <!-- Challenges Tobias -->
+     <!-- <link rel="stylesheet" type="text/css" media="screen" href="challenges.css"/> Challenges Tobias -->
      <link rel="stylesheet" href="Datepicker/datepicker.material.css">
      <script src="Datepicker/datepicker.js"></script>
   </head>
@@ -79,7 +79,6 @@
         </div>
       </nav>
     </header>
-    <button class="button open-button">open modal</button>
     <section class="hero">
       <img
         class="hero__img"
@@ -142,9 +141,9 @@
 
     <section class="challenges">
       <h2 class="challenges__title">Popular challenges right now</h2>
-
+      <div class="api-challenges">
       <div class="card__container snaps-inline">
-       <div class="card">
+      <!-- <div class="card">
          <img
           class="card__image"
           src="images/hacker.jpg"
@@ -202,10 +201,10 @@
             >
           </div>
         </div>
-      </div>
+      </div> -->
       <!--Ends card-->
 
-      <div class="card">
+      <!-- <div class="card">
         <img
           class="card__image"
           src="images/hacker.jpg"
@@ -263,10 +262,10 @@
             >
           </div>
         </div>
-      </div>
+      </div> -->
       <!--Ends card-->
 
-      <div class="card">
+      <!-- <div class="card">
         <img
           class="card__image"
           src="images/hacker.jpg"
@@ -324,10 +323,11 @@
             >
           </div>
         </div>
-      </div>
-      <!--Ends card-->
+      </div> -->
+      <!-- Ends card -->
 
     </div> <!--Ends card_container-->
+  </div>
       <div class="challenges__container">
         <a href="challenges.html" id="load-challenges" role="link" class="button red-button challenges__red-link"
           >Online challenges</a
@@ -375,7 +375,8 @@
           inuitam. Nemo nocere tibi erit, et non inimicos, et
         </p>
         <div class="article__link">
-          <a href="challenges.html" role="link" class="button red-button" id="load-challenges"
+          <!--<a href="challenges.html" role="link" class="button red-button" id="load-challenges"-->
+          <a href="challenges.html" role="link" class="button red-button"
             >Book on-site today</a
           >
         </div>
@@ -538,12 +539,11 @@
           <select name="time" id="time" class="booking-card__select"></select>
       
           <label for="participants" class="booking-card__label">How many participants?</label>
-          <input
+          <select
             type="number"
             name="participants"
             id="participants"
-            class="booking-card__input booking-card__input--number"
-          />
+            class="booking-card__input booking-card__input--number"></select>
       
           <div class="booking-card__controls">
             <button
@@ -568,6 +568,6 @@
     </dialog>
     <!-- End Modal-dialog -->
     <script type="module" src="./main.js"></script>
-    <script src="js/booking.js"></script>
+    <script type="module" src="js/booking.js"></script>
   </body>
 </html>
