@@ -7,20 +7,25 @@ const challengeSort = {
 	ratingArray: [],
 	currentPath: window.location.pathname,
 	/**
-	 * Function to read from api.
+	 * Function to read from api. 
 	 */
-	async getApiToArray() {
+	async getApiToArray () {
+		let successful = false;
 		try {
-			const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/challenges");
-
+			const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
 			const data = await res.json();
 			this.ratingArray = data.challenges;
-
-			return this.ratingArray;
+			successful = true;
 		} catch (error) {
-			console.error("Error in getApiToArray", error);
+			console.error('Error in getApiToArray', error);
+		} finally { 
+			if (!successful) { 
+				this.ratingArray = [];
+			}
 		}
-	},
+			
+			return this.ratingArray;
+		},
 	/**
 	 * Function to sort rating in descending order.
 	 */
@@ -305,15 +310,6 @@ const challengeSort = {
 				// The new content is between header & footer
 				contentContainer.appendChild(newContent);
 
-			/* 	// Trying to fix the button
-				const backButtonDiv = document.createElement("div");
-				const backButton = document.createElement("button");
-				backButton.id = "backToTopButton";
-				backButton.addEventListener("click", () => {
-					window.scrollTo({ top: 0, behavior: "smooth" });
-				});
-				backButtonDiv.appendChild(backButton); */
-
 				// Temporary back to top button
 				const backButtonDiv = document.createElement("div");
 				const backButton = document.createElement("button");
@@ -325,7 +321,6 @@ const challengeSort = {
 				console.log(divChallenges)
 				backButtonDiv.appendChild(backButton);
 
-				/* newContent.appendChild(backButton); */
 				divChallenges.append(backButton);
 
 				//Error message in console if error occurs
@@ -337,6 +332,9 @@ const challengeSort = {
 };
 
 export { challengeSort };
+
+//Export for testing 
+export const getApiToArray = challengeSort.getApiToArray.bind(challengeSort);
 
 //export individuall function
 const createChallengeCards = challengeSort.createChallengeCardsToFilter.bind(challengeSort);
