@@ -100,7 +100,7 @@ const challengeSort = {
 		// #TODO
 		console.log(this.currentPath)
 		// 
-		if (this.currentPath == "/" || this.currentPath === "/index.html" || this.currentPath == "/HACKER-ESCAPEROOM/") {
+		if (this.currentPath == "/" || this.currentPath === "/index.html" || this.currentPath == "/HACKER-ESCAPEROOM/" || this.currentPath == "/HACKER-ESCAPEROOM/index.html") {
 			const cardContainer = document.querySelector(".card__container");
 
 			/* loop through the three highest rated */
