@@ -73,6 +73,7 @@ function filterFunctionWindow() {
 
 function clearCards() {
 	document.querySelector("#content").remove();
+	// document.querySelector("#backToTopButton").remove()
 }
 
 // resetButton

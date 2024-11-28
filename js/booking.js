@@ -22,10 +22,16 @@ import { ApiArray as events } from "../main.js";
 // global variable to get id from challenge button.
 let eventId;
 // goes through all classes of .open-button and gets rooms number."
-openModal.forEach((openModal) =>
-	openModal.addEventListener("click", () => {
+
+// new code
+const container = document.querySelector(".api-challenges");
+
+container.addEventListener("click", (event) => {
+	if (event.target && event.target.classList.contains("open-button")) {
+		console.log("button clicked");
 		modal.showModal();
-		eventId = parseInt(openModal.getAttribute("id"));
+		eventId = parseInt(event.target.getAttribute("id"));
+		console.log(eventId, "show id");
 		const eventDetails = events.find((event) => event.id === eventId);
 		header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
 
@@ -34,8 +40,39 @@ openModal.forEach((openModal) =>
 		} else {
 			console.error("The inputfield could not be found");
 		}
-	})
-);
+	}
+	if (event.target && event.target.classList.contains("card__container")) {
+		console.log("card__container clicked");
+		console.log("button clicked");
+		modal.showModal();
+		eventId = parseInt(event.target.getAttribute("id"));
+		console.log(eventId, "show id");
+		const eventDetails = events.find((event) => event.id === eventId);
+		header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
+
+		if (challengeInput) {
+			challengeInput.value = eventId;
+		} else {
+			console.error("The inputfield could not be found");
+		}
+	}
+});
+// 
+
+// openModal.forEach((openModal) =>
+// 	openModal.addEventListener("click", () => {
+// 		modal.showModal();
+// 		eventId = parseInt(openModal.getAttribute("id"));
+// 		const eventDetails = events.find((event) => event.id === eventId);
+// 		header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
+
+// 		if (challengeInput) {
+// 			challengeInput.value = eventId;
+// 		} else {
+// 			console.error("The inputfield could not be found");
+// 		}
+// 	})
+// );
 
 closeModal.addEventListener("click", () => {
 	location.reload();

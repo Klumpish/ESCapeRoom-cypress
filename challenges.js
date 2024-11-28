@@ -95,8 +95,12 @@ const challengeSort = {
 	/**
 	 * Function to create a challenge card.
 	 */
+	// this current path = /HACKER-ESCAPEROOM/
 	createChallenge() {
-		if (this.currentPath === "/" || this.currentPath === "/index.html") {
+		// #TODO
+		console.log(this.currentPath)
+		// 
+		if (this.currentPath == "/" || this.currentPath === "/index.html" || this.currentPath == "/HACKER-ESCAPEROOM/") {
 			const cardContainer = document.querySelector(".card__container");
 
 			/* loop through the three highest rated */
@@ -190,6 +194,19 @@ const challengeSort = {
 				// Create new container for API
 				const newContent = document.createElement("div");
 				newContent.id = "content";
+
+				if (challengeArray.length === 0) {
+					const backToTopButton = document.querySelector('#backToTopButton');
+					const noMatchingChallenges = document.createElement("h2");
+
+					noMatchingChallenges.id = "noChallengeh2";
+					noMatchingChallenges.textContent = "No matching challenges";
+					newContent.appendChild(noMatchingChallenges);
+
+					//insert h2 no matching before button
+					contentContainer.insertBefore(newContent, backToTopButton);
+					return;
+				}
 
 				challengeArray.forEach((challenge) => {
 					// Write out the order of challenge
@@ -288,13 +305,28 @@ const challengeSort = {
 				// The new content is between header & footer
 				contentContainer.appendChild(newContent);
 
-				// Temporary back to top button
+			/* 	// Trying to fix the button
+				const backButtonDiv = document.createElement("div");
 				const backButton = document.createElement("button");
-				backButton.textContent = "Back to top";
+				backButton.id = "backToTopButton";
 				backButton.addEventListener("click", () => {
 					window.scrollTo({ top: 0, behavior: "smooth" });
 				});
-				newContent.appendChild(backButton);
+				backButtonDiv.appendChild(backButton); */
+
+				// Temporary back to top button
+				const backButtonDiv = document.createElement("div");
+				const backButton = document.createElement("button");
+				backButton.id = "backToTopButton";
+				backButton.addEventListener("click", () => {
+					window.scrollTo({ top: 0, behavior: "smooth" });
+				});
+				const divChallenges = document.querySelector("#content")
+				console.log(divChallenges)
+				backButtonDiv.appendChild(backButton);
+
+				/* newContent.appendChild(backButton); */
+				divChallenges.append(backButton);
 
 				//Error message in console if error occurs
 			} catch (error) {
