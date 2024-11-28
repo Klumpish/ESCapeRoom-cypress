@@ -82,8 +82,8 @@ nextButton.addEventListener("click", () => {
 
 	fetchAvailableTimes(date, eventId);
 
-	// Fyll select med deltagarantal
-	participantsSelect.innerHTML = ""; // Rensa tidigare alternativ
+	// Fill select with number of participants
+	participantsSelect.innerHTML = ""; // Clear previous options
 	for (let i = 1; i <= eventDetails.maxParticipants; i++) {
 		const option = document.createElement("option");
 		option.value = i;
@@ -107,6 +107,7 @@ multiStepForm.addEventListener("click", (e) => {
 	if (e.target.matches("[next-data]")) {
 		currentStep += 1;
 	} else if (e.target.matches("[data-previous]")) {
+		timeSelect.innerHTML = "";
 		currentStep -= 1;
 	}
 	showCurrentStep();
@@ -130,14 +131,24 @@ async function fetchAvailableTimes(date, challenge) {
 		}
 
 		const data = await res.json();
-		// console.log(data, "this is time slots");
+		console.log(data.slots, "this is time slots");
 
 		if (Array.isArray(data.slots)) {
 			data.slots.forEach((slot) => {
 				const option = document.createElement("option");
 				option.value = slot; // Sets the value for <option>
 				option.textContent = slot; // Sets the text displayed in <option>
+				// //  new code
+				// const existingOption = Array.from(timeSelect.options).find(
+				// 	(option) => option.value === slot
+				// );
+				//
 				timeSelect.appendChild(option); // Adds <option> in <select>
+				//
+				// if (!existingOption) {
+				// 	timeSelect.appendChild(option);
+				// }
+				//
 			});
 		} else {
 			console.log("No slots are available or slots is not an array");
