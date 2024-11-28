@@ -30,7 +30,7 @@ test('getApiToArray makes API call and returns data', async () => {
 
     test('getApiToArray logs an error message when API call fails', async () => { 
         const consoleSpy = jest.spyOn(console, 'error'); 
-        fetch.mockReject(() =>Promise.reject('API is down'));
+        fetch.mockReject(() =>Promise.reject(new Error('API is down')));  //Added (new Error ) because that is an object and test failed when it was a string
 
         await getApiToArray();
 
