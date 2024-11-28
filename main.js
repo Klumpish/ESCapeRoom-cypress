@@ -9,6 +9,8 @@ const btnClose = document.querySelector(".btnClose");
 
 btnOpen.addEventListener("click", () => {
 	mainNavContainer.classList.add("main-nav__container--active");
+	filterWindow.classList.remove("filterWindow--active");
+	filterBtnDiv.classList.remove("filterBtn--hidden"); 
 });
 
 btnClose.addEventListener("click", () => {
@@ -60,7 +62,7 @@ if (challengeSort.currentPath.includes("challenges.html")) {
 	// target the div to close
 	filterBtnClose.addEventListener("click", () => {
 		filterWindow.classList.remove("filterWindow--active");
-		filterBtnDiv.classList.remove("filterBtn--hidden");
+		filterBtnDiv.classList.remove("filterBtn--hidden"); 
 	});
 
 	// show more tags
