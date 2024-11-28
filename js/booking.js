@@ -123,7 +123,7 @@ function showCurrentStep() {
 async function fetchAvailableTimes(date, challenge) {
 	try {
 		const res = await fetch(
-			`https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${date}&challenge=${challenge}` //date=${date}&challenge=${challenge}
+			`https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${date}&challenge=${challenge}`
 		);
 		if (!res.ok) {
 			throw new Error(`HTTP error! Status: ${res.status}`);
