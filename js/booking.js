@@ -29,7 +29,6 @@ container.addEventListener("click", (event) => {
 	if (event.target && event.target.classList.contains("open-button")) {
 		modal.showModal();
 		eventId = parseInt(event.target.getAttribute("id"));
-		console.log(eventId, "show id");
 		const eventDetails = events.find((event) => event.id === eventId);
 		header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
 
@@ -42,7 +41,6 @@ container.addEventListener("click", (event) => {
 	if (event.target && event.target.classList.contains("card__container")) {
 		modal.showModal();
 		eventId = parseInt(event.target.getAttribute("id"));
-		console.log(eventId, "show id");
 		const eventDetails = events.find((event) => event.id === eventId);
 		header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
 
@@ -53,22 +51,6 @@ container.addEventListener("click", (event) => {
 		}
 	}
 });
-//
-
-// openModal.forEach((openModal) =>
-// 	openModal.addEventListener("click", () => {
-// 		modal.showModal();
-// 		eventId = parseInt(openModal.getAttribute("id"));
-// 		const eventDetails = events.find((event) => event.id === eventId);
-// 		header1.textContent = `Book room "${eventDetails.title}" (step 1)`;
-
-// 		if (challengeInput) {
-// 			challengeInput.value = eventId;
-// 		} else {
-// 			console.error("The inputfield could not be found");
-// 		}
-// 	})
-// );
 
 closeModal.addEventListener("click", () => {
 	location.reload();
@@ -138,17 +120,9 @@ async function fetchAvailableTimes(date, challenge) {
 				const option = document.createElement("option");
 				option.value = slot; // Sets the value for <option>
 				option.textContent = slot; // Sets the text displayed in <option>
-				// //  new code
-				// const existingOption = Array.from(timeSelect.options).find(
-				// 	(option) => option.value === slot
-				// );
-				//
+			
 				timeSelect.appendChild(option); // Adds <option> in <select>
-				//
-				// if (!existingOption) {
-				// 	timeSelect.appendChild(option);
-				// }
-				//
+	
 			});
 		} else {
 			console.log("No slots are available or slots is not an array");
@@ -165,13 +139,12 @@ multiStepForm.addEventListener("submit", (e) => {
 
 	const formData = new FormData(multiStepForm);
 	const sendingData = Object.fromEntries(formData);
-	// send the data somewhere
-	// console.log(Object.fromEntries(formData));
 
 	let participants = parseInt(sendingData.participants);
 	let challenge = parseInt(sendingData.challenge);
 
 	//////////////////////////////// POST DATA TO API /////////////////////////
+
 	async function sendBooking(formData) {
 		const res = await fetch(
 			"https://lernia-sjj-assignments.vercel.app/api/booking/reservations",
@@ -196,6 +169,7 @@ multiStepForm.addEventListener("submit", (e) => {
 	sendBooking(formData);
 
 	/////////////////////////////////// SHOW COMPLETESIGN //////////////////////////////
+  
 	submitButton.disabled = true;
 	submitButton.textContent = "Submitting...";
 
