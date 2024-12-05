@@ -118,5 +118,5 @@ resetBtn.addEventListener("click", () => {
 	});
 
 	clearCards();
-	createChallengeCards(array);
+	createChallengeCards(array)
 });
