@@ -1204,4 +1204,12 @@ div.resetBtn {
   div.card {
     max-width: 30rem;
   }
+
+  .modal {
+    width: 80%;
+  }
+
+  .booking-card__controls {
+    margin-top: 5rem;
+  }
 }
