@@ -2,15 +2,28 @@ import { createChallengeCards } from "./challenges.js";
 import { ApiArray as array } from "./main.js";
 
 const filterWindow = document.querySelector(".filterWindow");
-filterWindow.addEventListener("change", filterFunctionWindow);
+
+const searchInput = filterWindow.querySelector('input[type="text"]');
+
+// Makes sure the user has typed at least 3 characters.
+	searchInput.addEventListener("input", () => {
+		if (searchInput.value.trim().length >= 3) {
+			filterFunctionWindow();
+		} else {
+			clearCards();
+			createChallengeCards(array);
+		}
+	});
+
+// filterWindow.addEventListener("change", filterFunctionWindow); //
 
 function filterFunctionWindow() {
 	// grabs what we are clicking on
 
 	// Get the value of the search input inside filterWindow
-	const searchInput = filterWindow.querySelector('input[type="text"]');
+
 	// ternary opperator aka sshorthand for an if-else statement
-	const searchValue = searchInput ? searchInput.value.trim() : "";
+	const searchValue = searchInput.value.trim().toLowerCase();
 
 	// Get the selected type (online or onsite or both)
 	const selectedTypes = Array.from(
