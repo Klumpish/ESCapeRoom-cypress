@@ -2,121 +2,116 @@ import { createChallengeCards } from "./challenges.js";
 import { ApiArray as array } from "./main.js";
 
 const filterWindow = document.querySelector(".filterWindow");
+filterWindow.addEventListener("change", filterFunctionWindow);
 
+// Add input event listener for the search input field
 const searchInput = filterWindow.querySelector('input[type="text"]');
-
-// Makes sure the user has typed at least 3 characters.
-	searchInput.addEventListener("input", () => {
-		if (searchInput.value.trim().length >= 3) {
-			filterFunctionWindow();
-		} else {
-			clearCards();
-			createChallengeCards(array);
-		}
-	});
-
-// filterWindow.addEventListener("change", filterFunctionWindow); //
+if (searchInput) {
+    searchInput.addEventListener("input", filterFunctionWindow);  // Trigger filter on every input
+}
 
 function filterFunctionWindow() {
-	// grabs what we are clicking on
+    // Get the value of the search input inside filterWindow
+    const searchInput = filterWindow.querySelector('input[type="text"]');
+    const searchValue = searchInput ? searchInput.value.trim() : "";
 
-	// Get the value of the search input inside filterWindow
+    // Get the selected type (online or onsite or both)
+    const selectedTypes = Array.from(
+        filterWindow.querySelectorAll('input[name="activeItems"]:checked')
+    ).map((checkbox) => checkbox.value);
 
-	// ternary opperator aka sshorthand for an if-else statement
-	const searchValue = searchInput.value.trim().toLowerCase();
+    // Get all checked checkboxes for tags
+    const checkedTagCheckboxes = Array.from(
+        filterWindow.querySelectorAll('input[name="tags"]:checked')
+    );
+    const selectedTags = checkedTagCheckboxes.map((checkbox) => checkbox.value);
 
-	// Get the selected type (online or onsite or both)
-	const selectedTypes = Array.from(
-		filterWindow.querySelectorAll('input[name="activeItems"]:checked')
-	).map((checkbox) => checkbox.value);
+    // Get the selected min and max rating values (from radio buttons)
+    const minRating = filterWindow.querySelector('input[name="minRating"]:checked')?.value;
+    const maxRating = filterWindow.querySelector('input[name="maxRating"]:checked')?.value;
 
-	// Get all checked checkboxes for tags
-	// Array.from makes queryselectorall in to a "normal array so we can use . things behind it"
-	const checkedTagCheckboxes = Array.from(
-		filterWindow.querySelectorAll('input[name="tags"]:checked')
-	);
-	// Get the values of the checked tag checkboxes
-	const selectedTags = checkedTagCheckboxes.map((checkbox) => checkbox.value);
+    // Apply filter logic
+    const filterData = array.filter((card) => {
+        let matches = true;
 
-	// Get the selected min and max rating values (from radio buttons)
-	const minRating = filterWindow.querySelector('input[name="minRating"]:checked')?.value;
-	const maxRating = filterWindow.querySelector('input[name="maxRating"]:checked')?.value;
+        // Only apply the search term filter if there is a valid search term (3+ characters)
+        if (searchValue.length >= 3) {
+            if (
+                !(
+                    card.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+                    card.description.toLowerCase().includes(searchValue.toLowerCase())
+                )
+            ) {
+                matches = false;
+            }
+        }
 
-	// apply filter logic
-	const filterData = array.filter((card) => {
-		let matches = true;
+        // Apply filters for selected tags
+        if (selectedTags.length > 0 && !selectedTags.every((tag) => card.labels.includes(tag))) {
+            matches = false;
+        }
 
-		// filter by search term (if there is a search term)
-		// looks if the search is in the title or description
-		if (
-			searchValue &&
-			!(
-				card.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-				card.description.toLowerCase().includes(searchValue.toLowerCase())
-			)
-		) {
-			matches = false;
-		}
-		// filters by selected tags if there are any
-		// every checks if every element in the array is true
-		// here it checks if slectedTags exisit in card.labels
-		if (selectedTags.length > 0 && !selectedTags.every((tag) => card.labels.includes(tag))) {
-			matches = false;
-		}
-		// filter by rating min anx max
-		// here we use parsefloat to make the value of our raidoInput, from a string to a number
-		if (minRating && card.rating < parseFloat(minRating)) {
-			matches = false;
-		}
-		if (maxRating && card.rating > parseFloat(maxRating)) {
-			matches = false;
-		}
-		// filter selected types if any are selected
-		if (selectedTypes.length > 0 && !selectedTypes.includes(card.type)) {
-			matches = false;
-		}
+        // Apply filters for rating (min and max)
+        if (minRating && card.rating < parseFloat(minRating)) {
+            matches = false;
+        }
+        if (maxRating && card.rating > parseFloat(maxRating)) {
+            matches = false;
+        }
 
-		return matches;
-	});
+        // Apply filters for selected types
+        if (selectedTypes.length > 0 && !selectedTypes.includes(card.type)) {
+            matches = false;
+        }
 
-	clearCards();
-	// console.log(filterData);
-	createChallengeCards(filterData);
+        return matches;
+    });
+
+    clearCards();
+    createChallengeCards(filterData);
 }
 
 function clearCards() {
-	document.querySelector("#content").remove();
-	// document.querySelector("#backToTopButton").remove()
+    const content = document.querySelector("#content");
+    if (content) {
+        content.remove();
+    }
 }
 
-// resetButton
+// Reset Button
 const resetBtn = document.querySelector("#resetFilters");
 
 resetBtn.addEventListener("click", () => {
-	// reset text
-	const searchInput = filterWindow.querySelector('input[type="text"]');
-	searchInput.value = "";
+    // Reset the search input field
+    const searchInput = filterWindow.querySelector('input[type="text"]');
+    if (searchInput) {
+        searchInput.value = "";
+    }
 
-	const tags = filterWindow.querySelectorAll('input[name="tags"]');
-	tags.forEach((checkbox) => {
-		checkbox.checked = false; //should uncheck
-	});
+    // Uncheck all tag checkboxes
+    const tags = filterWindow.querySelectorAll('input[name="tags"]');
+    tags.forEach((checkbox) => {
+        checkbox.checked = false;
+    });
 
-	const activeCheckbox = filterWindow.querySelectorAll("input[name='activeItems'");
-	activeCheckbox.forEach((checkbox) => {
-		checkbox.checked = false;
-	});
+    // Uncheck all active items checkboxes
+    const activeCheckbox = filterWindow.querySelectorAll("input[name='activeItems']");
+    activeCheckbox.forEach((checkbox) => {
+        checkbox.checked = false;
+    });
 
-	const maxStars = filterWindow.querySelectorAll('input[name="maxRating"]');
-	maxStars.forEach((star) => {
-		star.checked = false;
-	});
+    // Uncheck all rating stars
+    const maxStars = filterWindow.querySelectorAll('input[name="maxRating"]');
+    maxStars.forEach((star) => {
+        star.checked = false;
+    });
 
-	const minStars = filterWindow.querySelectorAll('input[name="minRating"]');
-	minStars.forEach((star) => {
-		star.checked = false;
-	});
+    const minStars = filterWindow.querySelectorAll('input[name="minRating"]');
+    minStars.forEach((star) => {
+        star.checked = false;
+    });
 
-	clearCards();
-	createChallengeCards(array)
+    // Clear the cards and display all the data
+    clearCards();
+    createChallengeCards(array);
 });
