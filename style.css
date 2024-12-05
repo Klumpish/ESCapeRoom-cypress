@@ -1205,3 +1205,11 @@ div.resetBtn {
     max-width: 30rem;
   }
 }
+
+.card {
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 3px 3px #011827;
+}
