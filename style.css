@@ -957,7 +957,7 @@ button.filterBtn {
   background-color: #fff;
   padding: 0 1.8rem 1.8rem;
   border-radius: 5px;
-  width: min(550px, 90%);
+  width: 25rem;
 }
 
 .close-modal-button {
@@ -1207,9 +1207,15 @@ div.resetBtn {
 
   .modal {
     width: 80%;
+    height: 37rem;
   }
 
   .booking-card__controls {
-    margin-top: 5rem;
+    margin-top: 15%;
   }
+
+  .multi-step-form__completed {
+    text-align: center;
+    margin-top: 40%;
+}
 }
