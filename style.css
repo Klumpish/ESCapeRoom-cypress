@@ -97,7 +97,7 @@ p {
 
 /* ///////////////// HEADER ///////////////// */
 header {
-  background-color: #011827;
+  background-color: #021928;
   color: #ffffff;
   padding: 1rem 1rem 0.8rem;
 }
@@ -144,8 +144,6 @@ header {
     width: 20rem;
     padding: 0 0.6rem 0.2rem;
   }
-
-  
 }
 
 @media screen and (max-width: 640px) {
@@ -482,16 +480,16 @@ header {
   border-radius: 5px 5px 0 0;
 }
 .card__body {
-    display: flex;
-	flex-grow: 1; /* Fyller ut utrymmet mellan toppen och knappen */
-flex-direction: column;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
   justify-content: space-between;
   padding: 0.4rem 1rem;
 }
 .card__title {
   font-size: 1.125rem;
   font-weight: 400;
-  margin: 0 0 .3rem 0;
+  margin: 0 0 0.3rem 0;
 }
 .card__review {
   display: flex;
@@ -528,7 +526,7 @@ flex-direction: column;
 
 /* ///////////////////// QUOTE /////////////////// */
 .quote {
-  background-color: #011827;
+  background-color: #021928;
   padding: 3.75rem 1.875rem 5rem 1.875rem;
   color: #ffffff;
   text-align: center;
@@ -631,7 +629,7 @@ footer {
   grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
   padding: 3rem 1.2rem;
-  background-color: #011827;
+  background-color: #021928;
   color: #ffffff;
 }
 @media screen and (min-width: 768px) {
@@ -1158,15 +1156,15 @@ div.resetBtn {
 }
 
 #backToTopButton {
-	width: 0;
-	height: 0;
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-	border-bottom: 40px solid #4b5c6b;
-	border-top: 0;
-	background: none;
-	cursor: pointer; 
-	padding: 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid #4b5c6b;
+  border-top: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -1174,8 +1172,8 @@ div.resetBtn {
 }
 
 #backToTopButton:hover {
-	transform: scale(1.2);
-	border-bottom: 50px solid #c91609;
+  transform: scale(1.2);
+  border-bottom: 50px solid #c91609;
 }
 
 @media only screen and (max-width: 600px) {
