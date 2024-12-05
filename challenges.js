@@ -118,8 +118,6 @@ const challengeSort = {
 				const divCardBody = document.createElement("div");
 				divCardBody.classList.add("card__body");
 
-				//TODO: create div for h3 and i to contain fontawesome icon + h3.
-
 				//create div for h3 and i with fontawesome inside
 				const fontHeaderDiv = document.createElement('div');
 				fontHeaderDiv.classList.add('card__layout')
@@ -132,7 +130,7 @@ const challengeSort = {
 				//divCardBody.append(fontHeaderDiv)
 				/* divCardBody.append(this.createTitle(h3String)); */ //append to div where text is placed inside card
 
-				//TODO: Add font for online or onsite icon.
+				//Add font for online or onsite icon.
 				const fontAwesome = document.createElement('i');
 				fontAwesome.classList.add('font-icon')
 
@@ -249,11 +247,23 @@ const challengeSort = {
 					const cardBody = document.createElement("div");
 					cardBody.classList.add("card__body");
 
+					//TODO: create div card__layout to add title (h3) and fontawsome
+					// create div
+					const fontHeaderDiv = document.createElement('div');
+					fontHeaderDiv.classList.add('card__layout')
+
+					//creates h3
 					const title = document.createElement("h3");
 					title.classList.add("card__title");
 					title.textContent = `${challenge.title} (${
 						challenge.type === "onsite" ? "on-site" : "online"
 					})`;
+
+					//append h3 to .card__layout
+					fontHeaderDiv.append(title)
+
+					//TODO: create fontawsome icon and append to card__layout
+					
 
 					const review = document.createElement("div");
 					review.classList.add("card__review"); //Adding cardparticipants in review
@@ -320,7 +330,7 @@ const challengeSort = {
 					link.appendChild(button);
 
 					// To show in order
-					cardBody.appendChild(title);
+					cardBody.appendChild(fontHeaderDiv);
 					cardBody.appendChild(review);
 					cardBody.appendChild(description);
 					cardBody.appendChild(link);
