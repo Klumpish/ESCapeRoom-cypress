@@ -247,8 +247,7 @@ const challengeSort = {
 					const cardBody = document.createElement("div");
 					cardBody.classList.add("card__body");
 
-					//TODO: create div card__layout to add title (h3) and fontawsome
-					// create div
+					// create div card__layout
 					const fontHeaderDiv = document.createElement('div');
 					fontHeaderDiv.classList.add('card__layout')
 
@@ -262,8 +261,19 @@ const challengeSort = {
 					//append h3 to .card__layout
 					fontHeaderDiv.append(title)
 
-					//TODO: create fontawsome icon and append to card__layout
-					
+					//create fontawsome icon and append to card__layout
+					const fontAwesome = document.createElement('i');
+					fontAwesome.classList.add('font-icon');
+
+					if (challenge.type === 'online') {
+						fontAwesome.classList.add('fa-solid', 'fa-earth-europe');
+					} else {
+						fontAwesome.classList.add('fa-solid', 'fa-house');
+					}
+
+					//append to .card__layout
+					fontHeaderDiv.append(fontAwesome)
+
 
 					const review = document.createElement("div");
 					review.classList.add("card__review"); //Adding cardparticipants in review
