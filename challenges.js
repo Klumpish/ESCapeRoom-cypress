@@ -133,13 +133,15 @@ const challengeSort = {
 				/* divCardBody.append(this.createTitle(h3String)); */ //append to div where text is placed inside card
 
 				//TODO: Add font for online or onsite icon.
-				const fontAwsome = document.createElement('i');
+				const fontAwesome = document.createElement('i');
+				fontAwesome.classList.add('font-icon')
+
 				if (this.ratingArray[i].type === 'online') {
-					fontAwsome.classList.add('fa-solid', 'fa-earth-europe');
+					fontAwesome.classList.add('fa-solid', 'fa-earth-europe');
 				} else {
-					fontAwsome.classList.add('fa-solid', 'fa-house');
+					fontAwesome.classList.add('fa-solid', 'fa-house');
 				}
-				fontHeaderDiv.append(fontAwsome)
+				fontHeaderDiv.append(fontAwesome)
 				divCardBody.append(fontHeaderDiv)
 
 				/* Create div for rating and participants */
