@@ -4,6 +4,38 @@ import { ApiArray as array } from "./main.js";
 const filterWindow = document.querySelector(".filterWindow");
 filterWindow.addEventListener("change", filterFunctionWindow);
 
+// querystring-filter
+
+// get query from ur
+function getUrlQuery() {
+	// sets the query string in variable this everythign after ? in url
+	const url = new URLSearchParams(window.location.search);
+	return {
+		filter: url.get("filter") || "",
+	};
+}
+// check for query on page load and apply filter
+function applyQueryFilter() {
+	const { filter } = getUrlQuery();
+	if (filter === "online") {
+		// check online checkbox
+		const onlineCheckbox = filterWindow.querySelector('input[value="online"]');
+		if (onlineCheckbox) {
+			onlineCheckbox.checked = true;
+		}
+	} else if (filter === "onsite") {
+		// check onsite checkbox
+		const onsiteCheckbox = filterWindow.querySelector('input[value="onsite"]');
+		if (onsiteCheckbox) {
+			onsiteCheckbox.checked = true;
+		}
+	}
+	filterFunctionWindow();
+}
+
+applyQueryFilter();
+// querystring-filter
+
 function filterFunctionWindow() {
 	// grabs what we are clicking on
 
