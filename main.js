@@ -86,10 +86,3 @@ document.addEventListener(
 	challengeSort.createChallengeCardsToFilter(ApiArray),
 	false
 );
-
-//a test
-const i = document.createElement('i');
-i.classList.add('fa-solid', 'fa-user')
-const testAdd = document.querySelector(".card")
-testAdd.append(i)
-console.log(testAdd, "heje")
