@@ -9,23 +9,40 @@ const challengeSort = {
 	/**
 	 * Function to read from api. 
 	 */
-	async getApiToArray () {
+	async getApiToArray() {
 		let successful = false;
 		try {
-			const res = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
+			const res = await fetch ('https://lernia-sjj-assignments.vercel.app/api/challenges'); 
 			const data = await res.json();
 			this.ratingArray = data.challenges;
 			successful = true;
 		} catch (error) {
 			console.error('Error in getApiToArray', error);
-		} finally { 
-			if (!successful) { 
+			this.displayErrorMessage('Failed to load challenges')
+		} finally {
+			if (!successful) {
 				this.ratingArray = [];
 			}
 		}
-			
-			return this.ratingArray;
-		},
+
+		return this.ratingArray;
+	},
+
+	displayErrorMessage(message) {
+		function addErrorToContainer(container, message) {
+			if (container) {
+				cardContainer.innerHTML = '';
+				const errorMessage = document.createElement('p');
+				errorMessage.classList.add('error-message');
+				errorMessage.textContent = message;
+				container.appendChild(errorMessage);
+			}
+		}
+		const cardContainer = document.querySelector('.card__container');
+		addErrorToContainer(cardContainer, message);
+
+	},
+
 	/**
 	 * Function to sort rating in descending order.
 	 */
@@ -229,9 +246,8 @@ const challengeSort = {
 
 					const title = document.createElement("h3");
 					title.classList.add("card__title");
-					title.textContent = `${challenge.title} (${
-						challenge.type === "onsite" ? "on-site" : "online"
-					})`;
+					title.textContent = `${challenge.title} (${challenge.type === "onsite" ? "on-site" : "online"
+						})`;
 
 					const review = document.createElement("div");
 					review.classList.add("card__review"); //Adding cardparticipants in review
@@ -291,9 +307,8 @@ const challengeSort = {
 					const button = document.createElement("a");
 
 					button.classList.add("button", "red-button-small", "open-button");
-					button.textContent = `${
-						challenge.type === "onsite" ? "Book this room" : "Take challenges online"
-					}`;
+					button.textContent = `${challenge.type === "onsite" ? "Book this room" : "Take challenges online"
+						}`;
 					button.id = `${challenge.id}`;
 					link.appendChild(button);
 
