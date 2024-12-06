@@ -1221,8 +1221,9 @@ div.resetBtn {
   .multi-step-form__completed {
     text-align: center;
     margin-top: 40%;
-}
+  }
 
+}
 
 .card {
   transition: box-shadow 0.2s ease;
@@ -1233,7 +1234,6 @@ div.resetBtn {
 }
 
 
-}
 .modal {
   animation-name: modal;
   animation-duration: 0.5s;
