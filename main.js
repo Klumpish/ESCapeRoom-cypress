@@ -10,7 +10,7 @@ const btnClose = document.querySelector(".btnClose");
 btnOpen.addEventListener("click", () => {
 	mainNavContainer.classList.add("main-nav__container--active");
 	filterWindow.classList.remove("filterWindow--active");
-	filterBtnDiv.classList.remove("filterBtn--hidden"); 
+	filterBtnDiv.classList.remove("filterBtn--hidden");
 });
 
 btnClose.addEventListener("click", () => {
@@ -36,7 +36,7 @@ console.log(ApiArray);
 // sort arrray in descending order.
 /* console.log(challengeSort.ratingArray, "hello hello") */
 // show the three highest cards.
-document.addEventListener('DOMContentLoaded', challengeSort.createChallenge());
+document.addEventListener("DOMContentLoaded", challengeSort.createChallenge());
 
 btnOpen.addEventListener("click", () => {
 	mainNavContainer.classList.add("main-nav__container--active");
@@ -62,7 +62,7 @@ if (challengeSort.currentPath.includes("challenges.html")) {
 	// target the div to close
 	filterBtnClose.addEventListener("click", () => {
 		filterWindow.classList.remove("filterWindow--active");
-		filterBtnDiv.classList.remove("filterBtn--hidden"); 
+		filterBtnDiv.classList.remove("filterBtn--hidden");
 	});
 
 	// show more tags
