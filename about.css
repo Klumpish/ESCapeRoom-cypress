@@ -21,7 +21,7 @@ html, body {
     margin: 0 auto;
 
     margin-top: 5rem;
-    
+    margin-bottom: 5rem;
 }
 
 .title__layout {
@@ -69,6 +69,45 @@ html, body {
     object-fit: cover;
 }
 
+/* info__section */
+.info__section {
+    display: flex;
+    width: 80%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info__section .text-container {
+    /* background-color: #011827; */
+    padding: 2rem;
+
+    u { 
+        display: block;
+        padding: 1rem;
+    }
+
+    a {
+        color: #000;
+        font-style: italic;
+    }
+}
+
+.info__section .text-container h3 {
+    padding-bottom: 2rem;
+}
+
+.info__section .text-container p u a:hover {
+    background-color: #8acfe5;
+}
+
+.info__section .section__img {
+    border-radius: 10%;
+
+    object-fit: cover;
+}
+
+
 /* why us */
 .us__layout {
     display: flex;
@@ -76,10 +115,14 @@ html, body {
     align-items: stretch;
     flex-shrink: 0;
     width: 100%;
-    max-height: 450px;
+    height: 450px;
 
     margin-left: auto;
     margin-right: auto;
+    margin: 5rem 0 5rem 0;
+
+    background-color: #011827;
+    color: #fff;
 }
 
 .section-us__layout {
@@ -88,12 +131,14 @@ html, body {
 
     align-self: stretch;
     flex-shrink: 0;
-    padding: 0.5rem;
+    padding: 2rem;
 }
 
 .section-us__layout h3 {
     font-size: 2rem;
     padding: 2rem;
+
+    color: #8acfe5;
 }
 
 .section-us__layout p {
@@ -189,11 +234,19 @@ html, body {
     }
 
     .section-us__layout {
+        order: 2;
         width: 100%;
         height: 40%;
     }
 
+    .section-us__layout h3 {
+        padding: 0.5rem 0 0.5rem 2rem;
+        padding-left: 2rem;
+        
+    }
+
     .us__layout .section__img {
+        order: 1;
         width: 100%;
         height: 60%;
     }
@@ -205,8 +258,15 @@ html, body {
 
        height: auto;
     }
+
+    .title__section {
+        order: 2;
+    }
     
     .photo_layout {
+        order: 1;
+        height: auto;
+
         display: flex;
         flex-wrap: wrap;
     }
@@ -215,6 +275,19 @@ html, body {
         flex: 1 0 40%;
         /* max-width: 170px; */
         max-height: 170px;
+    }
+
+    /*  info section */
+    .info__section {
+        flex-direction: column;
+    }
+
+    .info__section .text-container {
+        order: 2;
+    }
+
+    .info__section .section__img {
+        order: 1;
     }
 }
 
