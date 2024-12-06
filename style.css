@@ -97,7 +97,7 @@ p {
 
 /* ///////////////// HEADER ///////////////// */
 header {
-  background-color: #011827;
+  background-color: #021928;
   color: #ffffff;
   padding: 1rem 1rem 0.8rem;
 }
@@ -144,8 +144,6 @@ header {
     width: 20rem;
     padding: 0 0.6rem 0.2rem;
   }
-
-  
 }
 
 @media screen and (max-width: 640px) {
@@ -343,6 +341,12 @@ header {
     margin: 0 1rem;
   }
 }
+/* ///////////////// Error message if API fails /////////////// */
+p.error-message { 
+  color: red; 
+  white-space: nowrap;
+}
+
 /* ///////////////// CHALLENGES /////////////// */
 .challenges {
   justify-items: center;
@@ -482,16 +486,16 @@ header {
   border-radius: 5px 5px 0 0;
 }
 .card__body {
-    display: flex;
-	flex-grow: 1; /* Fyller ut utrymmet mellan toppen och knappen */
-flex-direction: column;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
   justify-content: space-between;
   padding: 0.4rem 1rem;
 }
 .card__title {
   font-size: 1.125rem;
   font-weight: 400;
-  margin: 0 0 .3rem 0;
+  margin: 0 0 0.3rem 0;
 }
 .card__review {
   display: flex;
@@ -528,7 +532,7 @@ flex-direction: column;
 
 /* ///////////////////// QUOTE /////////////////// */
 .quote {
-  background-color: #011827;
+  background-color: #021928;
   padding: 3.75rem 1.875rem 5rem 1.875rem;
   color: #ffffff;
   text-align: center;
@@ -631,7 +635,7 @@ footer {
   grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
   padding: 3rem 1.2rem;
-  background-color: #011827;
+  background-color: #021928;
   color: #ffffff;
 }
 @media screen and (min-width: 768px) {
@@ -957,7 +961,7 @@ button.filterBtn {
   background-color: #fff;
   padding: 0 1.8rem 1.8rem;
   border-radius: 5px;
-  width: min(550px, 90%);
+  width: 25rem;
 }
 
 .close-modal-button {
@@ -1158,15 +1162,15 @@ div.resetBtn {
 }
 
 #backToTopButton {
-	width: 0;
-	height: 0;
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-	border-bottom: 40px solid #4b5c6b;
-	border-top: 0;
-	background: none;
-	cursor: pointer; 
-	padding: 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid #4b5c6b;
+  border-top: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -1174,8 +1178,8 @@ div.resetBtn {
 }
 
 #backToTopButton:hover {
-	transform: scale(1.2);
-	border-bottom: 50px solid #c91609;
+  transform: scale(1.2);
+  border-bottom: 50px solid #c91609;
 }
 
 @media only screen and (max-width: 600px) {
@@ -1204,7 +1208,21 @@ div.resetBtn {
   div.card {
     max-width: 30rem;
   }
+
+  .modal {
+    width: 80%;
+    height: 37rem;
+  }
+
+  .booking-card__controls {
+    margin-top: 15%;
+  }
+
+  .multi-step-form__completed {
+    text-align: center;
+    margin-top: 40%;
 }
+
 
 .card {
   transition: box-shadow 0.2s ease;
@@ -1213,3 +1231,16 @@ div.resetBtn {
 .card:hover {
   box-shadow: 1px 1px 3px 3px #021928;
 }
+
+
+}
+.modal {
+  animation-name: modal;
+  animation-duration: 0.5s;
+}
+
+@keyframes modal {
+  from { transform: translateY(-50%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+  }
+

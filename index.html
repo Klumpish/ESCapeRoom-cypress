@@ -3,6 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta property="og:title" content="Best Hacker Escape Rooms">
+    <!-- og data -->
+    <meta property ="og:type" content="website">
+    <meta property ="og:image" content="https://imgcdn.stablediffusionweb.com/2024/4/2/59572ea3-c424-462b-9282-14246b5efbd5.jpg">
+    <meta property="og:url" content="https://jorlindstrom.github.io/HACKER-ESCAPEROOM/">
+    <meta property="og:description" content="Enjoy a Hacker-themed escaperoom experience for
+    groups of friends as well as company team-building exercises">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="Hacker ESCape room">
+    <!-- og data -->
     <meta
       name="description"
       content="[Esc] Hacker Escape Rooms is a company that offers a meeting place 
@@ -22,9 +32,11 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="card.css" />
      <!-- <link rel="stylesheet" type="text/css" media="screen" href="challenges.css"/> Challenges Tobias -->
      <link rel="stylesheet" href="Datepicker/datepicker.material.css">
      <script src="Datepicker/datepicker.js"></script>
+     <script src="https://kit.fontawesome.com/8357c99e29.js" crossorigin="anonymous"></script>
   </head>
   <body class="challenges-site">
     <header>
@@ -60,11 +72,13 @@
               </svg>
             </button>
             <li class="main-nav__item">
-              <a href="#" role="menuitem" class="main-nav__item-link"
+
+              <a href="challenges.html?filter=onsite" role="menuitem" class="main-nav__item-link"
                 >Play on-site</a>
             </li>
             <li class="main-nav__item">
-              <a href="#" role="menuitem" class="main-nav__item-link"
+              <a href="challenges.html?filter=online" role="menuitem" class="main-nav__item-link"
+
                 >Play online</a>
             </li>
             <li class="main-nav__item">
@@ -87,14 +101,14 @@
       />
 
       <div class="hero__container">
-        <a href="challenges.html" id="load-challenges" class="button red-button hero__red-link"
+        <a href="challenges.html?filter=online" id="load-challenges" class="button red-button hero__red-link filter-online"
           >Online challenges</a
-        ><a class="button blue-button hero__blue-link" href="challenges.html" id="load-challenges"
+        ><a class="button blue-button hero__blue-link filter-onsite" href="challenges.html?filter=onsite" id="load-challenges"
           >On-site challenges</a
         >
       </div>
       <div class="hero__container">
-        <a class="hero__small-link" href="#">Online challenges</a>
+        <a class="hero__small-link" href="challenges.html?filter=online">Online challenges</a>
       </div>
     </section>
     <!--Ends hero-->
@@ -329,15 +343,15 @@
     </div> <!--Ends card_container-->
   </div>
       <div class="challenges__container">
-        <a href="challenges.html" id="load-challenges" role="link" class="button red-button challenges__red-link"
+        <a href="challenges.html?filter=online" id="load-challenges" role="link" class="button red-button challenges__red-link"
           >Online challenges</a
         >
-        <a href="challenges.html" id="load-challenges" role="link" class="button blue-button challenges__blue-link"
+        <a href="challenges.html?filter=onsite" id="load-challenges" role="link" class="button blue-button challenges__blue-link"
           >On-site challenges</a
         >
       </div>
       <div class="challenges__link-container">
-        <a href="#" role="link" class="challenges__small-link"
+        <a href="challenges.html?filter=online" role="link" class="challenges__small-link"
           >Online challenges</a
         >
       </div>
@@ -376,7 +390,7 @@
         </p>
         <div class="article__link">
           <!--<a href="challenges.html" role="link" class="button red-button" id="load-challenges"-->
-          <a href="challenges.html" role="link" class="button red-button"
+          <a href="challenges.html?filter=onsite" role="link" class="button red-button"
             >Book on-site today</a
           >
         </div>
@@ -431,12 +445,16 @@
 
           <ul role="presentation">
             <li>
-              <a href="#" class="footer-nav__item" role="menuitem"
+
+              <a href="challenges.html?filter=online" class="footer-nav__item" role="menuitem"
+
                 >Play online</a
               >
             </li>
             <li>
-              <a href="#" class="footer-nav__item" role="menuitem"
+
+              <a href="challenges.html?filter=onsite" class="footer-nav__item" role="menuitem"
+
                 >Play on-site</a
               >
             </li>
@@ -495,6 +513,7 @@
           <h2 class="booking-card__header" id="header1"></h2>
           <p class="booking-card__description">What date would you like to come?</p>
       
+          <!-- hidden challenge-id -->
           <input type="text" name="challenge" id="challenge"
             class="booking-card__input"readonly hidden />
       
@@ -534,9 +553,7 @@
             class="booking-card__input booking-card__input--email"
             placeholder="Email address"
           />
-          <!-- hidden date -->
-          <!-- <input type="hidden" id="hiddenDate" name="custId" value="3487"> -->
-          <!--  -->
+
           <label for="time" class="booking-card__label">What time?</label>
           <select name="time" id="time" class="booking-card__select"></select>
       
