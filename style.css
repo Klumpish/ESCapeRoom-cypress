@@ -1218,4 +1218,15 @@ div.resetBtn {
     text-align: center;
     margin-top: 40%;
 }
+
+
+.modal {
+  animation-name: modal; 
+  animation-duration: 0.5s; 
+}
+
+@keyframes modal {
+  from { transform: translateY(-50%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+
 }
