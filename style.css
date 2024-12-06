@@ -1224,6 +1224,15 @@ div.resetBtn {
 }
 
 
+.card {
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 3px 3px #021928;
+}
+
+
 }
 .modal {
   animation-name: modal;
@@ -1234,3 +1243,4 @@ div.resetBtn {
   from { transform: translateY(-50%); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
   }
+
