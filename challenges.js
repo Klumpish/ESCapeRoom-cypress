@@ -118,9 +118,29 @@ const challengeSort = {
 				const divCardBody = document.createElement("div");
 				divCardBody.classList.add("card__body");
 
+				//create div for h3 and i with fontawesome inside
+				const fontHeaderDiv = document.createElement('div');
+				fontHeaderDiv.classList.add('card__layout')
+
+
 				/* h3 title */
 				const h3String = `${this.ratingArray[i].title} (${this.ratingArray[i].type})`;
-				divCardBody.append(this.createTitle(h3String)); //append to div where text is placed inside card
+				console.log(this.ratingArray[i].type)
+				fontHeaderDiv.append(this.createTitle(h3String))
+				//divCardBody.append(fontHeaderDiv)
+				/* divCardBody.append(this.createTitle(h3String)); */ //append to div where text is placed inside card
+
+				//Add font for online or onsite icon.
+				const fontAwesome = document.createElement('i');
+				fontAwesome.classList.add('font-icon')
+
+				if (this.ratingArray[i].type === 'online') {
+					fontAwesome.classList.add('fa-solid', 'fa-earth-europe');
+				} else {
+					fontAwesome.classList.add('fa-solid', 'fa-house');
+				}
+				fontHeaderDiv.append(fontAwesome)
+				divCardBody.append(fontHeaderDiv)
 
 				/* Create div for rating and participants */
 				const cardReview = document.createElement("div");
@@ -227,11 +247,33 @@ const challengeSort = {
 					const cardBody = document.createElement("div");
 					cardBody.classList.add("card__body");
 
+					// create div card__layout
+					const fontHeaderDiv = document.createElement('div');
+					fontHeaderDiv.classList.add('card__layout')
+
+					//creates h3
 					const title = document.createElement("h3");
 					title.classList.add("card__title");
 					title.textContent = `${challenge.title} (${
 						challenge.type === "onsite" ? "on-site" : "online"
 					})`;
+
+					//append h3 to .card__layout
+					fontHeaderDiv.append(title)
+
+					//create fontawsome icon and append to card__layout
+					const fontAwesome = document.createElement('i');
+					fontAwesome.classList.add('font-icon');
+
+					if (challenge.type === 'online') {
+						fontAwesome.classList.add('fa-solid', 'fa-earth-europe');
+					} else {
+						fontAwesome.classList.add('fa-solid', 'fa-house');
+					}
+
+					//append to .card__layout
+					fontHeaderDiv.append(fontAwesome)
+
 
 					const review = document.createElement("div");
 					review.classList.add("card__review"); //Adding cardparticipants in review
@@ -298,7 +340,7 @@ const challengeSort = {
 					link.appendChild(button);
 
 					// To show in order
-					cardBody.appendChild(title);
+					cardBody.appendChild(fontHeaderDiv);
 					cardBody.appendChild(review);
 					cardBody.appendChild(description);
 					cardBody.appendChild(link);
