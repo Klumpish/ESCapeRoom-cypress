@@ -6,6 +6,23 @@
 const challengeSort = {
 	ratingArray: [],
 	currentPath: window.location.pathname,
+/**
+	 * Display error message if challenges dont load 
+	 */
+	displayErrorMessage(message) {
+		function addErrorToContainer(container, message) {
+			if (container) {
+				cardContainer.innerHTML = '';
+				const errorMessage = document.createElement('p');
+				errorMessage.classList.add('error-message');
+				errorMessage.textContent = message;
+				container.appendChild(errorMessage);
+			}
+		}
+		const cardContainer = document.querySelector('.card__container');
+		addErrorToContainer(cardContainer, message);
+
+	},
 	/**
 	 * Function to read from api. 
 	 */
@@ -28,20 +45,7 @@ const challengeSort = {
 		return this.ratingArray;
 	},
 
-	displayErrorMessage(message) {
-		function addErrorToContainer(container, message) {
-			if (container) {
-				cardContainer.innerHTML = '';
-				const errorMessage = document.createElement('p');
-				errorMessage.classList.add('error-message');
-				errorMessage.textContent = message;
-				container.appendChild(errorMessage);
-			}
-		}
-		const cardContainer = document.querySelector('.card__container');
-		addErrorToContainer(cardContainer, message);
-
-	},
+	
 
 	/**
 	 * Function to sort rating in descending order.
