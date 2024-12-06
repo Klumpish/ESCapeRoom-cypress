@@ -343,6 +343,12 @@ header {
     margin: 0 1rem;
   }
 }
+/* ///////////////// Error message if API fails /////////////// */
+p.error-message { 
+  color: red; 
+  white-space: nowrap;
+}
+
 /* ///////////////// CHALLENGES /////////////// */
 .challenges {
   justify-items: center;
