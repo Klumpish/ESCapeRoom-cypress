@@ -343,6 +343,12 @@ header {
     margin: 0 1rem;
   }
 }
+/* ///////////////// Error message if API fails /////////////// */
+p.error-message { 
+  color: red; 
+  white-space: nowrap;
+}
+
 /* ///////////////// CHALLENGES /////////////// */
 .challenges {
   justify-items: center;
@@ -957,7 +963,7 @@ button.filterBtn {
   background-color: #fff;
   padding: 0 1.8rem 1.8rem;
   border-radius: 5px;
-  width: min(550px, 90%);
+  width: 25rem;
 }
 
 .close-modal-button {
@@ -1204,14 +1210,29 @@ div.resetBtn {
   div.card {
     max-width: 30rem;
   }
+
+  .modal {
+    width: 80%;
+    height: 37rem;
+  }
+
+  .booking-card__controls {
+    margin-top: 15%;
+  }
+
+  .multi-step-form__completed {
+    text-align: center;
+    margin-top: 40%;
 }
 
+
+}
 .modal {
-  animation-name: modal; 
-  animation-duration: 0.5s; 
+  animation-name: modal;
+  animation-duration: 0.5s;
 }
 
 @keyframes modal {
   from { transform: translateY(-50%); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
-}
+  }
