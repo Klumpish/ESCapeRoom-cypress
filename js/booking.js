@@ -15,6 +15,7 @@ const participantsSelect = multiStepForm.querySelector("#participants");
 const challengeInput = multiStepForm.querySelector("#challenge");
 const header1 = multiStepForm.querySelector("#header1");
 const header2 = multiStepForm.querySelector("#header2");
+const errorMessage = document.getElementById("error-message");
 
 import { ApiArray as events } from "../main.js";
 
@@ -57,22 +58,29 @@ closeModal.addEventListener("click", () => {
 	modal.close();
 });
 
+const isValidStep = () => {
+	const fields = formSteps[currentStep].querySelectorAll('date, input, select');
+	return [...fields].every((fields) => fields.reportValidity());
+	};
+
 nextButton.addEventListener("click", () => {
-	const eventDetails = events.find((event) => event.id === eventId);
-	header2.textContent = `Book room "${eventDetails.title}" (step 2)`;
-	const date = dateInput.value;
 
-	fetchAvailableTimes(date, eventId);
+    const eventDetails = events.find((event) => event.id === eventId);
+    header2.textContent = `Book room "${eventDetails.title}" (step 2)`;
+    const date = dateInput.value;
 
-	// Fill select with number of participants
-	participantsSelect.innerHTML = ""; // Clear previous options
-	for (let i = 1; i <= eventDetails.maxParticipants; i++) {
-		const option = document.createElement("option");
-		option.value = i;
-		option.textContent = i + " participants";
-		participantsSelect.appendChild(option);
-	}
+    fetchAvailableTimes(date, eventId);
+
+    // Fill select with number of participants
+    participantsSelect.innerHTML = ""; // Clear previous options
+    for (let i = 1; i <= eventDetails.maxParticipants; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = i + " participants";
+        participantsSelect.appendChild(option);
+    }
 });
+
 
 const simple = new Datepicker("#simple");
 
@@ -86,20 +94,25 @@ if (currentStep < 0) {
 }
 
 multiStepForm.addEventListener("click", (e) => {
-	if (e.target.matches("[next-data]")) {
-		currentStep += 1;
-	} else if (e.target.matches("[data-previous]")) {
-		timeSelect.innerHTML = "";
-		currentStep -= 1;
-	}
-	showCurrentStep();
+    if (e.target.matches("[next-data]")) {
+        if (!isValidStep()) {
+            return; // Prevent moving to the next step if validation fails
+        }
+        currentStep += 1;
+    } else if (e.target.matches("[data-previous]")) {
+        timeSelect.innerHTML = "";
+        currentStep -= 1;
+    }
+    showCurrentStep();
 });
+
 
 function showCurrentStep() {
 	formSteps.forEach((step, index) => {
 		step.classList.toggle("active", index === currentStep);
 	});
 }
+
 
 ////////////////////////////// FETCH AVAILABLE TIMESLOTS ///////////////////////
 
