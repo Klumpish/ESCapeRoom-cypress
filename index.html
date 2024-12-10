@@ -518,8 +518,8 @@
             class="booking-card__input"readonly hidden />
       
           <label for="simple" class="booking-card__label">Date</label>
-          <input type="date" id="simple" name="date" class="booking-card__input booking-card__input--date" required/>
-      
+          <input type="date" id="simple" name="date" placeholder="YYYY-MM-DD" class="booking-card__input booking-card__input--date" required/>
+          <p id="error-message" style="color: red;"></p>
           <div class="booking-card__controls">
             <button
               type="button"
@@ -543,7 +543,7 @@
             id="name"
             class="booking-card__input booking-card__input--text"
             placeholder="Full Name"
-          />
+            required/>
       
           <label for="email" class="booking-card__label">E-mail</label>
           <input
@@ -552,17 +552,18 @@
             id="email"
             class="booking-card__input booking-card__input--email"
             placeholder="Email address"
-          />
+            required/>
+       
 
           <label for="time" class="booking-card__label">What time?</label>
-          <select name="time" id="time" class="booking-card__select"></select>
+          <select name="time" id="time" class="booking-card__select" required></select>
       
           <label for="participants" class="booking-card__label">How many participants?</label>
           <select
             type="number"
             name="participants"
             id="participants"
-            class="booking-card__input booking-card__input--number"></select>
+            class="booking-card__input booking-card__input--number" required></select>
       
           <div class="booking-card__controls">
             <button
